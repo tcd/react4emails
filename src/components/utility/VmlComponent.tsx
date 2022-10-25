@@ -1,5 +1,5 @@
 import { Component, ReactNode } from "react"
-import { RawHTML } from "@vml4react/components"
+import { RawHTML } from "./RawHTML"
 
 export interface VmlComponentProps {}
 
