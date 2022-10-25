@@ -1,0 +1,17 @@
+{
+    // =========================================================================
+    // ESLint
+    // =========================================================================
+    "eslint.format.enable": true,
+    "[javascript]":      { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
+    "[typescript]":      { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
+    "[javascriptreact]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
+    "[typescriptreact]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
+    // =========================================================================
+    // Misc.
+    // =========================================================================
+    "files.exclude": {
+        // Version Control
+        "**/.git": true,
+    },
+}
