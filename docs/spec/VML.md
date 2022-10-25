@@ -1,6 +1,6 @@
 <h4 align="right">
     <a href="http://www.w3.org/">
-        <img align="left" alt="W3C" border="0" width="72" height="48" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA3MiA0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTSAwIDAgTCA3MiAwIEwgNzIgNDggTCAwIDQ4IFoiLz4KPHBhdGggZD0iTSAwIDAgTCA3MiAwIEwgNzIgMSBMIDAgMSBaIi8+CjxwYXRoIGQ9Ik0gMCA0NyBMIDcyIDQ3IEwgNzIgNDggTCAwIDQ4IFoiLz4KPHBhdGggZmlsbD0iIzAwNWE5YyIgZD0iTSAyMC4xNDkgOC44MTUgTCAyNS45MDggMjguMzk1IEwgMzEuNjY3IDguODE1IEwgMzUuODM3IDguODE1IEwgNDcuMjggOC44MTUgTCA0Ny4yOCAxMC43NjEgTCA0MS40MDIgMjAuODg4IEMgNDMuNDY3IDIxLjU1MSA0NS4wMjkgMjIuNzU2IDQ2LjA4OCAyNC41MDMgQyA0Ny4xNDcgMjYuMjUgNDcuNjc3IDI4LjMwMiA0Ny42NzcgMzAuNjU4IEMgNDcuNjc3IDMzLjU3MSA0Ni45MDMgMzYuMDIgNDUuMzU0IDM4LjAwNiBDIDQzLjgwNSAzOS45OTIgNDEuNzk5IDQwLjk4NCAzOS4zMzcgNDAuOTg0IEMgMzcuNDgzIDQwLjk4NCAzNS44NjggNDAuMzk1IDM0LjQ5MiAzOS4yMTcgQyAzMy4xMTUgMzguMDM5IDMyLjA5NiAzNi40NDQgMzEuNDM0IDM0LjQzMSBMIDM0LjY5IDMzLjA4MSBDIDM1LjE2NyAzNC4yOTkgMzUuNzk2IDM1LjI1OSAzNi41NzcgMzUuOTYgQyAzNy4zNTggMzYuNjYyIDM4LjI3OCAzNy4wMTIgMzkuMzM3IDM3LjAxMiBDIDQwLjQ0OSAzNy4wMTIgNDEuMzg5IDM2LjM5IDQyLjE1NyAzNS4xNDYgQyA0Mi45MjUgMzMuOTAxIDQzLjMwOSAzMi40MDYgNDMuMzA5IDMwLjY1OCBDIDQzLjMwOSAyOC43MjUgNDIuODk4IDI3LjIyOSA0Mi4wNzggMjYuMTcgQyA0MS4xMjQgMjQuOTI2IDM5LjYyOCAyNC4zMDQgMzcuNTg5IDI0LjMwNCBMIDM2LjAwMSAyNC4zMDQgTCAzNi4wMDEgMjIuMzk4IEwgNDEuNTYyIDEyLjc4NiBMIDM0Ljg1IDEyLjc4NiBMIDM0LjQ2OCAxMy40MzYgTCAyNi4zMDUgNDAuOTg0IEwgMjUuOTA4IDQwLjk4NCBMIDE5Ljk1IDIxLjA0OCBMIDEzLjk5MiA0MC45ODUgTCAxMy41OTUgNDAuOTg1IEwgNC4wNjQgOC44MTUgTCA4LjIzNCA4LjgxNSBMIDEzLjk5MyAyOC4zOTUgTCAxNy44ODYgMTUuMjEgTCAxNS45OCA4LjgxNSBaIi8+CjxwYXRoIGQ9Ik0gNjguOTUyIDguODE1IEMgNjguMTMzIDguODE1IDY3LjM5OCA5LjExIDY2Ljg0MSA5LjY3NiBDIDY2LjI1IDEwLjI3NiA2NS45MjEgMTEuMDUyIDY1LjkyMSAxMS44NTQgQyA2NS45MjEgMTIuNjU2IDY2LjIzNCAxMy4zOTkgNjYuODA4IDEzLjk4MiBDIDY3LjM5MSAxNC41NzMgNjguMTQyIDE0Ljg5NCA2OC45NTMgMTQuODk0IEMgNjkuNzQ2IDE0Ljg5NCA3MC41MTUgMTQuNTczIDcxLjExNCAxMy45OTEgQyA3MS42ODggMTMuNDM0IDcyIDEyLjY5IDcyIDExLjg1NCBDIDcyIDExLjA0MyA3MS42NzkgMTAuMjg0IDcxLjEyMiA5LjcxOCBDIDcwLjUzOSA5LjEyNyA2OS43NzkgOC44MTUgNjguOTUyIDguODE1IFogTSA3MS41OTUgMTEuODggQyA3MS41OTUgMTIuNTgxIDcxLjMyNCAxMy4yMzEgNzAuODI2IDEzLjcxMiBDIDcwLjMwMyAxNC4yMTkgNjkuNjUzIDE0LjQ4OSA2OC45MzUgMTQuNDg5IEMgNjguMjYgMTQuNDg5IDY3LjU5MyAxNC4yMTEgNjcuMDk1IDEzLjcwNCBDIDY2LjU5NyAxMy4xOTggNjYuMzE4IDEyLjU0NyA2Ni4zMTggMTEuODU1IEMgNjYuMzE4IDExLjE2MyA2Ni42MDUgMTAuNDg3IDY3LjEyIDkuOTY0IEMgNjcuNjAxIDkuNDc0IDY4LjI1MSA5LjIxMyA2OC45NiA5LjIxMyBDIDY5LjY4NiA5LjIxMyA3MC4zMzYgOS40ODQgNzAuODQzIDkuOTk4IEMgNzEuMzMzIDEwLjQ4NyA3MS41OTUgMTEuMTQ2IDcxLjU5NSAxMS44OCBaIE0gNjkuMDM3IDEwLjA3MyBMIDY3LjczNyAxMC4wNzMgTCA2Ny43MzcgMTMuNTE4IEwgNjguMzg3IDEzLjUxOCBMIDY4LjM4NyAxMi4wNDkgTCA2OS4wMjkgMTIuMDQ5IEwgNjkuNzMgMTMuNTE4IEwgNzAuNDU2IDEzLjUxOCBMIDY5LjY4NyAxMS45NDcgQyA3MC4xODUgMTEuODQ2IDcwLjQ3MiAxMS41MDggNzAuNDcyIDExLjAxOSBDIDcwLjQ3MiAxMC4zOTQgNjkuOTk5IDEwLjA3MyA2OS4wMzcgMTAuMDczIFogTSA2OC45MTggMTAuNDk1IEMgNjkuNTI2IDEwLjQ5NSA2OS44MDQgMTAuNjY0IDY5LjgwNCAxMS4wODYgQyA2OS44MDQgMTEuNDkxIDY5LjUyNiAxMS42MzUgNjguOTM0IDExLjYzNSBMIDY4LjM4NSAxMS42MzUgTCA2OC4zODUgMTAuNDk1IFoiLz4KPHBhdGggZD0iTSA2My44MzkgOC42MzQgTCA2NC41MTUgMTIuNzQxIEwgNjIuMTI0IDE3LjMxNiBDIDYyLjEyNCAxNy4zMTYgNjEuMjA2IDE1LjM3NSA1OS42ODEgMTQuMzAxIEMgNTguMzk2IDEzLjM5NiA1Ny41NTkgMTMuMTk5IDU2LjI1IDEzLjQ2OSBDIDU0LjU2OSAxMy44MTYgNTIuNjYzIDE1LjgyNiA1MS44MzEgMTguMzA0IEMgNTAuODM2IDIxLjI2OSA1MC44MjYgMjIuNzA0IDUwLjc5MSAyNC4wMjIgQyA1MC43MzUgMjYuMTM1IDUxLjA2OCAyNy4zODQgNTEuMDY4IDI3LjM4NCBDIDUxLjA2OCAyNy4zODQgNDkuNjE3IDI0LjY5OCA0OS42MyAyMC43NjQgQyA0OS42MzkgMTcuOTU2IDUwLjA4MSAxNS40MSA1MS4zOCAxMi44OTcgQyA1Mi41MjMgMTAuNjg4IDU0LjIyMiA5LjM2MiA1NS43MyA5LjIwNiBDIDU3LjI4OSA5LjA0NSA1OC41MjEgOS43OTYgNTkuNDczIDEwLjYxIEMgNjAuNDcyIDExLjQ2NCA2MS40ODMgMTMuMzMgNjEuNDgzIDEzLjMzIFoiLz4KPHBhdGggZD0iTSA2NC4xMzQgMzEuODcyIEMgNjQuMTM0IDMxLjg3MiA2My4wNzcgMzMuNzYxIDYyLjQxOSAzNC40ODkgQyA2MS43NiAzNS4yMTcgNjAuNTgyIDM2LjQ5OSA1OS4xMjcgMzcuMTQgQyA1Ny42NzEgMzcuNzgxIDU2LjkwOSAzNy45MDIgNTUuNDcxIDM3Ljc2NCBDIDU0LjAzNCAzNy42MjYgNTIuNjk4IDM2Ljc5NCA1Mi4yMyAzNi40NDcgQyA1MS43NjIgMzYuMSA1MC41NjYgMzUuMDc4IDQ5Ljg5MSAzNC4xMjUgQyA0OS4yMTUgMzMuMTcxIDQ4LjE1OCAzMS4yNjYgNDguMTU4IDMxLjI2NiBDIDQ4LjE1OCAzMS4yNjYgNDguNzQ3IDMzLjE3NyA0OS4xMTYgMzMuOTg3IEMgNDkuMzI4IDM0LjQ1MyA0OS45OCAzNS44ODEgNTAuOTA2IDM3LjEyMyBDIDUxLjc2OCAzOC4yODIgNTMuNDQ1IDQwLjI3NyA1NS45OTIgNDAuNzI3IEMgNTguNTM5IDQxLjE3OCA2MC4yODkgNDAuMDM0IDYwLjcyMiAzOS43NTYgQyA2MS4xNTUgMzkuNDc5IDYyLjA2OCAzOC43MTUgNjIuNjQ2IDM4LjA5NyBDIDYzLjI0OSAzNy40NTIgNjMuODIgMzYuNjI5IDY0LjEzNiAzNi4xMzUgQyA2NC4zNjcgMzUuNzc1IDY0Ljc0MyAzNS4wNDMgNjQuNzQzIDM1LjA0MyBaIi8+Cjwvc3ZnPgo=" />
+        <img align="left" alt="W3C" border="0" width="72" height="48" src="assets/w3c_home.png" />
     </a>
     NOTE-VML-19980513
 </h4>
@@ -89,8 +89,8 @@ The Vector Markup Language (VML) supports the markup of vector graphic informati
 Within VML the content is composed of paths described using connected lines and curves.
 The markup gives semantic and presentation information for the paths.
 
-VML is written using the syntax of XML just as HTML is written using the syntax of SGML (the Standard Generalized Markup Language, [<a href="#ISO_8879">ISO 8879</a>]) - XML is a restricted form of SGML.
-VML uses <a href="http://www.w3.org/TR/PR-CSS2/">Cascading Style Sheets, Level 2</a> in the same way as HTML to determine the layout of the vector graphics which it contains.
+VML is written using the syntax of XML just as HTML is written using the syntax of SGML (the Standard Generalized Markup Language, [ISO 8879](#ISO_8879)) - XML is a restricted form of SGML.
+VML uses [Cascading Style Sheets, Level 2](http://www.w3.org/TR/PR-CSS2/) in the same way as HTML to determine the layout of the vector graphics which it contains.
 The workflow involved in rendering VML can be compared to that involved in rendering HTML as show in the following figure.
 
 <!-- 
@@ -110,7 +110,12 @@ Flow chart style diagram:
  -->
 
 <!-- <a name="figure.workflow">
-    <img src="./TR/1998/VML-19980513-images/vmlmodel.gif" width="574" height="452" alt="flowchart" >
+    <img 
+        src="assets/vmlmodel.png" 
+        width="574" 
+        height="452" 
+        alt="flowchart" 
+    />
 </a> -->
 
 ```mermaid
@@ -160,9 +165,16 @@ VML ensures that different editors can recognize and correctly handle each other
 The simple diagram below contains both simple graphics and text.
 
 <a name="figure.simple">
-    <img src="./TR/1998/VML-19980513-images/simple.gif" width="128" height="260" alt="Idea [text contained in 'explosion' shape with gradient red to white fill]
-        [vertical arrow pointing down, filled with gradient green to white fill]
-        Product [text contained in 'terminator' flowchart shape filled with gradient blue to white fill]">
+    <img 
+        src="assets/simple.png" 
+        width="128" 
+        height="260" 
+        alt="
+            Idea [text contained in 'explosion' shape with gradient red to white fill]
+            [vertical arrow pointing down, filled with gradient green to white fill]
+            Product [text contained in 'terminator' flowchart shape filled with gradient blue to white fill]
+        "
+    />
 </a>
 
 Although the bitmap compression used makes the image very small (it only requires about 8 KB) the bitmap has none of the information necessary to make further changes to the diagram - for example a user who needs to change "Product" to "Products" must recreate the bitmap from scratch.
@@ -290,7 +302,12 @@ the `downArrow` shapetype above is defined parametrically and the following
 four arrows all share the same basic shape.
 
 <a name="figure.arrows">
-    <img src="./TR/1998/VML-19980513-images/arrows.gif" width="231" height="111" alt="Four downward pointing arrows, white fill, black outline. Each arrow with a different proportion of 'line' width to 'head' width." /> 
+    <img 
+        src="assets/arrows.png" 
+        width="231" 
+        height="111" 
+        alt="Four downward pointing arrows, white fill, black outline. Each arrow with a different proportion of 'line' width to 'head' width." 
+    /> 
 </a>
 
 The corresponding VML is:
@@ -410,7 +427,12 @@ transformations of the path and text drawn on top of the shape.
 
 Below is an example of a simple shape and its VML representation.
 
-<img src="./TR/1998/VML-19980513-images/star.gif" width="187" height="168" alt="A green five pointed star with a red outline." />
+<img 
+    src="assets/star.png" 
+    width="187" 
+    height="168" 
+    alt="A green five pointed star with a red outline." 
+/>
 
 ```xml
 <v:shape 
@@ -1360,160 +1382,33 @@ The expression is defined by the `cdata` content of the `eqn` attribute and has 
     </tbody>
 </table>
 
-<p align="left">In the following table, the arguments are given the names <code><strong>v</strong></code>,
-    <code><strong>P1</strong></code>, <code><strong>P2</strong></code> (in that order), thus
-    the element is simply:
-</p>
+In the following table, the arguments are given the names `v`, `P1`, `P2` (in that order), thus the element is simply:
 
-<blockquote>
-    <div align="left">
-        <pre class="red">&lt;f eqn="<strong>operation v P1 P2</strong>"&gt;</pre>
-    </div>
-</blockquote>
+```
+<f eqn="operation v P1 P2">
+```
 
-<table border="1" cellpadding="4">
-    <tbody>
-        <tr>
-            <td align="middle">operation</td>
-            <td align="middle">parameters</td>
-            <td align="middle">exact?</td>
-            <td align="middle">result</td>
-            <td align="middle">description</td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.val"><code><strong>val</strong></code></a></td>
-            <td align="middle"><code><strong>1</strong></code></td>
-            <td>yes</td>
-            <td><code><strong>v</strong></code></td>
-            <td>Defines a <code>guide</code> value from some other value.</td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.sum"><code><strong>sum</strong></code></a></td>
-            <td align="middle"><code><strong>3</strong></code></td>
-            <td>yes</td>
-            <td><code><strong>v + P1 � P2</strong></code></td>
-            <td>Used for addition and subtraction.</td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.product"><code><strong>product</strong></code></a></td>
-            <td align="middle"><code><strong>3</strong></code></td>
-            <td>rounds</td>
-            <td><code><strong>v � P1 / P2</strong></code></td>
-            <td>Used for multiplication and division.</td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.mid"><code><strong>mid</strong></code></a></td>
-            <td align="middle"><code><strong>2</strong></code></td>
-            <td>rounds to zero</td>
-            <td><code><strong>(v + P1) / 2</strong></code></td>
-            <td>Average.</td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.abs"><code><strong>abs</strong></code></a></td>
-            <td align="middle"><code><strong>1</strong></code></td>
-            <td>yes</td>
-            <td><code><strong>abs(v)</strong></code></td>
-            <td>Absolute value.</td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.min"><code><strong>min</strong></code></a></td>
-            <td align="middle"><code><strong>2</strong></code></td>
-            <td>yes</td>
-            <td><code><strong>min(v, P1)</strong></code></td>
-            <td>The lesser of <code><strong>v</strong></code> and <code><strong>P1</strong></code>.</td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.max"><code><strong>max</strong></code></a></td>
-            <td align="middle"><code><strong>2</strong></code></td>
-            <td>yes</td>
-            <td><code><strong>max(v, P1)</strong></code></td>
-            <td>The greater of <code><strong>v</strong></code> and <code><strong>P1</strong></code>.</td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.if"><code><strong>if</strong></code></a></td>
-            <td align="middle"><code><strong>3</strong></code></td>
-            <td>yes</td>
-            <td><code><strong>v &gt; 0 ? P1 : P2</strong></code></td>
-            <td>Condition testing.</td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.mod"><code><strong>mod</strong></code></a></td>
-            <td align="middle"><code><strong>3</strong></code></td>
-            <td>no</td>
-            <td><img alt="The square root of ( v squared plus P1 squared plus P2 squared )" src="/TR/1998/VML-19980513-images/modulus.gif" width="93" height="23"></td>
-            <td>Modulus (etc.)</td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.atan2"><code><strong>atan2</strong></code></a></td>
-            <td align="middle"><code><strong>2</strong></code></td>
-            <td>no</td>
-            <td><code><strong>atan2(P1, v)</strong></code></td>
-            <td>Polar arithmetic – result is in degrees�2<sup><sup>16</sup></sup>. (<a href="#t.angle"><code><strong>fd</strong></code></a> units.)</td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.sin"><code><strong>sin</strong></code></a></td>
-            <td align="middle"><code><strong>2</strong></code></td>
-            <td>no</td>
-            <td><code><strong>v � sin(P1)</strong></code></td>
-            <td>Sine, argument is in degrees�2<sup><sup>16</sup></sup>. (<a href="#t.angle"><code><strong>fd</strong></code></a>
-                units.)</td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.cos"><code><strong>cos</strong></code></a></td>
-            <td align="middle"><code><strong>2</strong></code></td>
-            <td>no</td>
-            <td><code><strong>v � cos(P1)</strong></code></td>
-            <td>Cosine, argument is in degrees�2<sup><sup>16</sup></sup>. (<a href="#t.angle"><code><strong>fd</strong></code></a>
-                units.)</td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.cosatan2"><code><strong>cosatan2</strong></code></a></td>
-            <td align="middle"><code><strong>3</strong></code></td>
-            <td>no</td>
-            <td><code><strong>v � cos(atan2(P2, P1)</strong></code></td>
-            <td>Preserves full accuracy in intermediate calculation.</td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.sinatan2"><code><strong>sinatan2</strong></code></a></td>
-            <td align="middle"><code><strong>3</strong></code></td>
-            <td>no</td>
-            <td><code><strong>v � sin(atan2(P2, P1)</strong></code></td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.sqrt"><code><strong>sqrt</strong></code></a></td>
-            <td align="middle"><code><strong>1</strong></code></td>
-            <td>no</td>
-            <td><code><strong>sqrt(v)</strong></code></td>
-            <td>Result is positive, rounds down.</td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.sumangle"><code><strong>sumangle</strong></code></a></td>
-            <td align="middle"><code><strong>3</strong></code></td>
-            <td>yes</td>
-            <td><code><strong>v + P1�2<sup><sup>16</sup></sup> - P2�2<sup><sup>16</sup></sup></strong></code></td>
-            <td><code><strong>v</strong></code> is an existing angle (scaled by 2<sup><sup>16</sup></sup>),<br>
-                <code><strong>P1</strong></code> and <code><strong>P2</strong></code> are numbers of
-                degrees.
-            </td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.ellipse"><code><strong>ellipse</strong></code></a></td>
-            <td align="middle"><code><strong>3</strong></code></td>
-            <td>no</td>
-            <td><img alt="P2 times the square root of ( one minus ( v over P1 ) squared )" src="/TR/1998/VML-19980513-images/ellipse.gif" width="79" height="45"></td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td><a name="path.guide.tan"><code><strong>tan</strong></code></a></td>
-            <td align="middle"><code><strong>2</strong></code></td>
-            <td>no</td>
-            <td><code><strong>v � tan(P1)</strong></code></td>
-            <td>Tangent, argument is in degrees�2<sup><sup>16</sup></sup>. (<a href="#t.angle"><code><strong>fd</strong></code></a>
-                units.)</td>
-        </tr>
-    </tbody>
-</table>
+| operation | parameters |     exact?     |                              result                              |                       description                        |
+| --------- | ---------- | -------------- | ---------------------------------------------------------------- | -------------------------------------------------------- |
+| val       | 1          | yes            | v                                                                | Defines a `guide` value from some other value.             |
+| sum       | 3          | yes            | v + P1 � P2                                                      | Used for addition and subtraction.                       |
+| product   | 3          | rounds         | v � P1 / P2                                                      | Used for multiplication and division.                    |
+| mid       | 2          | rounds to zero | (v + P1) / 2                                                     | Average.                                                 |
+| abs       | 1          | yes            | abs(v)                                                           | Absolute value.                                          |
+| min       | 2          | yes            | min(v, P1)                                                       | The lesser of `v` and `P1`.                                  |
+| max       | 2          | yes            | max(v, P1)                                                       | The greater of `v` and `P1`.                                 |
+| if        | 3          | yes            | v > 0 ? P1 : P2                                                  | Condition testing.                                       |
+| mod       | 3          | no             | The square root of ( v squared plus P1 squared plus P2 squared ) | Modulus (etc.)                                           |
+| mod       | 3          | no             | $\sqrt{v^2 + P1^2 + P1^2}$                                       | Modulus (etc.)                                           |
+| atan2     | 2          | no             | atan2(P1, v)                                                     | Polar arithmetic – result is in degrees�216. (fd units.) |
+| sin       | 2          | no             | v � sin(P1)                                                      | Sine, argument is in degrees�216. (fd units.)            |
+| cos       | 2          | no             | v � cos(P1)                                                      | Cosine, argument is in degrees�216. (fd units.)          |
+| cosatan2  | 3          | no             | v � cos(atan2(P2, P1)                                            | Preserves full accuracy in intermediate calculation.     |
+| sinatan2  | 3          | no             | v � sin(atan2(P2, P1)                                            |                                                          |
+| sqrt      | 1          | no             | sqrt(v)                                                          | Result is positive, rounds down.                         |
+| sumangle  | 3          | yes            | v + P1�216 - P2�216 <br/> `P1` and `P2` are numbers of degrees.  | v is an existing angle (scaled by 216),                  |
+| ellipse   | 3          | no             | $P2*\sqrt{1-(\frac{v}{P1})^2}$  |                                                          |
+| tan       | 2          | no             | v � tan(P1)                                                      | Tangent, argument is in degrees�216. (fd units.)         |
 
 The formulas are evaluated to full precision - however the result is always a 32-bit integer.
 Formula authors should avoid formulas which are discontinuous - not only
