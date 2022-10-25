@@ -1,0 +1,4182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DDT HTML 4.0 Transitional//EN">
+
+<html lang="en">
+
+<head>
+    <meta name="Last-Author" content="John Bowler">
+    <meta name="Major-version" content="1.0.1">
+    <title>VML - the Vector Markup Language</title>
+    <style type="text/css">
+        body {
+            margin-left: 4%;
+            margin-right: 4%;
+        }
+    </style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+    <h4 align="right">
+        <a href="http://www.w3.org/">
+            <img align="left" alt="W3C" border="0" width="72" height="48" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA3MiA0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTSAwIDAgTCA3MiAwIEwgNzIgNDggTCAwIDQ4IFoiLz4KPHBhdGggZD0iTSAwIDAgTCA3MiAwIEwgNzIgMSBMIDAgMSBaIi8+CjxwYXRoIGQ9Ik0gMCA0NyBMIDcyIDQ3IEwgNzIgNDggTCAwIDQ4IFoiLz4KPHBhdGggZmlsbD0iIzAwNWE5YyIgZD0iTSAyMC4xNDkgOC44MTUgTCAyNS45MDggMjguMzk1IEwgMzEuNjY3IDguODE1IEwgMzUuODM3IDguODE1IEwgNDcuMjggOC44MTUgTCA0Ny4yOCAxMC43NjEgTCA0MS40MDIgMjAuODg4IEMgNDMuNDY3IDIxLjU1MSA0NS4wMjkgMjIuNzU2IDQ2LjA4OCAyNC41MDMgQyA0Ny4xNDcgMjYuMjUgNDcuNjc3IDI4LjMwMiA0Ny42NzcgMzAuNjU4IEMgNDcuNjc3IDMzLjU3MSA0Ni45MDMgMzYuMDIgNDUuMzU0IDM4LjAwNiBDIDQzLjgwNSAzOS45OTIgNDEuNzk5IDQwLjk4NCAzOS4zMzcgNDAuOTg0IEMgMzcuNDgzIDQwLjk4NCAzNS44NjggNDAuMzk1IDM0LjQ5MiAzOS4yMTcgQyAzMy4xMTUgMzguMDM5IDMyLjA5NiAzNi40NDQgMzEuNDM0IDM0LjQzMSBMIDM0LjY5IDMzLjA4MSBDIDM1LjE2NyAzNC4yOTkgMzUuNzk2IDM1LjI1OSAzNi41NzcgMzUuOTYgQyAzNy4zNTggMzYuNjYyIDM4LjI3OCAzNy4wMTIgMzkuMzM3IDM3LjAxMiBDIDQwLjQ0OSAzNy4wMTIgNDEuMzg5IDM2LjM5IDQyLjE1NyAzNS4xNDYgQyA0Mi45MjUgMzMuOTAxIDQzLjMwOSAzMi40MDYgNDMuMzA5IDMwLjY1OCBDIDQzLjMwOSAyOC43MjUgNDIuODk4IDI3LjIyOSA0Mi4wNzggMjYuMTcgQyA0MS4xMjQgMjQuOTI2IDM5LjYyOCAyNC4zMDQgMzcuNTg5IDI0LjMwNCBMIDM2LjAwMSAyNC4zMDQgTCAzNi4wMDEgMjIuMzk4IEwgNDEuNTYyIDEyLjc4NiBMIDM0Ljg1IDEyLjc4NiBMIDM0LjQ2OCAxMy40MzYgTCAyNi4zMDUgNDAuOTg0IEwgMjUuOTA4IDQwLjk4NCBMIDE5Ljk1IDIxLjA0OCBMIDEzLjk5MiA0MC45ODUgTCAxMy41OTUgNDAuOTg1IEwgNC4wNjQgOC44MTUgTCA4LjIzNCA4LjgxNSBMIDEzLjk5MyAyOC4zOTUgTCAxNy44ODYgMTUuMjEgTCAxNS45OCA4LjgxNSBaIi8+CjxwYXRoIGQ9Ik0gNjguOTUyIDguODE1IEMgNjguMTMzIDguODE1IDY3LjM5OCA5LjExIDY2Ljg0MSA5LjY3NiBDIDY2LjI1IDEwLjI3NiA2NS45MjEgMTEuMDUyIDY1LjkyMSAxMS44NTQgQyA2NS45MjEgMTIuNjU2IDY2LjIzNCAxMy4zOTkgNjYuODA4IDEzLjk4MiBDIDY3LjM5MSAxNC41NzMgNjguMTQyIDE0Ljg5NCA2OC45NTMgMTQuODk0IEMgNjkuNzQ2IDE0Ljg5NCA3MC41MTUgMTQuNTczIDcxLjExNCAxMy45OTEgQyA3MS42ODggMTMuNDM0IDcyIDEyLjY5IDcyIDExLjg1NCBDIDcyIDExLjA0MyA3MS42NzkgMTAuMjg0IDcxLjEyMiA5LjcxOCBDIDcwLjUzOSA5LjEyNyA2OS43NzkgOC44MTUgNjguOTUyIDguODE1IFogTSA3MS41OTUgMTEuODggQyA3MS41OTUgMTIuNTgxIDcxLjMyNCAxMy4yMzEgNzAuODI2IDEzLjcxMiBDIDcwLjMwMyAxNC4yMTkgNjkuNjUzIDE0LjQ4OSA2OC45MzUgMTQuNDg5IEMgNjguMjYgMTQuNDg5IDY3LjU5MyAxNC4yMTEgNjcuMDk1IDEzLjcwNCBDIDY2LjU5NyAxMy4xOTggNjYuMzE4IDEyLjU0NyA2Ni4zMTggMTEuODU1IEMgNjYuMzE4IDExLjE2MyA2Ni42MDUgMTAuNDg3IDY3LjEyIDkuOTY0IEMgNjcuNjAxIDkuNDc0IDY4LjI1MSA5LjIxMyA2OC45NiA5LjIxMyBDIDY5LjY4NiA5LjIxMyA3MC4zMzYgOS40ODQgNzAuODQzIDkuOTk4IEMgNzEuMzMzIDEwLjQ4NyA3MS41OTUgMTEuMTQ2IDcxLjU5NSAxMS44OCBaIE0gNjkuMDM3IDEwLjA3MyBMIDY3LjczNyAxMC4wNzMgTCA2Ny43MzcgMTMuNTE4IEwgNjguMzg3IDEzLjUxOCBMIDY4LjM4NyAxMi4wNDkgTCA2OS4wMjkgMTIuMDQ5IEwgNjkuNzMgMTMuNTE4IEwgNzAuNDU2IDEzLjUxOCBMIDY5LjY4NyAxMS45NDcgQyA3MC4xODUgMTEuODQ2IDcwLjQ3MiAxMS41MDggNzAuNDcyIDExLjAxOSBDIDcwLjQ3MiAxMC4zOTQgNjkuOTk5IDEwLjA3MyA2OS4wMzcgMTAuMDczIFogTSA2OC45MTggMTAuNDk1IEMgNjkuNTI2IDEwLjQ5NSA2OS44MDQgMTAuNjY0IDY5LjgwNCAxMS4wODYgQyA2OS44MDQgMTEuNDkxIDY5LjUyNiAxMS42MzUgNjguOTM0IDExLjYzNSBMIDY4LjM4NSAxMS42MzUgTCA2OC4zODUgMTAuNDk1IFoiLz4KPHBhdGggZD0iTSA2My44MzkgOC42MzQgTCA2NC41MTUgMTIuNzQxIEwgNjIuMTI0IDE3LjMxNiBDIDYyLjEyNCAxNy4zMTYgNjEuMjA2IDE1LjM3NSA1OS42ODEgMTQuMzAxIEMgNTguMzk2IDEzLjM5NiA1Ny41NTkgMTMuMTk5IDU2LjI1IDEzLjQ2OSBDIDU0LjU2OSAxMy44MTYgNTIuNjYzIDE1LjgyNiA1MS44MzEgMTguMzA0IEMgNTAuODM2IDIxLjI2OSA1MC44MjYgMjIuNzA0IDUwLjc5MSAyNC4wMjIgQyA1MC43MzUgMjYuMTM1IDUxLjA2OCAyNy4zODQgNTEuMDY4IDI3LjM4NCBDIDUxLjA2OCAyNy4zODQgNDkuNjE3IDI0LjY5OCA0OS42MyAyMC43NjQgQyA0OS42MzkgMTcuOTU2IDUwLjA4MSAxNS40MSA1MS4zOCAxMi44OTcgQyA1Mi41MjMgMTAuNjg4IDU0LjIyMiA5LjM2MiA1NS43MyA5LjIwNiBDIDU3LjI4OSA5LjA0NSA1OC41MjEgOS43OTYgNTkuNDczIDEwLjYxIEMgNjAuNDcyIDExLjQ2NCA2MS40ODMgMTMuMzMgNjEuNDgzIDEzLjMzIFoiLz4KPHBhdGggZD0iTSA2NC4xMzQgMzEuODcyIEMgNjQuMTM0IDMxLjg3MiA2My4wNzcgMzMuNzYxIDYyLjQxOSAzNC40ODkgQyA2MS43NiAzNS4yMTcgNjAuNTgyIDM2LjQ5OSA1OS4xMjcgMzcuMTQgQyA1Ny42NzEgMzcuNzgxIDU2LjkwOSAzNy45MDIgNTUuNDcxIDM3Ljc2NCBDIDU0LjAzNCAzNy42MjYgNTIuNjk4IDM2Ljc5NCA1Mi4yMyAzNi40NDcgQyA1MS43NjIgMzYuMSA1MC41NjYgMzUuMDc4IDQ5Ljg5MSAzNC4xMjUgQyA0OS4yMTUgMzMuMTcxIDQ4LjE1OCAzMS4yNjYgNDguMTU4IDMxLjI2NiBDIDQ4LjE1OCAzMS4yNjYgNDguNzQ3IDMzLjE3NyA0OS4xMTYgMzMuOTg3IEMgNDkuMzI4IDM0LjQ1MyA0OS45OCAzNS44ODEgNTAuOTA2IDM3LjEyMyBDIDUxLjc2OCAzOC4yODIgNTMuNDQ1IDQwLjI3NyA1NS45OTIgNDAuNzI3IEMgNTguNTM5IDQxLjE3OCA2MC4yODkgNDAuMDM0IDYwLjcyMiAzOS43NTYgQyA2MS4xNTUgMzkuNDc5IDYyLjA2OCAzOC43MTUgNjIuNjQ2IDM4LjA5NyBDIDYzLjI0OSAzNy40NTIgNjMuODIgMzYuNjI5IDY0LjEzNiAzNi4xMzUgQyA2NC4zNjcgMzUuNzc1IDY0Ljc0MyAzNS4wNDMgNjQuNzQzIDM1LjA0MyBaIi8+Cjwvc3ZnPgo=" />
+        </a>
+        NOTE-VML-19980513
+    </h4>
+    <p>
+        <br clear="left">
+    </p>
+    <h1 class="maintitle" align="center" style="text-align: center">
+        <a name="h1:vml">Vector Markup Language (VML)</a>
+    </h1>
+    <h3 align="CENTER">World Wide Web Consortium Note 13-May-1998</h3>
+
+
+    <h4 align="center" style="text-align: center">Submission to the World Wide Web Consortium</h4>
+
+    <div style="margin-left: 3%; margin-right: 3%">
+        <dl>
+            <dt>This version:</dt>
+            <dd><a href="/TR/1998/NOTE-VML-19980513">http://www.w3.org/TR/1998/NOTE-VML-19980513</a></dd>
+            <dt>Latest version:</dt>
+            <dd><a href="/TR/NOTE-VML">http://www.w3.org/TR/NOTE-VML</a></dd>
+            <dt>Authors:</dt>
+            <dd><a href="mailto:brian.mathews@autodesk.com">Brian Mathews</a>, Autodesk Inc.</dd>
+            <dd><a href="mailto:daniel_lee@hp.com">Daniel Lee</a>, Hewlett-Packard Company</dd>
+            <dd><a href="mailto:bdister@macromedia.com">Brian Dister</a>, Macromedia, Inc.</dd>
+            <dd><a href="mailto:johnbo@microsoft.com">John Bowler</a>, Microsoft Corporation</dd>
+            <dd><a href="mailto:howardco@microsoft.com">Howard Cooperstein</a>, Microsoft Corporation</dd>
+            <dd><a href="mailto:ajayj@microsoft.com">Ajay Jindal</a>, Microsoft Corporation</dd>
+            <dd><a href="mailto:tuann@microsoft.com">Tuan Nguyen</a>, Microsoft Corporation</dd>
+            <dd><a href="mailto:petewu@microsoft.com">Peter Wu</a>, Microsoft Corporation</dd>
+            <dd><a href="mailto:troys@visio.com">Troy Sandal</a>, Visio Corporation</dd>
+        </dl>
+    </div>
+
+    <hr>
+
+    <h2><a name="h2:status">Status of this document</a></h2>
+
+    <p>This document is a <a href="/Submission/1998/08">submission</a> to the World Wide Web Consortium.&nbsp; It is the initial
+        draft of the specification of <em>VML</em>.&nbsp; It is intended for review and comment by
+        W3C members and is subject to change. There are <a href="/Submission/1998/08/Comment">W3C Staff comments</a> on this submission.</p>
+
+    <p>This document is a NOTE made available by the W3 Consortium for discussion only. This indicates no
+        endorsement of its content, nor that the Consortium has, is, or will be allocating any resources to the issues
+        addressed by the NOTE. </p>
+
+    <hr>
+
+    <h2><a name="h2:abstract">Abstract</a></h2>
+
+    <p>This document defines the Vector Markup Language (VML).&nbsp; VML is an application of <a href="http://www.w3.org/TR/REC-xml.html">Extensible Markup Language (XML) 1.0</a> which
+        defines a format for the encoding of vector information together with additional markup to
+        describe how that information may be displayed and edited.&nbsp; The first part of this
+        document is an introduction, which gives an overview of the way VML is organized and how
+        it interacts with both XML and HTML as defined by the <a href="http://www.w3.org/TR/REC-html40/">HTML 4.0 Specification</a>.&nbsp; This is followed
+        by detailed technical definition of the behavior of every VML element and the permitted
+        and recommended behaviors for all applications.</p>
+
+    <p>The introduction to this document is intended to be appropriate reading for someone who
+        wishes to gain an overview of VML.&nbsp; The technical specification is intended for
+        authors of application software which might use VML and for people who wish to assess the
+        suitability of VML for a particular application.&nbsp; It may also be used by people who
+        need to hand-author VML content.&nbsp; However it is anticipated that most such authoring
+        will proceed by copy and paste of existing VML - VML is intended to be treated in this
+        way.</p>
+
+    <hr>
+
+    <h2><a name="h2:contents">Table Of Contents</a></h2>
+
+    <ul>
+        <li><a href="#h2:introduction">Introduction to VML</a>
+            <ul>
+                <li><a href="#h3:introduction.example">A Simple Example</a></li>
+                <li><a href="#h3:introduction.requirements">Design Requirements</a></li>
+                <li><a href="#h3:introduction.implementation">Implementation</a></li>
+            </ul>
+        </li>
+        <li><a href="#h2:specification">The Technical Specification of VML</a>
+            <ul>
+                <li><a href="#_Toc416858380">Introduction</a></li>
+                <li><a href="#_Toc416858381">Use of CSS</a></li>
+                <li><a href="#_Toc416858382">Local Coordinate Space</a></li>
+                <li><a href="#_Toc416858383">Attribute Types</a></li>
+                <li><a href="#_Toc416858384">DTD Entity Definitions</a></li>
+                <li><a href="#_Toc416858385">Top-Level Elements</a></li>
+                <li><a href="#_Toc416858386">The <code>shape</code> Element</a></li>
+                <li><a href="#_Toc416858387">The <code>shapetype</code> Element</a></li>
+                <li><a href="#_Toc416858388">The <code>group</code> Element</a></li>
+                <li><a href="#_Toc416858389">The <code>background</code> Element</a></li>
+                <li><a href="#_Toc416858390">Advanced Properties of Shapes</a></li>
+                <li><a href="#_Toc416858391">The <code>path</code> Element</a></li>
+                <li><a href="#_Toc416858392">The <code>formulas</code> Element</a></li>
+                <li><a href="#_Toc416858393">The <code>handles</code> Element</a></li>
+                <li><a href="#_Toc416858394">The <code>fill</code> Element</a></li>
+                <li><a href="#_Toc416858395">The <code>stroke</code> Element</a></li>
+                <li><a href="#_Toc416858396">The <code>shadow</code> Element</a></li>
+                <li><a href="#_Toc416858397">The <code>textbox</code> Element</a></li>
+                <li><a href="#_Toc416858398">The <code>textpath</code> Element</a></li>
+                <li><a href="#_Toc416858399">The <code>imagedata</code> Element</a></li>
+                <li><a href="#_Toc416858400">Predefined Shapes</a></li>
+                <li><a href="#_Toc416858401">Common Properties of All Predefined Shapes</a></li>
+                <li><a href="#_Toc416858402">The <code>line</code> Element</a></li>
+                <li><a href="#_Toc416858403">The <code>polyline</code> Element</a></li>
+                <li><a href="#_Toc416858404">The <code>curve</code> Element</a></li>
+                <li><a href="#_Toc416858405">The <code>roundrect</code> Element</a></li>
+                <li><a href="#_Toc416858406">The <code>oval</code> Element</a></li>
+                <li><a href="#_Toc416858407">The <code>arc</code> Element</a></li>
+                <li><a href="#_Toc416858408">The <code>image</code> Element</a></li>
+            </ul>
+        </li>
+        <li><a href="#h2:normative">Normative References</a></li>
+        <li><a href="#h2:informative">Informative References</a></li>
+    </ul>
+
+    <hr>
+
+    <h2><a name="h2:introduction">Introduction to VML</a></h2>
+
+    <p>The Vector Markup Language (VML) supports the markup of vector graphic information in
+        the same way that HTML supports the markup of textual information.&nbsp; Within VML the
+        content is composed of paths described using connected lines and curves.&nbsp; The markup
+        gives semantic and presentation information for the paths.</p>
+
+    <p>VML is written using the syntax of XML just as HTML is written using the syntax of SGML
+        (the Standard Generalized Markup Language, [<a href="#ISO_8879">ISO 8879</a>]) - XML is a
+        restricted form of SGML.&nbsp; VML uses <a href="http://www.w3.org/TR/PR-CSS2/">Cascading
+            Style Sheets, Level 2</a> in the same way as HTML to determine the layout of the vector
+        graphics which it contains.&nbsp; The workflow involved in rendering VML can be compared
+        to that involved in rendering HTML as show in the following figure.</p>
+
+    <p><a name="figure.workflow"><img src="/TR/1998/VML-19980513-images/vmlmodel.gif" alt="Flow chart style diagram:
+    HTML(SGML) ->(parse)->
+      HTML DOM(DOM) ->(CSS Visual Rendering Model)->
+        Box positions (layout) determined (CSS Box Model) ->(Character layout)->
+          Data for imaging (Visual Effects) ->(Operating system imaging API)->
+            Bitmap(raster image) OR
+            PDL(printer)
+    VML(XML:SGML) ->(parse)->
+      VML canonical form ->(CSS Visual Rendering Model)->
+        Box determined for every 'shape' ->(Path transformations)->
+         Data for imaging (Visual Effects) ->(Operating system imaging API)->
+            Bitmap(raster image) OR
+            PDL(printer)" width="574" height="452"></a></p>
+
+    <p>The primary difference between the HTML workflow and the VML workflow is in the last
+        but one step - character layout versus path transformations.&nbsp; In the HTML case, the
+        workflow generates locations and other information for sequences of characters which are
+        then rendered using native operating system functionality.&nbsp; In the VML, case the
+        workflow generates locations and related information for vector paths and related objects
+        (such as bitmaps) which are then rendered using native operating system functionality.</p>
+
+    <p>The common workflow is an essential part of VML - two design requirements were to
+        integrate VML with existing HTML and to avoid requiring a user agent to reinvent the wheel
+        by using different representations or implementations of existing HTML or CSS
+        functionality.</p>
+
+    <p>Like HTML, VML describes objects which will often be further edited.&nbsp; In the case
+        of HTML, these objects are paragraphs, forms or tables.&nbsp; In the case of VML, the
+        objects are <em>shapes</em> or collections of shapes known as <em>groups</em>. &nbsp; VML
+        does not require a particular approach to editing - it accommodates a wide variety of
+        editors.&nbsp; The enormous range of graphical data requires that VML pays careful
+        attention to how an editor records the semantic information related to the VML
+        description.&nbsp; VML ensures that different editors can recognize and correctly handle
+        each other's data (even though they will not normally understand it).</p>
+
+    <h3><a name="h3:introduction.example">A Simple Example</a></h3>
+
+    <p>The simple diagram below contains both simple graphics and text.</p>
+
+    <p><a name="figure.simple"><img src="/TR/1998/VML-19980513-images/simple.gif" alt="Idea [text contained in 'explosion' shape with gradient red to white fill]
+    [vertical arrow pointing down, filled with gradient green to white fill]
+    Product [text contained in 'terminator' flowchart shape filled with gradient blue to white fill]" width="128" height="260"></a></p>
+
+    <p>Although the bitmap compression used makes the image very small (it only requires about
+        8kbytes) the bitmap has none of the information necessary to make further changes to the
+        diagram - for example a user who needs to change "Product" to
+        "Products" must recreate the bitmap from scratch.&nbsp; The corresponding VML
+        has all the necessary editing information in about 2.5kbytes.</p>
+
+    <pre><font color="#008000"><small>.font5 {
+     color: black;
+     font-size: 18.0pt;
+     font-weight: 400;
+     font-style: normal;
+     text-decoration: none;
+     vertical-align: text-bottom;
+     font-family: "Times New Roman";
+    }</small></font></pre>
+
+    <pre><small><font color="#0000FF">&lt;v:</font>group</small>
+    <small>  <font color="#008000">style='position: absolute;</font></small><font color="#008000">
+    <small>         margin-left: 10.2pt;</small>
+    <small>         margin-top: 4.8pt;</small>
+    <small>         width: 90pt;</small>
+    <small>         height: 191.4pt;</small>
+    <small>         z-index: 1'</small></font>
+    <small>  coordsize="21600, 21600"<font color="#0000FF">&gt;</font></small></pre>
+
+    <pre><small> <font color="#0000FF">&lt;v:</font>shapetype id="irregularSeal1" coordorigin="17, 8" coordsize="150, 319"</small>
+    <small>   <font color="#800080">path="m10800,5800l8352,2295,7312,6320,370,2295,4627,7617,,8615,3722,11775,135,14587,</font></small><font color="#800080">
+    <small>      5667,13937,4762,17617,7715,15627,8485,21600,10532,14935,13247,19737,14020,</small>
+    <small>      14457,18145,18095,16837,12942,21600,13290,17607,10475,21097,8137,16702,7315,</small>
+    <small>      18380,4457,14155,5325,14522,0xe"</small></font><small><font color="#0000FF">&gt;</font>
+      <font color="#0000FF">&lt;v:</font>stroke joinstyle="miter"<font color="#0000FF">/&gt;</font>
+      <font color="#0000FF">&lt;v:</font>path gradientshapeok="t" <em>textboxrect="4627, 6320, 16702, 13937"</em><font color="#0000FF">/&gt;</font>
+     <font color="#0000FF">&lt;/v:</font>shapetype<font color="#0000FF">&gt;</font></small></pre>
+
+    <pre><small> <font color="#0000FF">&lt;v:</font>shape type="#irregularSeal1"</small>
+    <small>   <font color="#008000">style='position: absolute;</font></small><font color="#008000">
+    <small>          left: 17; top: 8; width: 150; height: 120'</small></font>
+    <small>   fillcolor="#f06"<font color="#0000FF">&gt;</font>
+      <font color="#0000FF">&lt;v:</font>fill type="gradient" color2="fill lighten(0)"</small>
+    <small>   method="linear sigma" angle="-135" focus="100%"<font color="#0000FF">/&gt;</font>
+      <font color="#0000FF">&lt;v:</font><em>textbox</em><font color="#0000FF">&gt;</font>
+    <font color="#804000">   &lt;div&gt;
+        &lt;span class="font5"&gt;Idea&lt;/span&gt;
+       &lt;/div&gt;
+    </font>  <font color="#0000FF">&lt;/v:</font>textbox<font color="#0000FF">&gt;</font>
+     <font color="#0000FF">&lt;/v:</font>shape<font color="#0000FF">&gt;</font></small></pre>
+
+    <pre><small> <font color="#0000FF">&lt;v:</font>shapetype id="downArrow" coordsize="21600, 21600"</small>
+    <small>   <font color="#800080">adj="16200, 5400"</font></small><font color="#800080">
+    <small>   path="m0@0l@1@0@1,0@2,0@2@0,21600@0,10800,21600xe"</small></font><small>&gt;
+      <font color="#0000FF">&lt;v:</font>stroke joinstyle="miter"<font color="#0000FF">/&gt;</font>
+    <font color="#FF00FF">  </font><font color="#0000FF">&lt;v:</font><font color="#800080">formulas</font><font color="#0000FF">&gt;</font><font color="#FF00FF">
+       </font><font color="#0000FF">&lt;v:</font><font color="#800080">f eqn="sum #0 0 0"</font><font color="#0000FF">/&gt;</font><font color="#FF00FF">
+       </font><font color="#0000FF">&lt;v:</font><font color="#800080">f eqn="sum #1 0 0"</font><font color="#0000FF">/&gt;</font><font color="#FF00FF">
+       </font><font color="#0000FF">&lt;v:</font><font color="#800080">f eqn="sum height 0 #1"</font><font color="#0000FF">/&gt;</font><font color="#FF00FF">
+       </font><font color="#0000FF">&lt;v:</font><font color="#800080">f eqn="sum 10800 0 #1"</font><font color="#0000FF">/&gt;</font><font color="#FF00FF">
+       </font><font color="#0000FF">&lt;v:</font><font color="#800080">f eqn="sum width 0 #0"</font><font color="#0000FF">/&gt;</font><font color="#FF00FF">
+       </font><font color="#0000FF">&lt;v:</font><font color="#800080">f eqn="prod @4 @3 10800"</font><font color="#0000FF">/&gt;</font><font color="#FF00FF">
+       </font><font color="#0000FF">&lt;v:</font><font color="#800080">f eqn="sum width 0 @5"</font><font color="#0000FF">/&gt;</font><font color="#FF00FF">
+      </font><font color="#0000FF">&lt;/v:</font><font color="#800080">formulas</font><font color="#0000FF">&gt;</font><font color="#FF00FF">
+    </font>  <font color="#0000FF">&lt;v:</font>path <em>textboxrect="@1, 0, @2, @6"</em><font color="#0000FF">/&gt;</font>
+    <font color="#FF00FF">  </font><font color="#0000FF">&lt;v:</font><font color="#800080">handles</font><font color="#0000FF">&gt;</font><font color="#FF00FF">
+       </font><font color="#0000FF">&lt;v:</font><font color="#800080">h position="#1, #0" xrange="0, 10800" yrange="0, 21600"</font><font color="#0000FF">/&gt;</font><font color="#FF00FF">
+      </font><font color="#0000FF">&lt;/v:</font><font color="#800080">handles</font><font color="#0000FF">&gt;</font><font color="#FF00FF">
+    </font> <font color="#0000FF">&lt;/v:</font>shapetype<font color="#0000FF">&gt;</font></small></pre>
+
+    <pre><small> <font color="#0000FF">&lt;v:</font>shape type="#downArrow"</small>
+    <small>   <font color="#008000">style='position: absolute; left: 40; top: 143; width: 105; height: 105'</font></small>
+    <small>   <font color="#800080">adj="11632, 4371"</font></small>
+    <small>   fillcolor="#6f9"<font color="#0000FF">&gt;</font>
+      <font color="#0000FF">&lt;v:</font>fill type="gradientScale" color2="fill lighten(0)"</small>
+    <small>   method="linear sigma" angle="-135" focus="100%"<font color="#0000FF">/&gt;</font>
+     <font color="#0000FF">&lt;/v:</font>shape<font color="#0000FF">&gt;</font></small></pre>
+
+    <pre><small> <font color="#0000FF">&lt;v:</font>shapetype id="flowChartTerminator" coordsize="21600, 21600"</small>
+    <small>   <font color="#800080">v="m3475,0qx0,10800qy3475,21600l18125,21600qx21600,10800qy18125,0xe"</font><font color="#0000FF">&gt;</font>
+      <font color="#0000FF">&lt;v:</font>stroke joinstyle="miter"<font color="#0000FF">/&gt;</font>
+      <font color="#0000FF">&lt;v:</font>path gradientshapeok="t" <em>textboxrect="1018, 3163, 20582, 18437"</em><font color="#0000FF">/&gt;</font>
+     <font color="#0000FF">&lt;/v:</font>shapetype<font color="#0000FF">&gt;</font></small></pre>
+
+    <pre><small> <font color="#0000FF">&lt;v:</font>shape type="#flowChartTerminator"</small>
+    <small>   <font color="#008000">style='position: absolute; left: 17; top: 263; width: 150; height: 64'</font></small>
+    <small>   fillcolor="#39f"<font color="#0000FF">&gt;</font>
+      <font color="#0000FF">&lt;v:</font>fill type="gradient" color2="fill lighten(0)"</small>
+    <small>   method="linear sigma" angle="-135" focus="100%"/&gt;
+      <font color="#0000FF">&lt;v:</font><em>textbox</em><font color="#0000FF">&gt;</font>
+    <font color="#804000">   &lt;div&gt;
+        &lt;span class="font5"&gt;Product&lt;/span&gt;</font></small><font color="#804000">
+    <small>   &lt;/div&gt;
+    </small></font><small>  <font color="#0000FF">&lt;/v:</font>textbox<font color="#0000FF">&gt;</font>
+     <font color="#0000FF">&lt;/v:</font>shape<font color="#0000FF">&gt;</font></small></pre>
+
+    <pre><small><font color="#0000FF">&lt;/v:</font>group<font color="#0000FF">&gt;</font></small></pre>
+
+    <p>This VML contains all the information required both to edit and to display the diagram.
+        &nbsp; The VML has been color coded as follows:</p>
+
+    <p>
+        <font color="#0000FF">Blue</font> - XML structure.&nbsp; VML is formatted according to
+        the rules of XML.&nbsp; The v: prefix on each VML tag identifies the tag as VML, following
+        the current suggestion for handling namespaces in XML.&nbsp; Any standard XML parser can
+        parse the VML and hand off the resultant data to a VML specific processor.
+    </p>
+
+    <p>
+        <font color="#008000">Green</font> - CSS information.&nbsp; The first block of CSS is
+        used in the HTML which defines the text in the diagram - this is just standard CSS. &nbsp;
+        Each <code>shape</code> and <code>group</code> element has a CSS style attribute which
+        defines the position and size of the shape within the page.&nbsp; The location of the
+        top-level group is defined completely by the CSS - a layout engine need not understand any
+        aspect of VML to handle this positioning information.
+    </p>
+
+    <p>Black - VML.&nbsp; The remainder of the data describes the graphical properties of the
+        diagram.&nbsp; Notice how this data is associated with the <code>shape</code> and <code>shapetype</code>
+        elements.&nbsp; The <code>shape</code> elements are rendered in the diagram, the <code>shapetype</code>
+        elements allow reuse of geometric information between shapes.&nbsp; In this case, because
+        there are three different shapes in the diagram, there are also three <code>shapetype</code>
+        elements, but in more complex cases the same shape would be used multiple times (each
+        instance referencing the same <code>shapetype</code> element).</p>
+
+    <p>
+        <font color="#804000">Brown</font> - HTML text.&nbsp; This text is associated with <code>shape</code>
+        elements in the diagram.&nbsp; The VML in <em>italics</em> controls the location of the
+        HTML text.
+    </p>
+
+    <p>
+        <font color="#800080">Purple</font> - the most basic VML geometric information
+        describes closed or open paths.&nbsp; These paths may be parameterized - this allows a
+        single <code>shapetype</code> element to define multiple related paths.&nbsp; For example,
+        the <code>downArrow</code> shapetype above is defined parametrically and the following
+        four arrows all share the same basic shape.
+    </p>
+
+    <p><a name="figure.arrows"><img src="/TR/1998/VML-19980513-images/arrows.gif" alt="Four downward pointing arrows, white fill, black outline.
+    Each arrow with a different proportion of 'line' width to 'head' width." width="231" height="111"></a></p>
+
+    <p>The corresponding VML is:</p>
+
+    <pre><small><font color="#0000FF">&lt;v:</font>shape type="#downArrow"</small>
+    <font color="#008000"><small>  style='position: absolute; left: 77; top: 16; width: 64; height: 128'</small>
+    </font><small><font color="#0000FF">/&gt;
+    &lt;v:</font>shape type="#downArrow"</small>
+    <font color="#008000"><small>  style='position: absolute; left: 149; top: 16; width: 64; height: 128'</small>
+    </font><small><font color="#FF00FF">  </font><font color="#800080">adj=", 9450"</font></small><font color="#FF00FF">
+    </font><small><font color="#0000FF">/&gt;
+    &lt;v:</font>shape type="#downArrow"</small>
+    <font color="#008000"><small>  style='position: absolute; left: 219; top: 16; width: 64; height: 128'</small>
+    </font><small><font color="#FF00FF">  </font><font color="#800080">adj="14175, 2025"</font></small><font color="#FF00FF">
+    </font><small><font color="#0000FF">/&gt;
+    &lt;v:</font>shape type="#downArrow"</small>
+    <font color="#008000"><small>  style='position: absolute; left: 292; top: 16; width: 64; height: 128'</small>
+    </font><small><font color="#FF00FF">  </font><font color="#800080">adj="7088, 7425"</font></small><font color="#FF00FF">
+    </font><font color="#0000FF"><small>/&gt;</small></font></pre>
+
+    <p>The combination of parameterization with a concise path description allows VML diagrams
+        to be relatively compact, despite the large amount of editing information.&nbsp; Indeed,
+        large VML diagrams become dominated by the CSS required to position the elements. &nbsp;
+        VML defines a defaulting mechanism for CSS which allows the container box to be inherited
+        in order to avoid this overhead on complex illustrations.</p>
+
+    <h3><a name="h3:introduction.requirements">Design Requirements</a></h3>
+
+    <p>Many requirements guided the design of VML.&nbsp; The most crucial are listed below in
+        order of importance.
+
+    </p>
+    <ol>
+        <li>Retain the information required for further editing of VML.&nbsp; This requirement has
+            the important consequence that VML must be extensible - it is inconceivable that VML meets
+            the requirements of all editing applications, therefore it must be possible for every
+            application to add the required editing data specific to that application.</li>
+        <li>Support interchange of data between applications.&nbsp; One application must be able to
+            read and edit the data of another application, even though the first requirement means
+            that, potentially, both applications will add application specific data.</li>
+        <li>Use the existing mechanisms of HTML and CSS - this facilitates implementation of VML and
+            ensures that implementations can reuse existing code and techniques.</li>
+        <li>Be backward compatible with existing user agents.&nbsp; VML adoption will be inhibited
+            unless it is possible to produce VML which works with existing web browsers. &nbsp; VML
+            has special provisions to allow alternate bitmap representations of graphics for backward
+            compatibility.</li>
+        <li>Provide efficient representations of vector graphics.&nbsp; Textual representations tend
+            to be verbose.&nbsp; VML addresses this by defining a compact representation of path
+            elements and by following a design principle of using concise names for frequently used
+            attributes and more verbose names for less frequently used attributes.</li>
+        <li>Allow the implementation of subsets where an application does not require the full
+            functionality of VML.&nbsp; Normally a viewer will implement the full specification,
+            however editors should be able to implement only the subset required for their own data.</li>
+        <li>Support hand-editing.&nbsp; This leads to a design principle that the structure of the
+            graphic be obvious and that the syntax be familiar to HTML programmers - effectively the
+            same as requirement (3).</li>
+        <li>VML should support scripting, including the requirements of animation.&nbsp; This,
+            again, leads to a desire for the structure of VML to match the structure of the graphics.
+            &nbsp; It also leads to the use of types within VML attributes which are appropriate to
+            animation - for example 2D coordinates are defined as single attributes "x, y"
+            rather than pairs of attributes.</li>
+    </ol>
+
+    <h3><a name="h3:introduction.implementation">Implementation</a></h3>
+
+    <p>An implementation of VML will fall into one of two classes.&nbsp; A <em>viewer</em>
+        implementation will normally implement the full specification, although it can avoid the
+        need to implement any functionality to edit VML (beyond that required by any script
+        language which the viewer supports).&nbsp; An <em>editor</em> implementation may only need
+        to implement those specific features necessary to output the data which the editor
+        manipulates.&nbsp; Even an editor which potentially manipulates VML produced by other
+        applications may need nothing more than a subset of the CSS2 visual rendering model.
+        &nbsp; Such an editor can correctly position the VML produced by other applications even
+        though it may not be able to render individual shapes.</p>
+
+    <p>The implementation model follows the <a href="#figure.workflow">diagram</a> at the
+        start of this document.&nbsp; An implementation can proceed in five separate, independent,
+        steps.
+
+    </p>
+    <ol>
+        <li>Each implementation requires an XML parser.&nbsp; This performs lexical analysis of VML
+            and identifies the individual elements.&nbsp; XML parsers are already widely available.</li>
+        <li>Non-trivial implementations will need to parse the structure of the individual VML
+            attributes.&nbsp; To make this easy, VML defines basic types which have canonical internal
+            representations - no VML implementation is required to store greater accuracy than that
+            implied by the canonical representation and all VML data can be converted to the
+            corresponding representations.&nbsp; This means that the implementor need only write a
+            small number of string parsers to be able to handle all VML data.&nbsp; Most of these
+            parsers are already present either as part of language libraries or as a consequence of
+            the need to parse CSS.</li>
+        <li>An implementation must handle that part of the CSS2 visual rendering model used by
+            VML.&nbsp; VML uses a small subset of CSS2 to define the block level boxes for each VML
+            element.&nbsp; Implementing this gives a minimal VML implementation which can handle the
+            layout of elements (using their block level boxes) without doing any rendering.</li>
+        <li>Viewing implementations and most editing implementations must handle the path
+            parameterization required by VML - a small set of mathematically defined transformations
+            allow the VML representation of a path to be reduced to a simple set of closed or open
+            line segments.&nbsp; Extensions to VML may add transformations, however VML allows such
+            extensions to be accompanied by equivalent definitions of the same information in
+            unextended VML.</li>
+        <li>Finally the implementation must render the path level data in the way specified by the
+            VML rendering attributes.&nbsp; Normally this operation maps easily onto widely available
+            operating system facilities.</li>
+    </ol>
+
+    <p>
+        Each of these five steps is testable in isolation and implementable independently of the other steps.&nbsp;
+        Only steps (2) and (4) are VML specific, and step (2) can reuse standard technology available in many places.
+    </p>
+
+    <hr>
+
+    <h2><a name="h2:specification">The Technical Specification of VML</a></h2>
+
+    <h3><a name="_Toc416858380">Introduction</a></h3>
+
+    <p>The overall structure of VML may be summarized by the XML definitions of the two
+        primary elements - <code>shape</code> and <code>group</code>.</p>
+
+    <p>A <code>shape</code> element is used to define a visible vector graphic element. &nbsp;
+        Most shapes have a <em>path</em> definition - a sequence of straight lines and cubic
+        b�zier curves which defines an outline.&nbsp; The outline may be <em>stroked</em>, as
+        specified by attributes on the shape and the <code>stroke</code> sub-element.&nbsp; It may
+        also be <em>filled</em>, under the control of shape attributes and the <code>fill</code>
+        sub-element.&nbsp; Additional sub-elements support raster (bitmap) images, more advanced
+        transformations of the path and text drawn on top of the shape.</p>
+
+    <p>Below is an example of a simple shape and its VML representation.</p>
+
+    <p><img src="/TR/1998/VML-19980513-images/star.gif" alt="A green five pointed star with a red outline." width="187" height="168"> </p>
+
+    <p><code>&lt;v:shape&nbsp;style='top: 0; left: 0; width: 250; height: 250'<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stroke="true"
+    strokecolor="red" strokeweight="2" fill="true"<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fillcolor="green" coordorigin="0
+    0" coordsize="175 175"&gt;<br>
+    &lt;v:path v="m 8,65<br>
+    &nbsp; l 72,65,92,11,112,65,174,65,122,100,142,155,92,121,42,155,60,100<br>
+    &nbsp; x e"/&gt;<br>
+    &lt;/v:shape&gt;</code></p>
+
+    <p>A <code>group</code> element is used to group together several shapes so that they may
+        be transformed together as one unit.</p>
+
+    <p>In addition VML defines several auxiliary top-level elements to help make the editing
+        and representation of complex graphical information more compact and convenient.</p>
+
+    <p>The <code>shapetype</code> element is used to define a prototype definition of a shape.
+        &nbsp; A <code>shape</code> element may reference a <code>shapetype</code> in order to
+        instantiate several copies of the same shape.</p>
+
+    <p>Several predefined shapes may be used as convenient alternatives to explicitly
+        declaring a shape element with a path.&nbsp; These predefined shapes are <code>line</code>,
+        <code>polyline</code>, <code>curve</code>, <code>rect</code>, <code>roundrect</code>, <code>oval</code>,
+        <code>arc</code>, and <code>image</code>.
+    </p>
+
+    <h3><a name="_Toc416858381">Use of CSS</a></h3>
+
+    <p>The style attribute uses the syntax described in "<a href="http://www.w3.org/TR/WD-CSS2/visuren.html#visual-rendering-model">Visual rendering
+            model</a>" in <a href="http://www.w3.org/TR/WD-CSS2/">Cascading Style Sheets, Level 2</a>.
+        &nbsp; The positioning may be absolute or relative unless the shape is within a group, in
+        which case it must be absolute (relative to the top left of the parent group). The z order
+        of the elements within the group is from the first (lowest) to the last (highest) - i.e.
+        later elements obscure earlier elements.&nbsp; The elements establish no relative position
+        - hence the restriction to use of absolute positioning.</p>
+
+    <p>The VML <code>shape</code> and <code>group</code> elements participate fully in the
+        CSS2 visual rendering model.&nbsp; In addition to standard CSS layout the VML elements may
+        also be rotated or flipped.&nbsp; Each element also establishes a coordinate space for its
+        content - this allows scaling of the content with respect to the containing elements.
+        &nbsp; The following VML specific CSS properties support this.</p>
+    <b>
+
+        <p><code>rotation</code></p>
+    </b>
+
+    <p>The value specifies a rotation for the shape or group in clockwise degrees about its
+        center (i.e. positive is clockwise, negative is counterclockwise - the normal definition
+        in an inverted coordinate space).</p>
+    <b>
+
+        <p><code>flip</code></p>
+    </b>
+
+    <p>The value specifies that the shape or group is flipped about its center about either
+        the x or the y axis according to the following table.</p>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td>Value</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>x</td>
+                <td>Flip the rotated shape about the y axis (invert x ordinates)</td>
+            </tr>
+            <tr>
+                <td>y</td>
+                <td>Flip the rotated shape about the x axis (invert y ordinates)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Both <code>x</code> and <code>y</code> may be specified in the flip property.</p>
+
+    <p><strong><code>center-x</code>, <code>center-y</code></strong></p>
+
+    <p>These properties may be used to specify the center of the block level box of the
+        element within its parent container box.&nbsp; They are alternatives to <code>left</code>
+        and <code>right</code> and convey the same information.&nbsp; It is an error to specify
+        both <code>left</code> and <code>center-x</code>.&nbsp; A user agent should respond to the
+        error by honoring <code>center-x</code> (or <code>center-y</code>).&nbsp; The user agent
+        may issue a diagnostic to the user if this is appropriate. </p>
+
+    <h4><a name="_Toc416858382">Local Coordinate Space</a></h4>
+
+    <p>The <code>shape</code> and <code>group</code> elements are containing blocks for their
+        content - they define a CSS2 "block level box".&nbsp; Inside the containing
+        block a local coordinate system is defined for any sub-elements using the <code>coordsize</code>
+        and <code>coordorigin</code> attributes.&nbsp; All CSS2 positioning information is
+        expressed in terms of this local coordinate space.&nbsp; Consequently CSS2 position
+        attributes (<code>left</code>, <code>top</code>, <code>width</code>, <code>height</code>
+        and so on) have no unit specifier - they are simple numbers, not CSS length quantities.</p>
+
+    <p>The <code>coordsize</code> attribute defines how many units there are along the width
+        of the containing block. The <code>coordorigin</code> attribute defines the coordinate at
+        the top left corner of the containing block.&nbsp; For example, if a group were defined as
+        follows:
+
+    </p>
+    <dl>
+        <dd><code>&lt;v:group style='width: 300px; height: 250px' coordsize="1000,1000"
+        coordorigin="-500,-500" /&gt;</code></dd>
+    </dl>
+
+    <p>The containing block would be 300 pixels wide by 250 pixels high (assume that the
+        parent element of this group was not another group).&nbsp; Then the coordinate system
+        inside the containing block would range from –500.0 to 500.0 along the x-axis and
+        –500.0 to 500.0 along the y-axis with 0.0, 0.0 right in the center of the rectangle.
+        &nbsp; Any shapes inside the group are positioned and sized according to this local
+        coordinate system.&nbsp; No matter how the width and height of the group is changed, the
+        local coordinate system inside will remain the same.</p>
+
+    <p>The rationale behind this is that the vectors defining a shape can be specified in a
+        local coordinate system.&nbsp; If the containing block for the shape is changed, the
+        outline of the shape will be automatically scaled to the new box. Similarly, shapes within
+        the local ordinate system of a group will be automatically scaled if the containing block
+        of the group changes.</p>
+
+    <p>It is important to note that the containing block does <b>not</b> establish a clipping
+        region.&nbsp; Sub-elements and paths may be drawn outside the boundaries of the containing
+        block.&nbsp; The containing block merely serves to map the local coordinate space to the
+        page space.</p>
+
+    <h3><a name="_Toc416858383">Attribute Types</a></h3>
+
+    <p>Basic types of attributes are identified according to their lexical form as follows.</p>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td><b>Data type</b></td>
+                <td><b>Description</b></td>
+            </tr>
+            <tr>
+                <td>boolean</td>
+                <td>An attribute which can take values true and false. </td>
+            </tr>
+            <tr>
+                <td>string</td>
+                <td>Character data of any length.&nbsp; Normally string attributes have a restricted range
+                    of defined values (as in CSS.)</td>
+            </tr>
+            <tr>
+                <td>number</td>
+                <td>Numeric data, used for values that are integer or fractional numbers and for values
+                    which specify lengths.&nbsp; Lengths and numbers follow the lexical form defined for CSS
+                    with a suffix indicating a scale factor.</td>
+            </tr>
+            <tr>
+                <td>Vector2D</td>
+                <td>Numeric data in the form X,Y. Usually used to list a coordinate in 2D space. May be in
+                    form "x y" or "x, y"</td>
+            </tr>
+            <tr>
+                <td>Vector3D</td>
+                <td>Numeric data in the form X,Y,Z. Usually used to list a coordinate in 3D space. May be
+                    in the form "x y z" or "x,y,z"</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>A complete set of data types is defined for VML along with canonical representations
+        which ensure that the minimum precision which an authoring tool must store and the maximum
+        which it can rely on are well defined.&nbsp; At this stage the tables in this document do
+        not give the underlying data types.</p>
+
+    <h3><a name="_Toc416858384">DTD Entity Definitions</a></h3>
+
+    <p>VML shape elements (<code>shape</code> and <code>group</code> and the predefined
+        shapes) use the standard HTML core attributes plus some attributes which may appear on any
+        element. </p>
+    <code>
+
+    <p>&lt;!entity %coreattrs<br>
+    &nbsp; id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id
+    &nbsp;&nbsp;&nbsp;&nbsp;#implied -- document-wide unique id --<br>
+    &nbsp; class&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata&nbsp; #implied -- space separated
+    list of classes --<br>
+    &nbsp; style&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata&nbsp; #implied -- associated style
+    info --<br>
+    &nbsp; title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata&nbsp; #implied -- advisory
+    title/amplification –-<br>
+    &nbsp; href&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata&nbsp; #implied -- URL link if
+    the element is clicked on --<br>
+    &nbsp; target&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata&nbsp; #implied -- target frame for href
+    –-<br>
+    &nbsp; alt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata&nbsp; #implied --
+    alternate text if element cannot be displayed --<br>
+    &nbsp; coordsize&nbsp;&nbsp; cdata&nbsp; #implied –- size of coordinate space inside
+    the element --<br>
+    &nbsp; coordorigin cdata&nbsp; #implied -- coordinate at top-left corner of element --<br>
+    &nbsp; wrapcoords&nbsp; cdata&nbsp; #implied -- outline to use for tight text wrapping --<br>
+    &gt;</p>
+
+    </code>
+    <p><code></code>In addition shape elements and the special pre-defined elements have standard
+        attributes to control rendering.<code></code></p><code>
+
+    <p>&lt;!entity %shapeattrs<br>
+    &nbsp; opacity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied -- opacity of the shape --<br>
+    &nbsp; chromakey&nbsp;&nbsp;&nbsp; cdata #implied –- color to be made transparent --<br>
+    &nbsp; stroke&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied -- Boolean whether to
+    stroke the outline or not --<br>
+    &nbsp; strokecolor&nbsp; cdata #implied –- RGB color to use for the stroke --<br>
+    &nbsp; strokeweight cdata #implied –- weight of the line to use for stroking --<br>
+    &nbsp; fill&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied -- Boolean
+    whether to fill the shape or not --<br>
+    &nbsp; fillcolor&nbsp;&nbsp;&nbsp; cdata #implied –- RGB color to use for the fill --<br>
+    &nbsp; print&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied -- Boolean whether
+    the element is to be printed --<br>
+    &gt;</p>
+
+    </code>
+    <p><code></code>Sub-elements are used within shape elements to define more sophisticated
+        rendering operations.<code></code></p><code>
+
+    <p>&lt;!entity %shape.elements<br>
+    &nbsp; (path | formulas | handles | fill | stroke | shadow | textbox | textpath |
+    imagedata |<br>
+    &nbsp; %extensions;)<br>
+    &gt;</p>
+    </code>
+
+    <p>At most one instance of each sub-element may occur in a shape element.&nbsp; If
+        multiple elements do occur the user agent should respond to the error by merging the
+        repeated elements and retaining only the last values specified if the same attribute is
+        specified more than once. &nbsp; The user agent may also issue a diagnostic if
+        appropriate.</p>
+
+    <p>The entity <code>%extensions;</code> acts as a placeholder for future extensions.
+        &nbsp; Any extension element may be qualified by the <code>v:ext</code> attribute.</p>
+
+    <p><code>&lt;!attlist (%extensions;)<br>
+    &nbsp; v:ext cdata "backwardcompatible" -- may also be "view" or
+    "edit" --<br>
+    &gt;</code></p>
+
+    <p>When an authoring agent encounters such an element the <code>v:ext</code> attribute
+        tells it how to handle the extension.</p>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td align="center"><code>v:ext</code> value</td>
+                <td align="center">Element interpretation</td>
+                <td align="center">Viewer behavior</td>
+                <td align="center">Editor behavior</td>
+            </tr>
+            <tr>
+                <td><code>edit</code></td>
+                <td>The element contains high level semantic information which was used by the original
+                    content generator.&nbsp; The information should not be removed from the shape.</td>
+                <td>The element content can be ignored.</td>
+                <td>The element content can be ignored, it need not be removed however it must not be
+                    duplicated. </td>
+            </tr>
+            <tr>
+                <td><code>backwardcompatible</code></td>
+                <td>The element contains information from the original content generator which does not
+                    affect the appearance of the shape but which must be changed if the shape is changed.</td>
+                <td>The element content can be ignored.</td>
+                <td>The element content can be ignored unless the shape is edited, in which case the
+                    element must be removed.</td>
+            </tr>
+            <tr>
+                <td><code>view</code></td>
+                <td>The element contains information which changes the appearance of the shape from that
+                    implied by VML.</td>
+                <td>The element cannot be displayed, the viewer must use the alternate <code>IMG</code>
+                    representation.</td>
+                <td>The element content can be ignored unless the shape is edited.&nbsp; The VML
+                    information can be used as a placeholder.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>These rules give an editor application the ability to edit any VML document.&nbsp; If
+        an editor just changes the document layout it can still handle even <code>v:ext="view"</code>
+        extensions - the VML definition ensures that the editor knows the CSS layout properties of
+        the shape.&nbsp; The rules accommodate a wide variety of editor behavior - an editor might
+        chose to lock an extended shape to prevent invalidation of the extension information for
+        example.</p>
+
+    <h3><a name="_Toc416858385">Top-Level Elements</a></h3>
+
+    <h4><a name="_Toc416858386">The <code>shape</code> Element</a></h4>
+
+    <p>This is the top-level element used to describe a shape. This element may appear by
+        itself or within a <code>&lt;group&gt;</code> element. If a <code>&lt;shapetype&gt;</code>
+        is referenced using the <code>type= attribute</code>, any attributes specified in the
+        shape will override those found in the <code>shapetype</code>.</p>
+    <code>
+
+    <p>&lt;!element shape (%shape.elements;)* &gt;</p>
+
+    <p>&lt;!attlist shape %coreattrs; %shapeattrs;<br>
+    &nbsp; type cdata #implied -- reference to shapetype --<br>
+    &nbsp; adj&nbsp; cdata #implied -- list of adjust values for parameterized paths --<br>
+    &nbsp; path cdata #implied -- string with command set describing a path --<br>
+    &gt;</p>
+    </code>
+
+    <p>The path definition is described in more detail below.&nbsp; Path parameterization
+        allows one canonical path to describe a range of shapes which differ only in geometric
+        proportions (for example, ring shapes where the ratio of the inner to the outer circle
+        diameter varies).</p>
+
+    <h5>Attribute Descriptions.</h5>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td>Name Space</td>
+                <td>Attribute</td>
+                <td>Type</td>
+                <td>Default Value</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>id</td>
+                <td>string</td>
+                <td>null</td>
+                <td>A unique ID that identifies the shape. Used by script to reference the shape in a
+                    collection.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>type</td>
+                <td>string</td>
+                <td>null</td>
+                <td>A reference to a shapetype <code>id</code> that describes the standard path, fill and
+                    stroke properties of a shape.&nbsp; Properties specified in the shape will override the
+                    shapetype properties.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>adj</td>
+                <td>string</td>
+                <td>null</td>
+                <td>A comma delimited list of numbers that are the parameters for the guide formulas that
+                    define the path of the shape. Values may be omitted to allow for using defaults. There can
+                    be up to 8 adjust values. </td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>path</td>
+                <td>string</td>
+                <td>null</td>
+                <td>A string containing the commands that define the path. (See path element for
+                    definition of the command set).</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>href</td>
+                <td>string</td>
+                <td>null</td>
+                <td>The URL to jump to if this shape is clicked on.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>target</td>
+                <td>string</td>
+                <td>null</td>
+                <td>The target frame in a URL</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>class</td>
+                <td>string</td>
+                <td>null</td>
+                <td>The CSS class of this shape</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>title</td>
+                <td>string</td>
+                <td>null</td>
+                <td>The title of the shape that may be displayed by editors</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>alt</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Alternative text associated with the shape.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>visibility</td>
+                <td>string</td>
+                <td>visible</td>
+                <td>If <code>hidden</code> the shape is not rendered and does not generate mouse events.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>top, margin-top, center-y, etc</td>
+                <td>number</td>
+                <td>0</td>
+                <td>The position of the top of the containing block of the shape.&nbsp; In CSS units or,
+                    for elements in a group, in the coordmap units of parent element.&nbsp; This may be
+                    specified by any of the CSS mechanisms for locating a container box.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>left, margin-left, center-x, etc</td>
+                <td>number</td>
+                <td>0</td>
+                <td>The position of the left of the containing block of the shape.&nbsp; In CSS units or,
+                    for elements in a group, in the coordmap units of parent element.&nbsp; This may be
+                    specified by any of the CSS mechanisms for locating a container box.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>width</td>
+                <td>number</td>
+                <td>100</td>
+                <td>The width of the container rectangle of the shape.&nbsp; In CSS units or, for elements
+                    in a group, in the coordmap units of parent element.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>height</td>
+                <td>number</td>
+                <td>100</td>
+                <td>The height of the containing block of the shape.&nbsp; In CSS units or, for elements
+                    in a group, in the coordmap units of parent element.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>z-index</td>
+                <td>number</td>
+                <td>0</td>
+                <td>The z-index of the shape. Positive numbers are in front of the screen. Negative
+                    numbers are behind the screen.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>rotation</td>
+                <td>number</td>
+                <td>0</td>
+                <td>The angle to rotate the reference rectangle.&nbsp; Zero degrees means no rotation.
+                    &nbsp; Positive angles are clockwise (because positive y-axis is down.)</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>flip</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Takes values "x" or "y" or both.&nbsp; Indicates that the shape
+                    image inside the reference rectangle should be flipped as appropriate along the listed
+                    axes in the order specified. i.e. flip: x means flip about the y-axis so that x becomes
+                    -x.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>position</td>
+                <td>string</td>
+                <td>"static" </td>
+                <td>May be any CSS value when this is a top-level element. When it is contained inside a
+                    group, it must always be <code>absolute</code>.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>opacity</td>
+                <td>number</td>
+                <td>1.0</td>
+                <td>The opacity of the entire shape. A fraction between 0 (completely transparent) and 1
+                    (completely opaque.)</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>chromakey</td>
+                <td>color</td>
+                <td>null</td>
+                <td>A color value that will be transparent and show anything behind the shape.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>stroke</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>If true, the path defining the shape will be stroked. By default, it will be stroked
+                    using a solid line unless there is a <code>stroke</code> sub-element which may specify
+                    more complex stroke properties. The stroke sub-element has an <code>on</code> attribute
+                    which will override this if specified.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>strokecolor</td>
+                <td>color</td>
+                <td>"black"</td>
+                <td>The primary color of the brush to use to stroke the path of this shape. The stroke
+                    sub-element has a "color" attribute which will override this if specified.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>strokeweight</td>
+                <td>number</td>
+                <td>"0.75pt"</td>
+                <td>The width of the brush to use to stroke the path. The stroke sub-element has a
+                    "weight" attribute which will override this if specified.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>fill</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>If "true", the path defining the shape will be filled. By default, it will
+                    be filled using a solid color unless there is a &lt;fill&gt; sub-element that specifies
+                    more complex fill properties. If "false", the fill is transparent. The fill
+                    sub-element has an "on" attribute which will override this if specified.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>fillcolor</td>
+                <td>color</td>
+                <td>"white"</td>
+                <td>The primary color of the brush to use to fill the path of this shape. The fill
+                    sub-element has a "color" attribute which will override this if specified.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>v</td>
+                <td>string</td>
+                <td>null</td>
+                <td>A string containing the commands that define the path - see the description of the <code>path</code>
+                    element for more information.&nbsp; X or Y coordinate values can be a reference to a
+                    formula in the form <code>@</code><i>number</i> where <i>number</i> is the formula’s
+                    ordinal number, e.g., "<code>@</code><i>2</i>".&nbsp; See the <code>formula</code>
+                    element.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>print</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>If "true", this shape should be printed.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>coordsize</td>
+                <td>Vector2D</td>
+                <td>"1000 1000"</td>
+                <td>The width and height of the coordinate space inside the containing block of this
+                    shape. If it is not specified, it is the same as the width and height of the rectangle.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>coordorigin</td>
+                <td>Vector2D</td>
+                <td>"0 0"</td>
+                <td>The coordinates at the top-left corner of the containing block.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>wrapcoords</td>
+                <td>string</td>
+                <td>null</td>
+                <td>In the form "x1,y1,x2,y2,x3,y3…" (same as coords in an <code>AREA</code>).
+                    Describes in drawing units around a shape. Used for the tight wrapping of text around an
+                    object. </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5>XML template</h5>
+
+    <p>Throughout this document <em>XML templates</em> are used to summarize the full set of
+        attributes which may appear on each element.&nbsp; The shape elements - <code>shape</code>,
+        <code>group</code> and most of the predefined shapes have CSS2 positioning information
+        which locates the shape within its container.&nbsp; This is not reflected in the templates
+        as there are several different ways of specifying the same information.&nbsp; A top-level
+        shape will typically use <code>absolute</code> positioning plus <code>margin-left</code>
+        and <code>margin-top</code> properties:
+    </p>
+
+    <p><code>style='position: absolute; margin-left: 10pt; margin-top: 10pt; width: 100pt;
+    z-index: 1.5'</code></p>
+
+    <p>A shape within a group can use <code>left</code>/<code>top</code> or <code>center-x</code>/<code>center-y</code>
+        as appropriate:</p>
+
+    <p><code>style='left: 100; top: 100; width: 1000; height: 1000'</code></p>
+
+    <p><code>style='center-x: 550; center-y: 550; width: 1000; height: 1000; rotation: 55deg'</code></p>
+
+    <p>The <code>rotation</code>, <code>z-index</code> and <code>flip</code> properties may
+        also be given when required.</p>
+    <code>
+
+    <p>&lt;shape<br>
+    &nbsp; type=null<br>
+    &nbsp; adj=null<br>
+    &nbsp; path=null<br>
+    &nbsp; opacity="100%"<br>
+    &nbsp; chromakey="none"<br>
+    &nbsp; stroke="true"<br>
+    &nbsp; strokecolor="black"<br>
+    &nbsp; strokeweight="0.75pt"<br>
+    &nbsp; fill="true"<br>
+    &nbsp; fillcolor="white"<br>
+    &nbsp; print="true"<br>
+    &nbsp; id=null<br>
+    &nbsp; class=null<br>
+    &nbsp; style='visibility: visible'<br>
+    &nbsp; title=null<br>
+    &nbsp; href=null<br>
+    &nbsp; target=null<br>
+    &nbsp; alt=null<br>
+    &nbsp; coordsize="1000, 1000"<br>
+    &nbsp; coordorigin="0, 0"<br>
+    &nbsp; wrapcoords=null<br>
+    /&gt;</p>
+    </code>
+
+    <h4><a name="_Toc416858387">The <code>shapetype</code> Element</a></h4>
+
+    <h5>Description</h5>
+
+    <p>This is the element used to describe a shape so that it may be referenced at a later
+        point in the document by a <code>shape</code> element.&nbsp; It is identical to the <code>shape</code>
+        element except that it cannot reference another <code>shapetype</code> element and that
+        the <code>visibility</code> property is always <code>hidden</code>.&nbsp; (Authoring
+        agents may choose to make <code>shapetype</code> elements visible to allow them to be
+        edited - in this case the CSS positioning properties become relevant.)</p>
+
+    <p>When a <code>shape</code> element makes reference to a <code>shapetype</code>, the <code>shape</code>
+        may duplicate some of the attributes that have already been specified in the <code>shapetype</code>.
+        &nbsp; In these cases, the attributes in the <code>shape</code> override those of the <code>shapetype.</code></p>
+    <code>
+
+    <p>&lt;!element shapetype (%shape.elements;)* &gt;</p>
+
+    <p>&lt;!attlist shapetype %coreattrs; %shapeattrs;<br>
+    &nbsp; adj&nbsp; cdata #implied -- list of adjust values for parameterized paths --<br>
+    &nbsp; path cdata #implied -- string with command set describing a path --<br>
+    &gt;</p>
+    </code>
+
+    <h5>Attribute Descriptions</h5>
+
+    <p>See <code>&lt;shape&gt;</code>. </p>
+
+    <h5>XML Template</h5>
+    <code>
+
+    <p>&lt;shapetype<br>
+    &nbsp; adj=null<br>
+    &nbsp; path=null<br>
+    &nbsp; opacity="100%"<br>
+    &nbsp; chromakey="none"<br>
+    &nbsp; stroke="true"<br>
+    &nbsp; strokecolor="black"<br>
+    &nbsp; strokeweight="0.75pt"<br>
+    &nbsp; fill="true"<br>
+    &nbsp; fillcolor="white"<br>
+    &nbsp; print="true"<br>
+    &nbsp; id=null<br>
+    &nbsp; class=null<br>
+    &nbsp; style='visibility: visible'<br>
+    &nbsp; title=null<br>
+    &nbsp; href=null<br>
+    &nbsp; target=null<br>
+    &nbsp; alt=null<br>
+    &nbsp; coordsize="1000, 1000"<br>
+    &nbsp; coordorigin="0, 0"<br>
+    &nbsp; wrapcoords=null<br>
+    /&gt;</p>
+    </code>
+
+    <h4><a name="_Toc416858388">The <code>group</code> Element</a></h4>
+
+    <p>This top-level element is used to group shapes (including other groups) so that they
+        can be positioned and transformed as a single unit.</p>
+    <code>
+
+    <p>&lt;!element group<br>
+    &nbsp; (group | shape | shapetype | line | polyline | curve | rect | roundrect | oval |
+    arc | image)*<br>
+    &gt;</p>
+
+    <p>&lt;!attlist group %coreattrs; &gt;</p>
+    </code>
+
+    <h5>Attribute Descriptions</h5>
+
+    <p>See <code>&lt;shape&gt;</code> for the descriptions of the following attributes: <code>id</code>,
+        <code>class</code>, <code>style</code> (<code>top</code>, <code>left</code>, <code>width</code>,
+        <code>height</code>, <code>rotation</code>, <code>z-index</code>, <code>position</code>, <code>visibility</code>),
+        <code>title</code>, <code>href</code>, <code>target</code>, <code>alt</code>, <code>coordsize</code>,
+        <code>coordorigin</code>.
+    </p>
+
+    <h5>XML template</h5>
+    <code>
+
+    <p>&lt;group<br>
+    &nbsp; id=null<br>
+    &nbsp; class=null<br>
+    &nbsp; style='visibility: visible'<br>
+    &nbsp; title=null<br>
+    &nbsp; href=null<br>
+    &nbsp; target=null<br>
+    &nbsp; alt=null<br>
+    &nbsp; coordsize="1000, 1000"<br>
+    &nbsp; coordorigin="0, 0"<br>
+    &nbsp; wrapcoords=null<br>
+    /&gt;</p>
+    </code>
+
+    <h4><a name="_Toc416858389">The <code>background</code> Element</a></h4>
+
+    <h5>Description</h5>
+
+    <p>This element describes the fill of the background of a page using vector graphics
+        fills.&nbsp; This illustrates how the rendering description of VML can be extended to
+        existing and new HTML objects.</p>
+    <code>
+
+    <p>&lt;!element background (fill) &gt;</p>
+
+    <p>&lt;!attlist background<br>
+    &nbsp; id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id&nbsp;&nbsp;&nbsp; #implied --
+    document-wide unique id --<br>
+    &nbsp; fill&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied -- Boolean whether to fill the
+    shape or not --<br>
+    &nbsp; fillcolor cdata #implied –- RGB color to use for the fill --<br>
+    &gt;</p>
+    </code>
+
+    <h5>Attribute Descriptions</h5>
+
+    <p>See <code>&lt;shape&gt;</code> for the descriptions of <code>id</code>, <code>fill</code>
+        and <code>fillcolor</code>.</p>
+
+    <h5>XML template</h5>
+    <code>
+
+    <p>&lt;background<br>
+    &nbsp; id=null<br>
+    &nbsp; fill="true"<br>
+    &nbsp; fillcolor="white"<br>
+    /&gt;</p>
+    </code>
+
+    <h3><a name="_Toc416858390">Advanced Properties of Shapes</a></h3>
+
+    <p>The following sub-elements may be used to describe more advanced properties of shapes.
+        For example, the shape element only allows the description of a solid color fill. One
+        would use the <code>fill</code> sub-element to describe a gradient fill.</p>
+
+    <h4><a name="_Toc416858391">The <code>path</code> Element</a></h4>
+
+    <p>This sub-element may appear inside a <code>shape</code> or a <code>shapetype</code> to
+        define the path that makes up the shape. This is done through a string that contains a
+        rich set of pen movement commands.&nbsp; This sub-element also describes the <em>limo-stretch</em>
+        point, inscribed textbox rectangle locations, and connection site locations.&nbsp; The
+        limo-stretch definition and the <code>formulas</code> element (described below) allow
+        greater designer control of how the path scales. &nbsp; They allow, for example,
+        definition of a true rounded corner rectangle where the corners remain circular even
+        though the rectangle is scaled anisotropically.</p>
+    <code>
+
+    <p>&lt;!element path (null)&gt;</p>
+
+    <p>&lt;!attlist path<br>
+    &nbsp; id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; id
+    &nbsp;&nbsp;&nbsp;#implied -- document-wide unique id --<br>
+    &nbsp; v&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;cdata #implied -- string containing pen movement commands --<br>
+    &nbsp; limo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata
+    #implied -- point to do a limo stretch --<br>
+    &nbsp; fillok&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied -- path
+    may be filled --<br>
+    &nbsp; strokeok&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied -- path may be
+    stroked --<br>
+    &nbsp; shadowok&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied -- path may be
+    used to create a shadow --<br>
+    &nbsp; arrowok&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied --
+    arrowheads may be drawn on path --<br>
+    &nbsp; gradientshapeok cdata #implied -- how to interpret gradientradial --<br>
+    &nbsp; textpathok&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied -- path is designed for use
+    with textpath --<br>
+    &nbsp; textboxrect&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied -- rectangle to hold label text
+    --<br>
+    &gt;</p>
+    </code>
+
+    <h5>Properties</h5>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td>Name Space</td>
+                <td>Attribute</td>
+                <td>Type</td>
+                <td>Default Value</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>id</td>
+                <td>string</td>
+                <td>null</td>
+                <td>A unique ID that identifies the shape. Used by script to reference the shape in a
+                    collection.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>v</td>
+                <td>string</td>
+                <td>null</td>
+                <td>A string containing the commands that define the path. (See below for definition of
+                    the command set).</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>limo</td>
+                <td>vector2D</td>
+                <td>"0,0"</td>
+                <td>A point along the x and y dimensions of a shape where the shape will limo stretch.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>fillok</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>If set the path may be filled, if unset any fill specification on the path should be
+                    ignored</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>strokeok</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>If set the path may be stroked, if unset any stroke specification on the path should
+                    be ignored</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>shadowok</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>If set a shadow path may be created from the path, if unset any shadow specification
+                    should be ignored.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>arrowok</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>If set arrowheads may be added to the ends of the path, if unset any arrowheads
+                    specified in the <code>stroke</code> element should be ignored.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>gradientshapeok</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>If set a gradient fill can be produced by repeated drawing of scaled versions of the
+                    path - this must only be set if it is possible to scale the path in such a way that a fill
+                    is always contained in the original path.&nbsp; This controls the interpretation of the <code>fill</code>
+                    element <code>type="gradientradial"</code> attribute setting.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>textpathok</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>If set this indicates that the path is an appropriate warping path for the <code>textpath</code>
+                    element.&nbsp; If not set the <code>textpath</code> element must be ignored.&nbsp;
+                    Normally textpath paths are not useful unless they are associated with a <code>textpath</code>
+                    element.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>textboxrect</td>
+                <td>string</td>
+                <td>null</td>
+                <td>A string of the form "L1,T1,R1,B1; L2,T2,R2,B2;…" If the string is
+                    null, then the textbox is set equal to the geometry box. In practice 1, 2, 3 or 6 text
+                    rectangles may be specified. Detail on how more than one rect is used, is specified
+                    elsewhere. The left, top, right, or bottom values can be a reference to a formula in the
+                    form <code>@<em>number</em></code> where <em><code>number</code></em> is the
+                    formula’s ordinal number.&nbsp; The default is the same as the containing block.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>The <code>v</code> attribute string (or the <code>path</code> property of <code>shape</code>)
+        is made up of a rich set of commands as summarized in the following table:</p>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td align="center"><a name="table.path.commands">command</a></td>
+                <td align="center">Name</td>
+                <td align="center">parameters</td>
+                <td align="center">Description</td>
+            </tr>
+            <tr>
+                <td><b><code>m</code></b></td>
+                <td><code>moveto</code></td>
+                <td>2</td>
+                <td>Start a new sub-path at the given (x,y) coordinate</td>
+            </tr>
+            <tr>
+                <td><b><code>l</code></b></td>
+                <td><code>lineto</code></td>
+                <td>2*</td>
+                <td>Draw a line from the current point to the given (x,y) coordinate which becomes the new
+                    current point. A number of coordinate pairs may be specified to form a polyline.</td>
+            </tr>
+            <tr>
+                <td><b><code>c</code></b></td>
+                <td><code>curveto</code></td>
+                <td>6*</td>
+                <td>Draw a cubic b�zier curve from the current point to the coordinate given by the final
+                    two parameters, the control points given by the first four parameters. The current point
+                    becomes the end point of the b�zier.</td>
+            </tr>
+            <tr>
+                <td><b><code>x</code></b></td>
+                <td><code>close</code></td>
+                <td>0</td>
+                <td>Close the current sub-path by drawing a straight line from the current point to the
+                    original moveto point.</td>
+            </tr>
+            <tr>
+                <td><b><code>e</code></b></td>
+                <td><code>end</code></td>
+                <td>0</td>
+                <td>End the current set of sub-paths. A given set of sub-paths (as delimited by end) is
+                    filled using eofill. Subsequent sets of sub-paths are filled independently and
+                    superimposed on existing ones.</td>
+            </tr>
+            <tr>
+                <td><b><code>t</code></b></td>
+                <td><code>rmoveto</code></td>
+                <td>2*</td>
+                <td>Start a new sub-path at the coordinate (cpx+x, cpy+y).</td>
+            </tr>
+            <tr>
+                <td><b><code>r</code></b></td>
+                <td><code>rlineto</code></td>
+                <td>2*</td>
+                <td>Draw a line from the current point to the given relative coordinate (cpx+x, cpy+y).</td>
+            </tr>
+            <tr>
+                <td><b><code>v</code></b></td>
+                <td><code>rcurveto</code></td>
+                <td>6*</td>
+                <td>Cubic b�zier curve using the given coordinate relative to the current point.</td>
+            </tr>
+            <tr>
+                <td><b><code>nf</code></b></td>
+                <td><code>nofill</code></td>
+                <td>0</td>
+                <td>The current set of sub-paths (delimited by end - <code>e</code>) will not be filled.</td>
+            </tr>
+            <tr>
+                <td><b><code>ns</code></b></td>
+                <td><code>nostroke</code></td>
+                <td>0</td>
+                <td>The current set of sub-paths (delimited by end - <code>e</code>) will not be filled.</td>
+            </tr>
+            <tr>
+                <td><b><code>ae</code></b></td>
+                <td><code>angleellipseto</code></td>
+                <td>6*</td>
+                <td>center (x,y) size(w,h) start-angle, end-angle. Draw a segment of an ellipse as
+                    describes using these parameters. A straight line is drawn from the current point to the
+                    start point of the segment.</td>
+            </tr>
+            <tr>
+                <td><b><code>al</code></b></td>
+                <td><code>angleellipse</code></td>
+                <td>6*</td>
+                <td>Same as angleellipseto except that there is an implied moveto the starting point of
+                    the segment.</td>
+            </tr>
+            <tr>
+                <td><b><code>at</code></b></td>
+                <td><code>arcto</code></td>
+                <td>8*</td>
+                <td>left, top, right, bottom start(x,y) end(x,y). The first four values define the
+                    bounding box of an ellipse. The last four define two radial vectors. A segment of the
+                    ellipse is drawn which starts at the angle defined by the start radius vector and ends at
+                    the angle defined by the end vector. A straight line is drawn from the current point to
+                    the start of the arc. The arc is always drawn in a counterclockwise direction.</td>
+            </tr>
+            <tr>
+                <td><b><code>ar</code></b></td>
+                <td><code>arc</code></td>
+                <td>8*</td>
+                <td>left, top, right, bottom start(x,y) end(x,y). Same as arcto however a new sub-path is
+                    started by an implied moveto the start point of the arc.</td>
+            </tr>
+            <tr>
+                <td><b><code>wa</code></b></td>
+                <td><code>clockwisearcto</code></td>
+                <td>8*</td>
+                <td>left, top, right, bottom start(x,y) end(x,y). Same as arcto but the arc is drawn in a
+                    clockwise direction.</td>
+            </tr>
+            <tr>
+                <td><b><code>wr</code></b></td>
+                <td><code>clockwisearc</code></td>
+                <td>8*</td>
+                <td>left, top, right, bottom start(x,y) end(x,y). Same as arc but the arc is drawn in a
+                    clockwise direction</td>
+            </tr>
+            <tr>
+                <td><b><code>qx</code></b></td>
+                <td><code>ellipticalqaudrantx</code></td>
+                <td>2*</td>
+                <td>end(x,y). <p>A quarter ellipse is drawn from the current point to the given end point.
+                        The elliptical segment is initially tangential to a line parallel to the x-axis. (i.e. the
+                        segment starts out horizontal)</p>
+                </td>
+            </tr>
+            <tr>
+                <td><b><code>qy</code></b></td>
+                <td><code>ellipticalquadranty</code></td>
+                <td>2*</td>
+                <td>end(x,y). <p>Same as ellipticalquadrantx except that the elliptical segment is
+                        initially tangential to a line parallel to the y-axis. (i.e. the segment starts out
+                        vertical)</p>
+                </td>
+            </tr>
+            <tr>
+                <td><b><code>qb</code></b></td>
+                <td><code>quadraticbezier</code></td>
+                <td>2+2*</td>
+                <td>(controlpoint(x,y))*, end(x,y) <p>Defines one or more quadratic b�zier curves by
+                        means of control points and an end point.&nbsp; Intermediate (on-curve) points are
+                        obtained by interpolation between successive control points as in the OpenType font
+                        specification.&nbsp; The sub-path need not be started in which case the sub-path will be
+                        closed.&nbsp; In this case the last point of the sub-path defines the start point of the
+                        quadratic b�zier.</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <b>
+
+    </b>
+    <h5><b></b>Edit behavior extensions<b></b></h5><b>
+    </b>
+
+    <p>VML does not mandate a user interface for editing applications. It attempts to convey
+        information about the object which is being edited - this may imply the behavior of an
+        editor.&nbsp; One common operation implied by VML is the need to edit the points in a
+        path. The edit behavior extensions attempt to identify some common behavior of <code>v</code>
+        objects so that applications behave consistently however the information encoded is very
+        low level.&nbsp; Consequently these extensions may be ignored completely by a conforming
+        application and any conforming application is free to remove or rewrite the edit
+        information in the path.</p>
+
+    <p>The extensions define the behavior of all following points under editing operations
+        which move the points or the associated line segments. Nine different behaviors are
+        identified for the vertices in the path attribute (the end points, not the control points)
+        depending on whether the associated line segment is a line or curve.</p>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td rowspan="2" height="22" align="center">command</td>
+                <td rowspan="2" height="22" align="center">Name</td>
+                <td rowspan="2" height="22" align="center">parameters</td>
+                <td colspan="2" height="22" align="center">Description</td>
+            </tr>
+            <tr>
+                <td align="center">vertex behavior</td>
+                <td align="center">line segment</td>
+            </tr>
+            <tr>
+                <td><b><code>ha</code></b></td>
+                <td><code>AutoLine</code></td>
+                <td>0</td>
+                <td>auto</td>
+                <td>line</td>
+            </tr>
+            <tr>
+                <td><b><code>hb</code></b></td>
+                <td><code>AutoCurve</code></td>
+                <td>0</td>
+                <td>auto</td>
+                <td>curve</td>
+            </tr>
+            <tr>
+                <td><b><code>hc</code></b></td>
+                <td><code>CornerLine</code></td>
+                <td>0</td>
+                <td>corner</td>
+                <td>line</td>
+            </tr>
+            <tr>
+                <td><b><code>hd</code></b></td>
+                <td><code>CornerCurve</code></td>
+                <td>0</td>
+                <td>corner</td>
+                <td>curve</td>
+            </tr>
+            <tr>
+                <td><b><code>he</code></b></td>
+                <td><code>SmoothLine</code></td>
+                <td>0</td>
+                <td>smooth</td>
+                <td>line</td>
+            </tr>
+            <tr>
+                <td><b><code>hf</code></b></td>
+                <td><code>SmoothCurve</code></td>
+                <td>0</td>
+                <td>smooth</td>
+                <td>curve</td>
+            </tr>
+            <tr>
+                <td><b><code>hg</code></b></td>
+                <td><code>SymmetricLine</code></td>
+                <td>0</td>
+                <td>symmetric</td>
+                <td>line</td>
+            </tr>
+            <tr>
+                <td><b><code>hh</code></b></td>
+                <td><code>SymmetricCurve</code></td>
+                <td>0</td>
+                <td>symmetric</td>
+                <td>curve</td>
+            </tr>
+            <tr>
+                <td><b><code>hi</code></b></td>
+                <td><code>Freeform</code></td>
+                <td>0</td>
+                <td>auto</td>
+                <td>any</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>The line segment type defines whether the behavior applies to points which are adjacent
+        to lines or whether it applies to points adjacent to curves. The vertex behavior specifies
+        how the two line segments either side of a point are expected to behave as the point is
+        moved.</p>
+
+    <table border="3" height="192">
+        <tbody>
+            <tr>
+                <td height="44">Vertex behavior</td>
+                <td height="44">Are (curve) control points calculated automatically?</td>
+                <td height="44">Are control points either side of the vertex equidistant?</td>
+                <td height="44">Are control points co-linear with the vertex?</td>
+                <td height="44">Are control points visible to the user?</td>
+            </tr>
+            <tr>
+                <td height="22">Auto</td>
+                <td align="CENTER" height="22">yes</td>
+                <td align="CENTER" height="22">-</td>
+                <td align="CENTER" height="22">-</td>
+                <td align="CENTER" height="22">no </td>
+            </tr>
+            <tr>
+                <td height="22">Symmetric</td>
+                <td align="CENTER" height="22">no</td>
+                <td align="CENTER" height="22">yes</td>
+                <td align="CENTER" height="22">yes</td>
+                <td align="CENTER" height="22">yes</td>
+            </tr>
+            <tr>
+                <td height="24">Smooth</td>
+                <td align="CENTER" height="24">no</td>
+                <td align="CENTER" height="24">no</td>
+                <td align="CENTER" height="24">yes</td>
+                <td align="CENTER" height="24">yes</td>
+            </tr>
+            <tr>
+                <td height="22">Corner</td>
+                <td align="CENTER" height="22">no</td>
+                <td align="CENTER" height="22">no</td>
+                <td align="CENTER" height="22">no</td>
+                <td align="CENTER" height="22">yes</td>
+            </tr>
+            <tr>
+                <td height="22">Freeform</td>
+                <td align="CENTER" height="22">no</td>
+                <td align="CENTER" height="22">no</td>
+                <td align="CENTER" height="22">no</td>
+                <td align="CENTER" height="22">yes</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>The <em>auto</em> behavior implements some application-defined algorithm to guess the
+        correct control points when a point is moved. This is, effectively, the default - it
+        implies that the application should use other information to determine the control point
+        behavior. The symmetric, smooth and corner behaviors determine how one control point
+        behaves when the other at that vertex is moved. The freeform behavior does not recalculate
+        control point position as vertices are moved.</p>
+
+    <h5>Lexical format of the <code>v</code> attribute value</h5>
+
+    <p>This value consists of commands followed by zero or more parameters.&nbsp; The number
+        of parameters is given in the table <a href="#table.path.commands">above</a>.&nbsp; In
+        this table, the suffix "*" indicates that the parameter set may be repeated (but
+        the number of parameters must be a multiple of the given number).&nbsp; The quadratic
+        b�zier must have more than two pairs of parameters.
+
+    </p>
+    <ul>
+        <li>Either commas or spaces may be used to delimit parameters for each command.&nbsp; E.g.
+            "<code>m 0,0</code>" and "<code>m0 0</code>" are both acceptable.</li>
+        <li>Parameters that are zero may be omitted using commas with no parameter.&nbsp; E.g.
+            "<code>c 10,10,0,0,25,13</code>" and "<code>c 10,10,,,25,13</code>"
+            are equivalent.</li>
+        <li>Parameterized paths are also allowed. In this case, the shape must also have a <code>formula</code>
+            element with a list of formulas that may be substituted into the path using the <code>@</code>
+            symbol followed by the number of the formula. The <code>adj</code> property of the shape
+            contains the input parameters for these formulas.&nbsp; E.g. "<code>moveto @1@4</code>".
+            &nbsp; The evaluations of the formulas are substituted into the appropriate positions.
+            &nbsp; Note that <code>@</code> also serves as a delimiter.</li>
+    </ul>
+
+    <p>In the event that a path is malformed VML requires the following behavior if the page
+        is displayed.
+
+    </p>
+    <ul>
+        <li>Missing parameter values must be supplied as 0.</li>
+        <li>Unrecognized commands must be skipped - they should be treated as though they are space
+            characters.</li>
+    </ul>
+
+    <p>An application is also permitted to fail to display the page (with a diagnostic) or to
+        alert the user that some content is malformed.</p>
+
+    <h5>XML template</h5>
+    <code>
+
+    <p>&lt;path<br>
+    &nbsp; id=null<br>
+    &nbsp; v=null<br>
+    &nbsp; limo="0,0"<br>
+    &nbsp; textboxrect=null<br>
+    /&gt;</p>
+    </code>
+
+    <h4><a name="_Toc416858392">The <code>formulas</code> Element</a></h4>
+
+    <p>This sub-element may appear inside a <code>shape</code> or a <code>shapetype</code> to
+        define formulas that can vary the path of a shape, its inscribed text rectangles, and
+        connection sites.&nbsp; Formula values change as the <code>adj</code> values change on the
+        shape.&nbsp; Formulas can reference other formulas defined earlier in the same <code>formulas</code>
+        element.</p>
+    <code>
+
+    <p>&lt;!element formulas (f)*&gt;</p>
+    </code>
+
+    <h5>Attribute Descriptions for <code>&lt;formulas&gt;</code></h5>
+
+    <p>none</p>
+
+    <h4>The <code>f</code> element of <code>formulas</code></h4>
+
+    <p>Each <code>f</code> element defines a single value as the result of the evaluation of
+        an expression. The expression is defined by the <code>cdata</code> content of the <code>eqn</code>
+        attribute and has the general form of an operation followed by up to three arguments,
+        which may be adjust handle values, the results of earlier guide formulas, fixed numbers or
+        pre-defined values.</p>
+    <code>
+
+    <p>&lt;!element f (null)&gt;</p>
+
+    <p>&lt;!attlist f<br>
+    &nbsp; eqn cdata #implied-- string with the formula definition --<br>
+    &gt;</p>
+    </code>
+
+    <h5>Attribute Descriptions &lt;f&gt;</h5>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td>Name Space</td>
+                <td>Attribute</td>
+                <td>Type</td>
+                <td>Default Value</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>eqn</td>
+                <td>string</td>
+                <td>null</td>
+                <td>
+                    <p align="left">A single formula, evaluated as described below.</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p align="left">In the following table, the arguments are given the names <code><strong>v</strong></code>,
+        <code><strong>P1</strong></code>, <code><strong>P2</strong></code> (in that order), thus
+        the element is simply:
+    </p>
+
+    <blockquote>
+        <div align="left">
+            <pre><font color="#ff0000">&lt;f eqn="<strong>operation v P1 P2</strong>"&gt;</font></pre>
+        </div>
+    </blockquote>
+
+    <table border="1" cellpadding="4">
+        <tbody>
+            <tr>
+                <td align="middle">operation</td>
+                <td align="middle">para-<br>
+                    meters</td>
+                <td align="middle">exact?</td>
+                <td align="middle">result</td>
+                <td align="middle">description</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.val"><code><strong>val</strong></code></a></td>
+                <td align="middle"><code><strong>1</strong></code></td>
+                <td>yes</td>
+                <td><code><strong>v</strong></code></td>
+                <td>Defines a <code>guide</code> value from some other value.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.sum"><code><strong>sum</strong></code></a></td>
+                <td align="middle"><code><strong>3</strong></code></td>
+                <td>yes</td>
+                <td><code><strong>v + P1 � P2</strong></code></td>
+                <td>Used for addition and subtraction.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.product"><code><strong>product</strong></code></a></td>
+                <td align="middle"><code><strong>3</strong></code></td>
+                <td>rounds</td>
+                <td><code><strong>v � P1 / P2</strong></code></td>
+                <td>Used for multiplication and division.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.mid"><code><strong>mid</strong></code></a></td>
+                <td align="middle"><code><strong>2</strong></code></td>
+                <td>rounds to zero</td>
+                <td><code><strong>(v + P1) / 2</strong></code></td>
+                <td>Average.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.abs"><code><strong>abs</strong></code></a></td>
+                <td align="middle"><code><strong>1</strong></code></td>
+                <td>yes</td>
+                <td><code><strong>abs(v)</strong></code></td>
+                <td>Absolute value.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.min"><code><strong>min</strong></code></a></td>
+                <td align="middle"><code><strong>2</strong></code></td>
+                <td>yes</td>
+                <td><code><strong>min(v, P1)</strong></code></td>
+                <td>The lesser of <code><strong>v</strong></code> and <code><strong>P1</strong></code>.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.max"><code><strong>max</strong></code></a></td>
+                <td align="middle"><code><strong>2</strong></code></td>
+                <td>yes</td>
+                <td><code><strong>max(v, P1)</strong></code></td>
+                <td>The greater of <code><strong>v</strong></code> and <code><strong>P1</strong></code>.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.if"><code><strong>if</strong></code></a></td>
+                <td align="middle"><code><strong>3</strong></code></td>
+                <td>yes</td>
+                <td><code><strong>v &gt; 0 ? P1 : P2</strong></code></td>
+                <td>Condition testing.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.mod"><code><strong>mod</strong></code></a></td>
+                <td align="middle"><code><strong>3</strong></code></td>
+                <td>no</td>
+                <td><img alt="The square root of ( v squared plus P1 squared plus P2 squared )" src="/TR/1998/VML-19980513-images/modulus.gif" width="93" height="23"></td>
+                <td>Modulus (etc.)</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.atan2"><code><strong>atan2</strong></code></a></td>
+                <td align="middle"><code><strong>2</strong></code></td>
+                <td>no</td>
+                <td><code><strong>atan2(P1, v)</strong></code></td>
+                <td>Polar arithmetic – result is in degrees�2<sup><sup>16</sup></sup>. (<a href="#t.angle"><code><strong>fd</strong></code></a> units.)</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.sin"><code><strong>sin</strong></code></a></td>
+                <td align="middle"><code><strong>2</strong></code></td>
+                <td>no</td>
+                <td><code><strong>v � sin(P1)</strong></code></td>
+                <td>Sine, argument is in degrees�2<sup><sup>16</sup></sup>. (<a href="#t.angle"><code><strong>fd</strong></code></a>
+                    units.)</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.cos"><code><strong>cos</strong></code></a></td>
+                <td align="middle"><code><strong>2</strong></code></td>
+                <td>no</td>
+                <td><code><strong>v � cos(P1)</strong></code></td>
+                <td>Cosine, argument is in degrees�2<sup><sup>16</sup></sup>. (<a href="#t.angle"><code><strong>fd</strong></code></a>
+                    units.)</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.cosatan2"><code><strong>cosatan2</strong></code></a></td>
+                <td align="middle"><code><strong>3</strong></code></td>
+                <td>no</td>
+                <td><code><strong>v � cos(atan2(P2, P1)</strong></code></td>
+                <td>Preserves full accuracy in intermediate calculation.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.sinatan2"><code><strong>sinatan2</strong></code></a></td>
+                <td align="middle"><code><strong>3</strong></code></td>
+                <td>no</td>
+                <td><code><strong>v � sin(atan2(P2, P1)</strong></code></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.sqrt"><code><strong>sqrt</strong></code></a></td>
+                <td align="middle"><code><strong>1</strong></code></td>
+                <td>no</td>
+                <td><code><strong>sqrt(v)</strong></code></td>
+                <td>Result is positive, rounds down.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.sumangle"><code><strong>sumangle</strong></code></a></td>
+                <td align="middle"><code><strong>3</strong></code></td>
+                <td>yes</td>
+                <td><code><strong>v + P1�2<sup><sup>16</sup></sup> - P2�2<sup><sup>16</sup></sup></strong></code></td>
+                <td><code><strong>v</strong></code> is an existing angle (scaled by 2<sup><sup>16</sup></sup>),<br>
+                    <code><strong>P1</strong></code> and <code><strong>P2</strong></code> are numbers of
+                    degrees.
+                </td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.ellipse"><code><strong>ellipse</strong></code></a></td>
+                <td align="middle"><code><strong>3</strong></code></td>
+                <td>no</td>
+                <td><img alt="P2 times the square root of ( one minus ( v over P1 ) squared )" src="/TR/1998/VML-19980513-images/ellipse.gif" width="79" height="45"></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.tan"><code><strong>tan</strong></code></a></td>
+                <td align="middle"><code><strong>2</strong></code></td>
+                <td>no</td>
+                <td><code><strong>v � tan(P1)</strong></code></td>
+                <td>Tangent, argument is in degrees�2<sup><sup>16</sup></sup>. (<a href="#t.angle"><code><strong>fd</strong></code></a>
+                    units.)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>The formulas are evaluated to full precision - however the result is always a 32-bit
+        integer.&nbsp; Formula authors should avoid formulas which are discontinuous - not only
+        are many of the trigonometric operations inexact, the transformations within the
+        coordinate spaces are also inexact.&nbsp; This can mean that a set of formulas which is
+        discontinuous evaluates to give very different&nbsp; path values with the same input on
+        two different systems.</p>
+
+    <p>When an operation is marked as exact then a conforming implementation must always
+        generate the correct arithmetic answer (unless the calculations overflow internally).
+        &nbsp; The <code>product</code> operation is required to round to the nearest integer.
+        &nbsp; If the result is exactly 0.5 then it must be <i>rounded</i> up to the next
+        numerically greater integer.&nbsp; (So the absolute value of a negative result will
+        decrease - -1.5 must be evaluated as -1.)</p>
+
+    <p>The <code>mid</code> operation is required to round towards 0.</p>
+
+    <p>All other operations are inexact, however the implementation must round non-integral
+        values down (towards -infinity) and should perform internal calculations with this form of
+        rounding.</p>
+
+    <p>The arguments used in the evaluation of a formula are normally either fixed numbers,
+        the result of the evaluation of a previous guide formula or an <em>adjust value</em> - the
+        value of the corresponding entry in the shape <code>adj</code> attribute.&nbsp; Fixed
+        numbers must be positive integral values in the range 0 to 65535, i.e. unsigned 16 bit
+        numbers.</p>
+
+    <table border="1" cellpadding="9">
+        <tbody>
+            <tr>
+                <td align="middle">value</td>
+                <td align="middle">description</td>
+            </tr>
+            <tr>
+                <td><code><b><a name="path.guide.parameter.guide"><strong>@</strong></a></b><em>n</em></code></td>
+                <td>The value of guide formula <em>n</em>.&nbsp; <em>n</em> must be less than the current
+                    guide formula index (0 is the first guide formula index.)</td>
+            </tr>
+            <tr>
+                <td><code><a name="path.guide.parameter.adjust"><strong>#</strong></a><em>n</em></code></td>
+                <td>Adjust (<code>adj</code>) value <i>n</i>.&nbsp; <i>n</i> must be in the range 0 to 7.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.parameter.width"><code><strong>width</strong></code></a></td>
+                <td>The width defined by the <code>coordsize</code> attribute.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.parameter.height"><code><strong>height</strong></code></a></td>
+                <td>The height defined by the <code>coordsize</code> attribute.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.parameter.xcenter"><code><strong>xcenter</strong></code></a></td>
+                <td>The x ordinate of the center of <code>coordorigin</code>, <code>coordsize</code> (<code>x+w/2</code>).</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.parameter.ycenter"><code><strong>ycenter</strong></code></a></td>
+                <td>The y ordinate of the center of <code>coordorigin</code>, <code>coordsize</code> (<code>y+h/2</code>).</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.parameter.xlimo"><code><strong>xlimo</strong></code></a></td>
+                <td>The x value of the <code>limo</code> attribute.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.parameter.ylimo"><code><strong>ylimo</strong></code></a></td>
+                <td>The y value of the <code>limo</code> attribute.</td>
+            </tr>
+            <tr>
+                <td><code><strong><a name="path.guide.parameter.hasstroke">hasstroke</a></strong></code></td>
+                <td>1 if the shape has a stroke operation, 0 if it does not.&nbsp; (The <code>on</code>
+                    attribute of the <code>stroke</code> element, expressed as a number.)</td>
+            </tr>
+            <tr>
+                <td><code><strong><a name="path.guide.parameter.hasfill">hasfill</a></strong></code></td>
+                <td>1 if the shape has a fill operation, 0 if it does not.&nbsp; (The <code>on</code>
+                    attribute of the <code>fill</code> element, expressed as a number.)</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.parameter.pixellinewidth"><code><strong>pixellinewidth</strong></code></a></td>
+                <td>The line width in output device pixels. This is used to outset lines from the edge of
+                    a rectangle on the assumption that the implementation draws to lower right pixel in
+                    preference to the upper left pixel when a line is on a pixel boundary.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.parameter.pixelwidth"><code><strong>pixelwidth</strong></code></a></td>
+                <td>The width of the shape in device pixels (i.e. the <code>coordsize</code> width
+                    transformed into device space.)</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.parameter.pixelheight"><code><strong>pixelheight</strong></code></a></td>
+                <td>The height of the <code>coordsize</code> in device pixels.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.parameter.emuwidth"><code><strong>emuwidth</strong></code></a></td>
+                <td>The width of the <code>coordsize</code> in EMUs.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.parameter.emuheight"><code><strong>emuheight</strong></code></a></td>
+                <td>The height of the <code>coordsize</code> in EMUs.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.parameter.emuwidth2"><code><strong>emuwidth2</strong></code></a></td>
+                <td>Half the width of the <code>coordsize</code> in EMUs.</td>
+            </tr>
+            <tr>
+                <td><a name="path.guide.parameter.emuheight2"><code><strong>emuheight2</strong></code></a></td>
+                <td>Half the height of the <code>coordsize</code> in EMUs.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Notice that a <code>pixel</code> value should be in a square coordinate space - so it
+        may be necessary to (effectively) report a higher device resolution than that which is
+        available if the device has non-square pixels.&nbsp; The pixel value parameters serve the
+        specific purpose of allowing a formula author to handle some aspects of device
+        pixelization.&nbsp; They must not be used to produce paths with elements which have a
+        constant physical size. The EMU parameters must be used for this purpose.</p>
+
+    <p>VML limits the total number of adjust values, guide formulas and adjust handles.
+
+    </p>
+    <ol>
+        <li>Up to 8 adjust values.</li>
+        <li>Up to 128 guide formulas.</li>
+        <li>Up to 4 adjust handles.</li>
+    </ol>
+
+    <h5>XML template</h5>
+
+    <p><code>&lt;formulas&gt;<br>
+    &nbsp; &lt;f eqn="sum #0 0 10800"/&gt;<br>
+    &nbsp; &lt;f eqn="prod #0 2 1"/&gt;<br>
+    &nbsp; &lt;f eqn="sum 21600 0 @1"/&gt;<br>
+    &nbsp; &lt;f eqn="sum 0 0 @2"/&gt;<br>
+    &nbsp; &lt;f eqn="sum 21600 0 @3"/&gt;<br>
+    &nbsp; &lt;f eqn="if @0 @3 0"/&gt;<br>
+    &nbsp; &lt;f eqn="if @0 21600 @1"/&gt;<br>
+    &nbsp; &lt;f eqn="if @0 0 @2"/&gt;<br>
+    &nbsp; &lt;f eqn="if @0 @4 21600"/&gt;<br>
+    &nbsp; &lt;f eqn="mid @5 @6"/&gt;<br>
+    &nbsp; &lt;f eqn="mid @8 @5"/&gt;<br>
+    &nbsp; &lt;f eqn="mid @7 @8"/&gt;<br>
+    &nbsp; &lt;f eqn="mid @6 @7"/&gt;<br>
+    &nbsp; &lt;f eqn="sum @6 0 @5"/&gt;<br>
+    &lt;/formulas&gt;</code></p>
+
+    <h4><a name="_Toc416858393">The <code>handles</code> Element</a></h4>
+
+    <p>This sub-element may appear inside a <code>shape</code> or a <code>shapetype</code> to
+        define user interface elements which can vary the <code>adj</code> values on the <code>shape</code>,
+        thereby changing the value of <code>formulas</code> and the rendering of a path based on <code>formulas</code>
+        and <code>adj</code> values.</p>
+    <code>
+
+    <p>&lt;!element handles (h)* &gt;</p>
+    </code>
+
+    <h5>Attribute Descriptions for &lt;handles&gt;</h5>
+
+    <p>none.</p>
+
+    <h4>The <code>h</code> sub-element of <code>handles</code></h4>
+
+    <p>Each handle is specified using a single <code>h</code> sub-element. &nbsp; This defines
+        which pair of adjust values store the position of the handle and how the handle position
+        can vary as the handle is adjusted.&nbsp; The handle is moved under user control, within
+        the constraints imposed by the handle definition, and the final position is stored back in
+        the adjust values.</p>
+
+    <p>Positions are stored within the <code>shape</code> coordinate space - this means that
+        handle positions are independent of the actual size of the shape.</p>
+    <code>
+
+    <p>&lt;!element h (null) &gt;</p>
+
+    <p>&lt;!attlist h<br>
+    &nbsp; position&nbsp;&nbsp;&nbsp; cdata #implied -- position of the handle --<br>
+    &nbsp; polar&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; cdata #implied -- center for a polar
+    (circular) handle --<br>
+    &nbsp; map&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; cdata #implied -- range to map the
+    handle value to --<br>
+    &nbsp; invx&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; cdata #implied -- invert position in X --<br>
+    &nbsp; invy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied -- invert position in
+    Y --<br>
+    &nbsp; switch&nbsp;&nbsp; &nbsp;&nbsp; cdata #implied -- switch x/y according to shape
+    aspect ratio --<br>
+    &nbsp; xrange&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied -- limits x range of handle --<br>
+    &nbsp; yrange&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied -- limits y range of handle --<br>
+    &nbsp; radiusrange cdata #implied -- limits radius of polar handle --<br>
+    &gt;</p>
+    </code>
+
+    <h5>Attribute Descriptions for &lt;h&gt;</h5>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td>Name Space</td>
+                <td>Attribute</td>
+                <td>Type</td>
+                <td>Default Value</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>position</td>
+                <td>Vector2D</td>
+                <td>0, 0</td>
+                <td>The x and y position of the adjust handle.&nbsp; Each value can be either a constant,
+                    a formula value (e.g., <code>@2</code>), <code>center</code>, <code>topleft</code>, <code>bottomright</code>,
+                    or an adjust value (e.g. <code>#3</code>). If a constant, formula value, <code>center</code>,
+                    <code>topleft</code>, or <code>bottomright</code> is specified, the handle position is
+                    fixed in that dimension. If an adjust value (e.g. <code>#3</code>) is specified, the
+                    handle is free to move that dimension and the adjust value is determined by the position
+                    of the handle.<p>If the <code>polar</code> attribute is specified, than the <code>position</code>
+                        attribute represents the radius and angle values of the handle instead of x and y.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>polar</td>
+                <td>Vector2D</td>
+                <td>&nbsp;</td>
+                <td>This specifies that the adjust handle has a polar adjustment behavior.&nbsp; The
+                    center position is specified by this attribute.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>map</td>
+                <td>Vector2D</td>
+                <td>0, 1000</td>
+                <td>The x, y positions of the adjust handle are mapped from the <code>coordsize</code>
+                    range into the given range.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>invx</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>The x position of the adjust handle is inverted by setting it to <code>coordorigin<sub>x</sub>
+        + coordsize<sub>x</sub> - x</code>.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>invy</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>The y position of the adjust handle is inverted by setting it to <code>coordorigin<sub>y</sub>
+        + coordsize<sub>y</sub> - y</code>.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>switch</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>The adjust handle is switched between the x and y direction depending on the aspect
+                    ratio of the shape.&nbsp; The x and y positions of the adjust handle are swapped when the
+                    shape is taller than it is wide.&nbsp; This is useful for shapes with limo behavior.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>xrange</td>
+                <td>vector2D</td>
+                <td>0,0</td>
+                <td>A range (min, max) of values that the adjust handle is limited to in the x direction.
+                    &nbsp; Each&nbsp; value may be a constant or a formula value (e.g., <code>@2</code>).
+                    &nbsp; If a value is omitted, the handle is free to move without limit in that direction.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>yrange</td>
+                <td>vector2D</td>
+                <td>0,0</td>
+                <td>A range (min, max) of values that the adjust handle is limited to in the y direction.
+                    &nbsp; Each value may be a constant or a formula value (e.g., <code>@2</code>).&nbsp; If a
+                    value is omitted, the handle is free to move without limit in that direction.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>radiusrange</td>
+                <td>vector2D</td>
+                <td>0,0</td>
+                <td>A range (min, max) of values that a radial adjust handle is limited to.&nbsp; Each
+                    value may be a constant or a formula value (e.g., <code>@2</code>).&nbsp; If a value is
+                    omitted, the handle is free to move without limit in that direction.&nbsp; This applies
+                    only to polar adjust handles.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5>XML template</h5>
+
+    <p><code>&lt;handles&gt;<br>
+    &nbsp; &lt;h<br>
+    &nbsp;&nbsp;&nbsp; position=null<br>
+    &nbsp;&nbsp;&nbsp; polar=null<br>
+    &nbsp;&nbsp;&nbsp; map="0, 1000"<br>
+    &nbsp;&nbsp;&nbsp; invx="false"<br>
+    &nbsp;&nbsp;&nbsp; invy="false"<br>
+    &nbsp;&nbsp;&nbsp; switch="false"<br>
+    &nbsp;&nbsp;&nbsp; xrange="0, 1000"<br>
+    &nbsp;&nbsp;&nbsp; yrange="0, 1000"<br>
+    &nbsp;&nbsp;&nbsp; radiusrange="0, 1000"<br>
+    &nbsp; /h&gt;<br>
+    &lt;/handles&gt;</code></p>
+
+    <h4><a name="_Toc416858394">The <code>fill</code> Element</a></h4>
+
+    <p>This sub-element may appear inside a <code>shape</code>, <code>shapetype</code>, <code>background</code>
+        or most predefined shape elements to describe how the path should be filled if something
+        beyond a solid color fill is desired.&nbsp; The attributes of the <code>fill</code>
+        element can used to describe a powerful set of image or gradient based fill patterns.
+        &nbsp; Extensions to the VML fill definition may be encoded as sub-elements of <code>fill</code>.</p>
+    <code>
+
+    <p>&lt;!element fill any&gt;</p>
+
+    <p>&lt;!attlist fill<br>
+    &nbsp; id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id
+    &nbsp;&nbsp;&nbsp; #implied -- document-wide unique id --<br>
+    &nbsp; type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; on&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; color&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; color2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; opacity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; src&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; size&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; origin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; position&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; alignshape&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; colors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; angle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; focus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; focussize&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; focusposition cdata #implied<br>
+    &nbsp; method&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &gt;</p>
+    </code>
+
+    <h5>Properties</h5>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td colspan="2">Name Space</td>
+                <td>Attribute</td>
+                <td>Type</td>
+                <td>Default Value</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td colspan="2">VML</td>
+                <td>id</td>
+                <td>string</td>
+                <td>null</td>
+                <td>A unique ID that identifies the shape. Used by script to reference the shape in a
+                    collection.</td>
+            </tr>
+            <tr>
+                <td colspan="2">VML</td>
+                <td>type</td>
+                <td>string</td>
+                <td>"solid"</td>
+                <td>May be "solid | gradient | gradientradial | tile | pattern | frame"
+                    "Tile", "pattern" and "frame" require the <i>image</i>
+                    attributes to be supplied. "Gradient", "gradientradial" and
+                    "gradienttitle" requires the <i>gradient</i> attributes to be supplied. Types
+                    beyond these are specified using sub-elements.. </td>
+            </tr>
+            <tr>
+                <td colspan="2">VML</td>
+                <td>on</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>Turns fill display on. Same as <code>fill</code> attribute in <code>shape</code>.&nbsp;
+                    This overrides the &lt;shape&gt; fill attribute.</td>
+            </tr>
+            <tr>
+                <td colspan="2">VML</td>
+                <td>color</td>
+                <td>color</td>
+                <td>"white"</td>
+                <td>The main fill color. Same as <code>fillcolor</code> attribute in <code>shape</code>.
+                    This overrides the <code>shape</code> <code>fillcolor</code> attribute.</td>
+            </tr>
+            <tr>
+                <td colspan="2">VML</td>
+                <td>opacity</td>
+                <td>number</td>
+                <td>1.0</td>
+                <td>Opacity of the fill.</td>
+            </tr>
+            <tr>
+                <td colspan="2">VML</td>
+                <td>color2</td>
+                <td>color</td>
+                <td>"white"</td>
+                <td>The secondary color for fill when imageType="pattern" or for gradient fills.</td>
+            </tr>
+            <tr>
+                <td valign="TOP" colspan="6">Attributes related to image fills.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td colspan="2">src</td>
+                <td>string</td>
+                <td>null</td>
+                <td>URL to an image to load for image and pattern fills.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td colspan="2">size</td>
+                <td>Vector2D</td>
+                <td>"auto"</td>
+                <td>The size of the image. Default is pixel size of the image. May be specified in CSS
+                    absolute units or as a fraction of the path bounding box.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td colspan="2">origin</td>
+                <td>Vector2D</td>
+                <td>"auto"</td>
+                <td>Point relative to upper left corner of the image that is treated as the origin of the
+                    image, specified as a fraction of the image size.&nbsp; Default is the center of the
+                    image.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td colspan="2">position</td>
+                <td>Vector2D</td>
+                <td>"auto"</td>
+                <td>Point in the reference rectangle of the shape to position the origin of the image,
+                    specified as a fraction of the image size.&nbsp; Default is the center of the containing
+                    block.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td colspan="2">aspect</td>
+                <td>string</td>
+                <td>"ignore"</td>
+                <td>"ignore" – ignore aspect issues, "atleast" – image is at
+                    least as big as the imageSize, "atmost" – image is no bigger than
+                    imageSize. In each case, the imageSize attribute will be adjusted to preserve the aspect
+                    of the image.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td colspan="2">alignshape</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>If "true", align the image with the shape else align the image with the
+                    window.</td>
+            </tr>
+            <tr>
+                <td valign="TOP" colspan="6">Attributes related to gradient fills.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td colspan="2">colors</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Intermediate colors in the gradient and their relative positions along the gradient.
+                    e.g. "30% red, 70% blue, 90% green".&nbsp; Primary color (<code>fillcolor</code>
+                    attribute in <code>shape</code>) is 0% and secondary color (<code>color2</code> attribute)
+                    is 100%.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td colspan="2">angle</td>
+                <td>number</td>
+                <td>"0"</td>
+                <td>The angle along which the gradient goes</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td colspan="2">focus</td>
+                <td>number</td>
+                <td>"0"</td>
+                <td>Focus point for linear gradient fill. Values go from –100 to +100. </td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td colspan="2">focussize</td>
+                <td>Vector2D</td>
+                <td>0,0</td>
+                <td>Size of the inner most rectangle for radial gradients</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td colspan="2">focusposition</td>
+                <td>Vector2D</td>
+                <td>0,0</td>
+                <td>Position of the inner most rectangle for radial gradients</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td colspan="2">method</td>
+                <td>string</td>
+                <td>"sigma"</td>
+                <td>"none", "linear", "sigma" or "any"</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5>XML template</h5>
+    <code>
+
+    <p>&lt;fill<br>
+    &nbsp; id=null<br>
+    &nbsp; type="solid"<br>
+    &nbsp; on="true"<br>
+    &nbsp; color="white"<br>
+    &nbsp; opacity="1.0"<br>
+    &nbsp; color2="white"<br>
+    &nbsp; opacity2="1.0"<br>
+    &nbsp; src=null<br>
+    &nbsp; size="auto"<br>
+    &nbsp; origin="center"<br>
+    &nbsp; position="center"<br>
+    &nbsp; aspect="ignore"<br>
+    &nbsp; alignshape="true"<br>
+    &nbsp; colors=null<br>
+    &nbsp; angle="0"<br>
+    &nbsp; focus="0"<br>
+    &nbsp; focussize="0,0"<br>
+    &nbsp; focusposition="0,0"<br>
+    &nbsp; method="sigma"<br>
+    /&gt;</p>
+    </code>
+
+    <h4><a name="_Toc416858395">The <code>stroke</code> Element</a></h4>
+
+    <p>The sub-element may appear inside a <code>shape</code>, <code>shapetype</code> or any
+        predefined shape element to describe how to draw the path if something beyond a solid line
+        with a solid color is desired.&nbsp; The attributes of the <code>stroke</code> element can
+        used to describe a powerful set of stroke properties.&nbsp; Extensions to the VML stroke
+        definition may be encoded as sub-elements of the <code>stroke</code> element.</p>
+    <code>
+
+    <p>&lt;!element stroke any&gt;</p>
+
+    <p>&lt;!attlist stroke<br>
+    &nbsp; id
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id
+    &nbsp;&nbsp; #implied -- document-wide unique id --<br>
+    &nbsp; on
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cdata
+    #implied<br>
+    &nbsp; weight&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; color&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata
+    #implied<br>
+    &nbsp; color2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; opacity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; style&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata
+    #implied<br>
+    &nbsp; miterlimit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; joinstyle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; endcap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; dashstyle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; filltype&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; src &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    cdata #implied<br>
+    &nbsp; imagesize&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; imagealignshape&nbsp; cdata #implied<br>
+    &nbsp; startarrow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; startarrowwidth&nbsp; cdata #implied<br>
+    &nbsp; startarrowlength cdata #implied<br>
+    &nbsp; endarrow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; endarrowwidth&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; endarrowlength&nbsp;&nbsp; cdata #implied<br>
+    &gt;</p>
+    </code>
+
+    <h5>Properties</h5>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td>Name Space</td>
+                <td>Attribute</td>
+                <td>Type</td>
+                <td>Default Value</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>id</td>
+                <td>string</td>
+                <td>null</td>
+                <td>A unique ID that identifies the shape. Used by script to reference the shape in a
+                    collection.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>on</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>Turns the display of the line on and off. Same as stroke attribute in &lt;shape&gt;.
+                    This overrides the &lt;shape&gt; stroke attribute..</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>weight</td>
+                <td>number</td>
+                <td>1pt</td>
+                <td>Width of line. Same as strokeweight attribute in &lt;shape&gt;. This overrides the
+                    &lt;shape&gt; strokeweight attribute.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>color</td>
+                <td>boolean</td>
+                <td>black</td>
+                <td>The color of the line. Same as strokecolor attribute in &lt;shape&gt;. This overrides
+                    the &lt;shape&gt; strokecolor attribute.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>opacity</td>
+                <td>number</td>
+                <td>1.0</td>
+                <td>Opacity of the stroke.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>style</td>
+                <td>string</td>
+                <td>"single"</td>
+                <td>"single", "thinthin" (1:1:1), "thinthick", (1:1:2)
+                    "thickthin" (2:1:1), "thickbetweenthin" (1:1:2:1:1) </td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>miterlimit</td>
+                <td>number</td>
+                <td>8.0</td>
+                <td>The maximum distance between the inner point and outer point of a joint. This number
+                    is a multiple of the thickness of the line.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>joinstyle</td>
+                <td>string</td>
+                <td>"round"</td>
+                <td>"round" – rounded join, "bevel" – beveled join,
+                    "miter" – miter join</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>endcap</td>
+                <td>string</td>
+                <td>"round"</td>
+                <td>"flat", "square", "round"</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>dashstyle</td>
+                <td>string</td>
+                <td>"solid"</td>
+                <td>"solid|dot|dash|dashdot|longdash|longdashdot|longdashdotdot". May also be a
+                    sequence of numbers with a user-defined dash pattern..</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>filltype </td>
+                <td>string</td>
+                <td>"solid"</td>
+                <td>"solid", "tile", "pattern", "frame".</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>src</td>
+                <td>string</td>
+                <td>null</td>
+                <td>URL to an image to load for image and pattern fills.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>imagesize</td>
+                <td>Vector2D</td>
+                <td>"auto"</td>
+                <td>Size of the image to form the brush with. Default is the size of the image.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>imagealignshape</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>If "true", align the image with the shape else align the image with the
+                    window.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>color2</td>
+                <td>color</td>
+                <td>null</td>
+                <td>Secondary color – used when filltype="pattern"</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>startarrow</td>
+                <td>string</td>
+                <td>"none"</td>
+                <td>Arrowhead for the start of the line. Can have values "none | block | classic |
+                    diamond | oval | open | chevron | doublechevron"</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>startarrowwidth</td>
+                <td>string</td>
+                <td>"medium"</td>
+                <td>Arrowhead width for the start of the line. Can have values " narrow | medium |
+                    wide".</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>startarrowlength</td>
+                <td>string</td>
+                <td>"medium"</td>
+                <td>Arrowhead length for the start of the line. Can have values "short | medium |
+                    long".</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>endarrow</td>
+                <td>string</td>
+                <td>"none"</td>
+                <td>Arrowhead for the end of the line. Can have values "none | block | classic |
+                    diamond | oval | open | chevron | doublechevron"</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>endarrowwidth</td>
+                <td>string</td>
+                <td>"medium"</td>
+                <td>Arrowhead width for the end of the line. Can have values " narrow | medium |
+                    wide".</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>endarrowlength</td>
+                <td>string</td>
+                <td>"medium"</td>
+                <td>Arrowhead length for the end of the line. Can have values "short | medium |
+                    long".</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>The <code>dashstyle</code> attribute allows the user to specify a custom defined dash
+        pattern.&nbsp; This is done using a series of numbers.&nbsp; Dash styles are defined in
+        terms of the length of the dash (the drawn part of the stroke) and the length of the space
+        between the dashes.&nbsp; The lengths are relative to the line width - a length of
+        "1" is equal to the line width.&nbsp; The <code>endcap</code> style is applied
+        to each dash, the arrow style is not.&nbsp; The string first defines the length of the
+        dash then the length of the space.&nbsp; This may be repeated to form complex dash styles.
+        &nbsp; The string should always contain a pair of numbers.&nbsp; If it contains an odd
+        number of numbers the last should be disregarded.&nbsp; The following table lists some
+        typical values and a description of the intended effect.&nbsp; "0" implies a dot
+        which should be four-fold symmetrical (with round end caps it should be a circle). &nbsp;
+        If the line end cap is <code>flat</code> a viewer should choose a built-in operating
+        system dash where possible (i.e. something which is fast to draw).</p>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td>dashstyle Example</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>"2 2"</td>
+                <td>short-dashes (each dash and the space in between is twice the width of the line)</td>
+            </tr>
+            <tr>
+                <td>"0 2"</td>
+                <td>dots (space between is twice the width of the line)</td>
+            </tr>
+            <tr>
+                <td>"2 2 0 2"</td>
+                <td>short-dash dot </td>
+            </tr>
+            <tr>
+                <td>"2 2 0 2 0 2"</td>
+                <td>short-dash dot dot</td>
+            </tr>
+            <tr>
+                <td>"1 2"</td>
+                <td>dot (each dash is the width of the line while each space is twice the width of the
+                    line)</td>
+            </tr>
+            <tr>
+                <td>"4 2"</td>
+                <td>dash (each dash is four time the width of the line while each space is twice the width
+                    of the line)</td>
+            </tr>
+            <tr>
+                <td>"8 2"</td>
+                <td>long-dash</td>
+            </tr>
+            <tr>
+                <td>"4 2 1 2"</td>
+                <td>dash dot</td>
+            </tr>
+            <tr>
+                <td>"8 2 1 2"</td>
+                <td>long-dash dot</td>
+            </tr>
+            <tr>
+                <td>"8 2 1 2 1 2"</td>
+                <td>long-dash dot dot</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>XML template</h3>
+    <code>
+
+    <p>&lt;stroke id=null<br>
+    &nbsp; on="true"<br>
+    &nbsp; weight="1pt"<br>
+    &nbsp; color="white<br>
+    &nbsp; opacity="1.0"<br>
+    &nbsp; linestyle="single"<br>
+    &nbsp; miterlimit="8.0"<br>
+    &nbsp; joinstyle="round"<br>
+    &nbsp; endcap="round"<br>
+    &nbsp; dashstyle="solid"<br>
+    &nbsp; filltype="solid"<br>
+    &nbsp; color2="white"<br>
+    &nbsp; src=null<br>
+    &nbsp; imagesize="auto"<br>
+    &nbsp; imagealignshape="true"<br>
+    &nbsp; startarrow="none"<br>
+    &nbsp; startarrowwidth="medium"<br>
+    &nbsp; startarrowlength="medium"<br>
+    &nbsp; endarrow="none"<br>
+    &nbsp; endarrowwidth="medium"<br>
+    &nbsp; endarrowlength="medium"<br>
+    /&gt;</p>
+    </code>
+
+    <h4><a name="_Toc416858396">The <code>shadow</code> Element</a></h4>
+
+    <p>This sub-element may appear inside a <code>shape</code> or a <code>shapetype</code> to
+        define a shadow effect on a shape. </p>
+    <code>
+
+    <p>&lt;!element shadow (null) &gt;</p>
+
+    <p>&lt;!attlist shadow<br>
+    &nbsp; id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id&nbsp;&nbsp;&nbsp; #implied --
+    document-wide unique id --<br>
+    &nbsp; on&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; type&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; obscured cdata #implied<br>
+    &nbsp; color&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; opacity&nbsp; cdata #implied<br>
+    &nbsp; offset&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; color2&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; offset2&nbsp; cdata #implied<br>
+    &nbsp; origin&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; matrix&nbsp;&nbsp; cdata #implied<br>
+    &gt;</p>
+    </code>
+
+    <h4>Properties</h4>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td>Name Space</td>
+                <td>Attribute</td>
+                <td>Type</td>
+                <td>Default Value</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>id</td>
+                <td>string</td>
+                <td>null</td>
+                <td>A unique ID that identifies the shadow on a shape. Used by script to reference the
+                    shape in a collection.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>on</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>Turns the display of the shadow on and off. </td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>type</td>
+                <td>string</td>
+                <td>single</td>
+                <td>Can have the values: "<u>single </u>| double | emboss | perspective" </td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>obscured</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>See through the shadow if there is no fill on the shape.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>color</td>
+                <td>boolean</td>
+                <td>gray <p>RGB(128,128,128)</p>
+                </td>
+                <td>The color of the primary shadow. </td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>opacity</td>
+                <td>number</td>
+                <td>1.0</td>
+                <td>Opacity of the shadow effect.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>offset</td>
+                <td>vector2D</td>
+                <td>2pt,2pt</td>
+                <td>Amount of x,y offset from the shape’s location. Values are either an absolute
+                    measurement, or a fractional value of shape –0.5 to +0.5.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>color2</td>
+                <td>boolean</td>
+                <td>gray RGB(203,203,203)</td>
+                <td>The color of the second shadow, or highlight in an embossed or engraved shadow..</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>offset2</td>
+                <td>vector2D</td>
+                <td>0pt,0pt</td>
+                <td>Amount of x,y of second offset from the shape’s location. Values are either an
+                    absolute measurement, or a fractional value of shape –0.5 to +0.5.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>origin</td>
+                <td>vector2D</td>
+                <td>0,0</td>
+                <td>A pair of fractional values of shape –0.5 to +0.5.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>matrix</td>
+                <td>string</td>
+                <td>null</td>
+                <td>A perspective transform matrix in the form, "sxx,sxy,syx,syy,px,py"
+                    [s=scale, p=perspective] If offset is in absolute units then px,py are in units emu<sup>-1</sup>,
+                    otherwise they are an inverse fraction of shape size.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>XML template</h3>
+    <code>
+
+    <p>&lt;shadow<br>
+    &nbsp; id=null<br>
+    &nbsp; on="false"<br>
+    &nbsp; type="single"<br>
+    &nbsp; obscured="false"<br>
+    &nbsp; color="rgb(128,128,128)"<br>
+    &nbsp; opacity="1.0" <br>
+    &nbsp; offset="2pt,2pt"<br>
+    &nbsp; color2="rgb(203,203,203)"<br>
+    &nbsp; opacity2="1.0"<br>
+    &nbsp; offset2="0pt,0pt"<br>
+    &nbsp; origin="0,0"<br>
+    &nbsp; matrix=null<br>
+    &lt;/shadow&gt;</p>
+    </code>
+
+    <h4><a name="_Toc416858397">The <code>textbox</code> Element</a></h4>
+
+    <p>This sub-element may appear inside a <code>shape</code> or a <code>shapetype</code> to
+        define text that is to appear inside the shape. This text may contain rich formatting and
+        will be rendered to fit inside the <code>textboxrect</code> defined by the <code>path</code>
+        element.</p>
+    <code>
+
+    <p>&lt;!element textbox (null)&gt;</p>
+
+    <p>&lt;!attlist textbox<br>
+    &nbsp; id&nbsp;&nbsp;&nbsp; id&nbsp;&nbsp;&nbsp;&nbsp; #implied -- document-wide unique id
+    --<br>
+    &nbsp; style&nbsp;cdata&nbsp; #implied -- style info for the HTML text --<br>
+    &gt;</p>
+    </code>
+
+    <h5>Properties</h5>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td>Name Space</td>
+                <td>Attribute</td>
+                <td>Type</td>
+                <td>default value</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>id</td>
+                <td>string</td>
+                <td>null</td>
+                <td>A unique ID that identifies the shape. Used by script to reference the shape in a
+                    collection.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>padding-left</td>
+                <td>number</td>
+                <td>0.1in</td>
+                <td>Internal text margin value.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>padding-top</td>
+                <td>number</td>
+                <td>0.05in</td>
+                <td>Internal text margin value.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>padding-right</td>
+                <td>number</td>
+                <td>0.1in</td>
+                <td>Internal text margin value.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>padding-bottom</td>
+                <td>number</td>
+                <td>0.05in</td>
+                <td>Internal text margin value.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>v-text-anchor</td>
+                <td>string</td>
+                <td>top</td>
+                <td>Can have values "top | middle | bottom| top-center | middle-center |
+                    bottom-center | top-baseline | bottom-baseline | top-center-baseline |
+                    bottom-center-baseline." This sets the vertical alignment of the text inside the
+                    textbox. It should not be confused with the vertical-align CSS property which has to do
+                    with FE font alignment. </td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>v-text-wrapping</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>Word wrap on/off. Not all renderers support the option to change this.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>layout-flow</td>
+                <td>string</td>
+                <td>horizontal</td>
+                <td>Can have the values "horizontal | vertical | vertical-ideographic |
+                    horizontal-ideographic" </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5>XML template</h5>
+    <code>
+
+    </code>
+    <p><code>&lt;textbox<br>
+    &nbsp; id=null<br>
+    &nbsp; style='<br>
+    &nbsp;&nbsp;&nbsp; v-padding-auto:&nbsp;&nbsp; true;<br>
+    &nbsp;&nbsp;&nbsp; padding-left:&nbsp;&nbsp;&nbsp;&nbsp; 0.1in;<br>
+    &nbsp;&nbsp;&nbsp; padding-top:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.05in;<br>
+    &nbsp;&nbsp;&nbsp; padding-right:&nbsp;&nbsp;&nbsp; 0.1in;<br>
+    &nbsp;&nbsp;&nbsp; padding-bottom:&nbsp;&nbsp; 0.05in;<br>
+    &nbsp;&nbsp;&nbsp; v-text-anchor:&nbsp;&nbsp;&nbsp; top;<br>
+    &nbsp;&nbsp;&nbsp; v-text-wrapping:&nbsp; true;<br>
+    &nbsp;&nbsp;&nbsp; v-text-flow:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; horizontal;<br>
+    &nbsp;&nbsp;&nbsp; v-text-direction: rtl'<br>
+    /&gt;</code></p>
+
+    <h4><a name="_Toc416858398">The <code>textpath</code> Element</a></h4>
+
+    <p>This sub-element may appear inside a <code>shape</code> or a <code>shapetype</code> to
+        define a vector path based on the text data, font and font styles supplied.&nbsp; The path
+        which results is then mapped into the region defined by the <code>v</code> attribute of
+        the shape.</p>
+    <code>
+
+    <p>&lt;!element textpath (null) &gt;</p>
+
+    <p>&lt;!attlist textpath<br>
+    &nbsp; id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id&nbsp;&nbsp;&nbsp; #implied --
+    document-wide unique id --<br>
+    &nbsp; style&nbsp;&nbsp; &nbsp;cdata #implied -- style info for the HTML text --<br>
+    &nbsp; on &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cdata #implied -- whether or not to use the
+    textpath --<br>
+    &nbsp; fitshape cdata #implied<br>
+    &nbsp; fitpath&nbsp; cdata #implied<br>
+    &nbsp; trim&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; xscale&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; string&nbsp;&nbsp; cdata #implied<br>
+    &gt;</p>
+    </code>
+
+    <h5>Attribute Descriptions</h5>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td>Name Space</td>
+                <td>Attribute</td>
+                <td>Type</td>
+                <td>Default Value</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>on</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Determines whether the character paths are displayed or not.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>font</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Compound CSS prop of family, weight, size, variant.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>font-family</td>
+                <td>string</td>
+                <td>n/a</td>
+                <td>CSS1 font family name.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>font-weight</td>
+                <td>string</td>
+                <td>normal</td>
+                <td>In CSS this property can have the values, "normal | bold | bolder | lighter | 100
+                    | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900"</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>font-size</td>
+                <td>string</td>
+                <td>null</td>
+                <td>CSS font size value (as CSS1).</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>font-style</td>
+                <td>string</td>
+                <td>normal</td>
+                <td>Can have the values "normal | italic | oblique"</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>font-variant</td>
+                <td>string</td>
+                <td>normal</td>
+                <td>Can have the values "normal | small-caps"</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>text-decoration</td>
+                <td>string</td>
+                <td>none</td>
+                <td>Can have the values "none | [ underline || overline || line-through || blink
+                    "</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>v-text-spacing</td>
+                <td>number</td>
+                <td>100</td>
+                <td>Amount of tightening or tracking.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>v-text-spacing-mode</td>
+                <td>string</td>
+                <td>"tracking"</td>
+                <td>Can have values "tightening | tracking".</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>text-align</td>
+                <td>string</td>
+                <td>center</td>
+                <td>Can have the values "left| right |center | justify.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>v-text-align-alt</td>
+                <td>string</td>
+                <td>"letterjustify"</td>
+                <td>Can have values "letter-jusify | stretch-justify".</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>v-text-kern</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Turns character pair kerning on and off.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>v-rotate-letters</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Rotates letters 90 degrees.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>v-text-reverse</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Reverses the layout order of rows. Used for vertical text layout.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>v-same-letter-heights</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Stretches lowercase letters to the height of uppercase letters.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>fitshape</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Stretches the text path out to the edges of the shapebox.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>fitpath</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Sizes the text to fill the path it lays out on.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>trim</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Removes any additional space reserved for ascenders and descenders if not used.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>xscale</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Use straight x measurement instead of measuring along the path.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>string</td>
+                <td>string</td>
+                <td>null</td>
+                <td>The string to render as a text path.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5>XML template</h5>
+    <code>
+
+    <p>&lt;textpath<br>
+    &nbsp; on=false<br>
+    &nbsp; style='<br>
+    &nbsp;&nbsp;&nbsp; font:
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;null;<br>
+    &nbsp;&nbsp;&nbsp; font-family:
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;null;<br>
+    &nbsp;&nbsp;&nbsp; font-style:
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;normal;<br>
+    &nbsp;&nbsp;&nbsp; font-weight:
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;normal;<br>
+    &nbsp;&nbsp;&nbsp; font-size:
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;normal;<br>
+    &nbsp;&nbsp;&nbsp; font-variant:
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;normal;<br>
+    &nbsp;&nbsp;&nbsp; text-decoration:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; normal;<br>
+    &nbsp;&nbsp;&nbsp; v-text-shadow:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; false;<br>
+    &nbsp;&nbsp;&nbsp; text-align:
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center;<br>
+    &nbsp;&nbsp;&nbsp; v-text-align-alt:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stretch-justify;<br>
+    &nbsp;&nbsp;&nbsp; v-letter-tightening:&nbsp;&nbsp; 0;<br>
+    &nbsp;&nbsp;&nbsp; v-letter-tracking:&nbsp;&nbsp;&nbsp;&nbsp; 0;<br>
+    &nbsp;&nbsp;&nbsp; v-text-kern:
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;false;<br>
+    &nbsp;&nbsp;&nbsp; v-rotate-letters:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; false;<br>
+    &nbsp;&nbsp;&nbsp; v-same-letter-heights: false'<br>
+    &nbsp; fitshape="false"<br>
+    &nbsp; fitpath="false"<br>
+    &nbsp; trim="false"<br>
+    &nbsp; xscale="false"<br>
+    &nbsp; text=null<br>
+    /&gt;</p>
+    </code>
+
+    <h4><a name="_Toc416858399">The <code>imagedata</code> Element</a></h4>
+
+    <p>This sub-element may appear inside a <code>shape</code> or a <code>shapetype</code> to
+        define a picture to be rendered on top of a shape. There is also a top-level element, <code>image</code>,
+        which has these attributes, along with most of the same attributes as <code>shape</code>.</p>
+    <code>
+
+    <p>&lt;!element imagedata (null)&gt;</p>
+
+    <p>&lt;!attlist imagedata<br>
+    &nbsp; id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id&nbsp;&nbsp;&nbsp; #implied --
+    document-wide unique id --<br>
+    &nbsp; src&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; cropleft&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; croptop&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; cropright&nbsp; cdata #implied<br>
+    &nbsp; cropbottom cdata #implied<br>
+    &nbsp; gain&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; blacklevel cdata #implied<br>
+    &nbsp; gamma&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; chromakey&nbsp; cdata #implied<br>
+    &nbsp; grayscale&nbsp; cdata #implied<br>
+    &nbsp; bilevel&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &gt;</p>
+    </code>
+
+    <h5>Properties</h5>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td>Name Space</td>
+                <td>Attribute</td>
+                <td>Type</td>
+                <td>Default Value</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>id</td>
+                <td>string</td>
+                <td>null</td>
+                <td>A unique ID that identifies the &lt;image&gt; element. Used by script to reference the
+                    image.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>src</td>
+                <td>string</td>
+                <td>null</td>
+                <td>URL to an image to load for image and pattern fills.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>cropleft</td>
+                <td>number</td>
+                <td>0</td>
+                <td>Crop distance from edge of picture expressed as a fraction of picture size.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>croptop</td>
+                <td>number</td>
+                <td>0</td>
+                <td>Crop distance from edge of picture expressed as a fraction of picture size.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>cropright</td>
+                <td>number</td>
+                <td>0</td>
+                <td>Crop distance from edge of picture expressed as a fraction of picture size.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>cropbottom</td>
+                <td>number</td>
+                <td>0</td>
+                <td>Crop distance from edge of picture expressed as a fraction of picture size.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>gain</td>
+                <td>number</td>
+                <td>1</td>
+                <td>Adjusts the intensity of all colors. Essentially sets how bright white will be.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>blacklevel</td>
+                <td>number</td>
+                <td>0</td>
+                <td>Allows adjustment to set the level so that blacks appear as true blacks, and all other
+                    colors are visible as shades above black. </td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>gamma</td>
+                <td>number</td>
+                <td>1</td>
+                <td>Gamma correction - a factor by which the intended target display gamma differs from
+                    from the sRGB profile, can be used to correct for images not prepared for sRGB displays
+                    and to adjust overall image contrast.&nbsp; Decreasing it below 1 gives a more contrasty
+                    image.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>chromakey</td>
+                <td>color</td>
+                <td>none</td>
+                <td>Set a color of the input picture which will have an opacity of 0.&nbsp; All other
+                    colors will have opacity 1.&nbsp; This operation must be ignored if the picture already
+                    has an alpha channel.&nbsp; If the picture is a PNG with tRNS chunk or a GIF with a
+                    transparent index then the chromakey is combined with that in the image - the chromakey
+                    will make any corresponding pixel completely transparent.<p>The chromakey may specify a
+                        pixel index using the extended notation for colors.</p>
+                    <p>The chromakey is applied before any image transformation - including color
+                        modifications, gamma correction and scaling.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>grayscale</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Display picture in grayscale.&nbsp; The user agent must calculate the ITU-R 709 luma
+                    (Y') value using the following formula for sRGB values in the range 0..255.<code><p>unsigned
+        Y709FromRGB(unsigned ur, unsigned ug, unsigned ub)<br>
+        &nbsp; {<br>
+        &nbsp; return&nbsp; 3579139 * ur + // 0.2125<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12049489 * ug + // 0.7154<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1214381 * ub;&nbsp; // 0.0721<br>
+        &nbsp; }</p>
+        </code>
+                    <p><code></code>(This is a 32 bit value - shift left 24 to get an 8 bit gray level value.)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>bilevel</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Display picture in only two colors (usually black and white) using a function:<code><p>inline
+        ULONG UBlackWhite(ULONG uc)<br>
+        &nbsp; {<br>
+        &nbsp; if (uc &lt; 128) return 0;<br>
+        &nbsp; return 255;<br>
+        &nbsp; }</p>
+        </code>
+                    <p><code></code>To convert an image to black and white <code>grayscale</code> is also specified.
+                        &nbsp; The gray level operation happens first.&nbsp; Because the precise luma calculation
+                        is specifed the bi-level operation will behave in the same way on all systems.</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5>XML template</h5>
+    <code>
+
+    <p>&lt;imagedata<br>
+    &nbsp; id=null<br>
+    &nbsp; src=null<br>
+    &nbsp; href=null<br>
+    &nbsp; linktype="copy"<br>
+    &nbsp; cropleft="0"<br>
+    &nbsp; croptop="0"<br>
+    &nbsp; cropright="0"<br>
+    &nbsp; cropbottom="0"<br>
+    &nbsp; embosscolor="none"<br>
+    &nbsp; gain="1"<br>
+    &nbsp; blacklevel="0"<br>
+    &nbsp; gamma="1"<br>
+    &nbsp; chromakey="none"<br>
+    &nbsp; grayscale="false"<br>
+    &nbsp; bilevel="false"<br>
+    /&gt;</p>
+    </code>
+
+    <h3><a name="_Toc416858400">Predefined Shapes</a></h3>
+
+    <p>Predefined shapes serve two purposes - they provide a more compact representation of a
+        small number of very frequently encountered drawing operations (particularly rectangles
+        and circles) and they give an easy to use form for people who hand-edit VML.</p>
+
+    <h4><a name="_Toc414806443"></a><a name="_Toc416858401">Common Properties of All
+            Predefined Shapes</a></h4>
+
+    <p>Predefined shapes have the same properties as <code>shape</code> except that the <code>type</code>
+        attribute is not permitted.&nbsp; In some cases the definition of the shape precludes use
+        of some of the standard shape properties.&nbsp; These exceptions are given below.</p>
+
+    <h4><a name="_Toc416858402">The <code>line</code> Element</a></h4>
+
+    <p>This element is used to specify a straight line.</p>
+    <code>
+
+    <p>&lt;!element line (%shape.elements;)* &gt;</p>
+
+    <p>&lt;!attlist line %coreattrs; %shapeattrs;<br>
+    &nbsp; from&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; to&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &gt;</p>
+    </code>
+
+    <h5>Attributes</h5>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td>Name Space</td>
+                <td>Attribute</td>
+                <td>Type</td>
+                <td>Default Value</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>from</td>
+                <td>Vector2D </td>
+                <td>"0 0"</td>
+                <td>The starting point of the line in the coordinate space of the parent element.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>to</td>
+                <td>Vector2D </td>
+                <td>"10 10"</td>
+                <td>The ending point of the line in the coordinate space of the parent element.</td>
+            </tr>
+            <tr>
+                <td valign="TOP" colspan="5"><b>The following attributes of <code>shape</code> are ignored
+                        in a <code>line</code>.</b></td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>top, margin-top, center-y</td>
+                <td colspan="3">The shape is not defined using a rectangle.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>left, margin-left, center-x</td>
+                <td colspan="3">The shape is not defined using a rectangle.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>width</td>
+                <td colspan="3">The shape is not defined using a rectangle.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>height</td>
+                <td colspan="3">The shape is not defined using a rectangle.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>fill</td>
+                <td colspan="3">lines cannot be filled</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>fillcolor</td>
+                <td colspan="3">lines cannot be filled</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5>XML template</h5>
+    <code>
+
+    <p>&lt;line<br>
+    &nbsp; from="0 0"<br>
+    &nbsp; to="10 10"<br>
+    &nbsp; id=null<br>
+    &nbsp; href=null<br>
+    &nbsp; target=null<br>
+    &nbsp; class=null<br>
+    &nbsp; title=null<br>
+    &nbsp; alt=null<br>
+    &nbsp; style='visibility: visible'<br>
+    &nbsp; opacity="1.0"<br>
+    &nbsp; chromakey="null"<br>
+    &nbsp; stroke="true"<br>
+    &nbsp; strokecolor="black"<br>
+    &nbsp; strokeweight="1"<br>
+    &nbsp; fill="true"<br>
+    &nbsp; fillcolor="white"<br>
+    &nbsp; print="true"<br>
+    &nbsp; coordsize="1000,1000"<br>
+    &nbsp; coordorigin="0 0"<br>
+    /&gt;</p>
+    </code>
+
+    <h4><a name="_Toc414806444"></a><a name="_Toc416858403">The <code>polyline</code> Element</a></h4>
+
+    <p>The polyline element is used to define shapes made up of connected line segments.</p>
+    <code>
+
+    <p>&lt;!element polyline (%shape.elements;)*&gt;</p>
+
+    <p>&lt;!attlist polyline %coreattrs; %shapeattrs;<br>
+    &nbsp; points&nbsp; cdata #implied<br>
+    &gt;</p>
+    </code>
+
+    <h5>Attributes</h5>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td><strong>Name Space</strong></td>
+                <td><b>Name</b></td>
+                <td><b>Type</b></td>
+                <td><b>Default Value</b></td>
+                <td><b>Description</b></td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>points</td>
+                <td>string</td>
+                <td>"0 0 10 10"</td>
+                <td>A list of pairs of points that define a set of straight line segments. Points are
+                    specified in the coordinate system of the parent element (either a group or the document)</td>
+            </tr>
+            <tr>
+                <td valign="TOP" colspan="5"><b>The following attributes of <code>shape</code> are ignored
+                        in a <code>polyline</code>.</b></td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>top, margin-top, center-y</td>
+                <td colspan="3">The shape is not defined using a rectangle.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>left, margin-left, center-x</td>
+                <td colspan="3">The shape is not defined using a rectangle.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>width</td>
+                <td colspan="3">The shape is not defined using a rectangle.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>height</td>
+                <td colspan="3">The shape is not defined using a rectangle.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>It is necessary to compute the bounding rectangle of the polyline to determine the
+        content width and height. </p>
+
+    <h5>XML template</h5>
+    <code>
+
+    <p>&lt;polyline<br>
+    &nbsp; points="0 0 10 10 20 0"<br>
+    &nbsp; id=null<br>
+    &nbsp; href=null<br>
+    &nbsp; target=null<br>
+    &nbsp; class=null<br>
+    &nbsp; title=null<br>
+    &nbsp; alt=null<br>
+    &nbsp; style='visibility: visible'<br>
+    &nbsp; opacity="1.0"<br>
+    &nbsp; chromakey="null"<br>
+    &nbsp; stroke="true"<br>
+    &nbsp; strokecolor="black"<br>
+    &nbsp; strokeweight="1"<br>
+    &nbsp; fill="true"<br>
+    &nbsp; fillcolor="white"<br>
+    &nbsp; print="true"<br>
+    &nbsp; coordsize="1000,1000"<br>
+    &nbsp; coordorigin="0 0"<br>
+    /&gt;</p>
+    </code>
+
+    <h4><a name="_Toc414806445"></a><a name="_Toc414806446"></a><a name="_Toc416858404">The <code>curve</code>
+            Element</a></h4>
+
+    <p>This element is used to draw a cubic b�zier curve.</p>
+    <code>
+
+    <p>&lt;!element curve (%shape.elements;)*&gt;</p>
+
+    <p>&lt;!attlist curve %coreattrs; %shapeattrs;<br>
+    &nbsp; from&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; control1 cdata #implied<br>
+    &nbsp; control2 cdata #implied<br>
+    &nbsp; to&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &gt;</p>
+    </code>
+
+    <h5>Attributes</h5>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td><b>Name Space</b></td>
+                <td><b>Name</b></td>
+                <td><b>Type</b></td>
+                <td><b>Default Value</b></td>
+                <td><b>Description</b></td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>from</td>
+                <td>Vector2D</td>
+                <td>"0 0"</td>
+                <td>The starting point of the line in the coordinate space of the parent element.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>control1</td>
+                <td>Vector2D</td>
+                <td>"10 10"</td>
+                <td>The first control point for the curve.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>control2</td>
+                <td>Vector2D</td>
+                <td>"20 0"</td>
+                <td>The second control point for the curve</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>to</td>
+                <td>Vector2D</td>
+                <td>"30 20"</td>
+                <td>The ending point of the line in the coordinate space of the parent element.</td>
+            </tr>
+            <tr>
+                <td valign="TOP" colspan="5"><b>The following attributes of <code>shape</code> are ignored
+                        in a <code>line</code>.</b></td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>top, margin-top, center-y</td>
+                <td colspan="3">The shape is not defined using a rectangle.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>left, margin-left, center-x</td>
+                <td colspan="3">The shape is not defined using a rectangle.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>width</td>
+                <td colspan="3">The shape is not defined using a rectangle.</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>height</td>
+                <td colspan="3">The shape is not defined using a rectangle.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5>XML template</h5>
+    <code>
+
+    <p>&lt;curve<br>
+    &nbsp; from="0 0"<br>
+    &nbsp; control1="10 10"<br>
+    &nbsp; control2="20 0"<br>
+    &nbsp; to="10 10"<br>
+    &nbsp; id=null<br>
+    &nbsp; href=null<br>
+    &nbsp; target=null<br>
+    &nbsp; class=null<br>
+    &nbsp; title=null<br>
+    &nbsp; alt=null<br>
+    &nbsp; style='visibility: visible'<br>
+    &nbsp; opacity="1.0"<br>
+    &nbsp; chromakey="null"<br>
+    &nbsp; stroke="true"<br>
+    &nbsp; strokecolor="black"<br>
+    &nbsp; strokeweight="1"<br>
+    &nbsp; fill="true"<br>
+    &nbsp; fillcolor="white"<br>
+    &nbsp; print="true"<br>
+    &nbsp; coordsize="1000,1000"<br>
+    &nbsp; coordorigin="0 0"<br>
+    /&gt;<a name="_Toc414806447"></a></p>
+    </code>
+
+    <h4>The <code>rect</code> Element</h4>
+
+    <p>This element is used to draw a simple rectangle.&nbsp; The rectangle is defined by the
+        content width specified in the CSS2 properties.</p>
+    <code>
+
+    <p>&lt;!element rect (%shape.elements;)*&gt;</p>
+
+    <p>&lt;!attlist rect %coreattrs; %shapeattrs;&gt;</p>
+    </code>
+
+    <h5>XML template</h5>
+    <code>
+
+    <p>&lt;rect<br>
+    &nbsp; id=null<br>
+    &nbsp; href=null<br>
+    &nbsp; target=null<br>
+    &nbsp; class=null<br>
+    &nbsp; title=null<br>
+    &nbsp; alt=null<br>
+    &nbsp; style='visibility: visible'<br>
+    &nbsp; opacity="1.0"<br>
+    &nbsp; chromakey="null"<br>
+    &nbsp; stroke="true"<br>
+    &nbsp; strokecolor="black"<br>
+    &nbsp; strokeweight="1"<br>
+    &nbsp; fill="true"<br>
+    &nbsp; fillcolor="white"<br>
+    &nbsp; print="true"<br>
+    &nbsp; coordsize="1000,1000"<br>
+    &nbsp; coordorigin="0 0"<br>
+    /&gt;</p>
+    </code>
+
+    <h4><a name="_Toc414806448"></a><a name="_Toc416858405">The <code>roundrect</code> Element</a></h4>
+
+    <p>This element is used to draw a rectangle with rounded corners.</p>
+    <code>
+
+    <p>&lt;!element roundrect (%shape.elements;)*&gt;</p>
+
+    <p>&lt;!attlist roundrect %coreattrs; %shapeattrs;<br>
+    &nbsp; arcsize&nbsp;cdata #implied -- size of arc on corners of rectangle --<br>
+    &gt;</p>
+    </code>
+
+    <h5>Attributes</h5>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td>Name Space</td>
+                <td>Attribute</td>
+                <td>Type</td>
+                <td>Default Value</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>arcsize</td>
+                <td>number</td>
+                <td>"0.2"</td>
+                <td>Defines rounded corners as a percentage of half the smaller dimension of the
+                    rectangle. 0.0 (0%) – square corners, 1.0 (100%) - smaller dimension forms a
+                    semi-circle.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5>XML template</h5>
+    <code>
+
+    <p>&lt;roundrect<br>
+    &nbsp; arcsize="0.2"<br>
+    &nbsp; id=null<br>
+    &nbsp; href=null<br>
+    &nbsp; target=null<br>
+    &nbsp; class=null<br>
+    &nbsp; title=null<br>
+    &nbsp; alt=null<br>
+    &nbsp; style='visibility: visible'<br>
+    &nbsp; opacity="1.0"<br>
+    &nbsp; chromakey="null"<br>
+    &nbsp; stroke="true"<br>
+    &nbsp; strokecolor="black"<br>
+    &nbsp; strokeweight="0.75pt"<br>
+    &nbsp; fill="true"<br>
+    &nbsp; fillcolor="white"<br>
+    &nbsp; print="true"<br>
+    &nbsp; coordsize="1000,1000"<br>
+    &nbsp; coordorigin="0 0"<br>
+    /&gt;</p>
+    </code>
+
+    <h4><a name="_Toc414806449"></a><a name="_Toc416858406">The <code>oval</code> Element</a></h4>
+
+    <p>This element is used to draw an oval defined by the CSS2 content width and height.</p>
+    <code>
+
+    <p>&lt;!element oval (%shape.elements;)*&gt;</p>
+
+    <p>&lt;!attlist oval %coreattrs; %shapeattrs;&gt;</p>
+    </code>
+
+    <h5>XML template</h5>
+    <code>
+
+    <p>&lt;oval<br>
+    &nbsp; position="0 0"<br>
+    &nbsp; size="100 100"<br>
+    &nbsp; id=null<br>
+    &nbsp; href=null<br>
+    &nbsp; target=null<br>
+    &nbsp; class=null<br>
+    &nbsp; title=null<br>
+    &nbsp; alt=null<br>
+    &nbsp; style='visibility: visible'<br>
+    &nbsp; opacity="1.0"<br>
+    &nbsp; chromakey="null"<br>
+    &nbsp; stroke="true"<br>
+    &nbsp; strokecolor="black"<br>
+    &nbsp; strokeweight="0.75pt"<br>
+    &nbsp; fill="true"<br>
+    &nbsp; fillcolor="white"<br>
+    &nbsp; print="true"<br>
+    &nbsp; coordsize="1000,1000"<br>
+    &nbsp; coordorigin="0 0"<br>
+    /&gt;</p>
+    </code>
+
+    <h4><a name="_Toc414806450"></a><a name="_Toc416858407">The <code>arc</code> Element</a></h4>
+
+    <p>This element is used to draw an arc defined as a segment of an oval.&nbsp; The content
+        width and height define the width and height of that oval.&nbsp; The arc is defined by the
+        intersection of the oval with the start and end radius vectors given by the angles. &nbsp;
+        The angles are calculated on the basis of a circle (width equal to height) which is then
+        scaled anisotropically to the desired width and height.</p>
+    <code>
+
+    <p>&lt;!element arc (%shape.elements;)*&gt;</p>
+
+    <p>&lt;!attlist arc %coreattrs; %shapeattrs;<br>
+    &nbsp; startangle cdata #implied<br>
+    &nbsp; endangle&nbsp;&nbsp; cdata #implied<br>
+    &gt;</p>
+    </code>
+
+    <h5>Properties</h5>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td>Name Space</td>
+                <td>Attribute</td>
+                <td>Type</td>
+                <td>Default Value</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>startangle</td>
+                <td>number</td>
+                <td>0</td>
+                <td>The angle where the arc starts. </td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>endangle</td>
+                <td>number</td>
+                <td>90</td>
+                <td>The angle where the arc ends</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5>XML template</h5>
+    <code>
+
+    <p>&lt;arc<br>
+    &nbsp; startangle="0"<br>
+    &nbsp; endangle="90"<br>
+    &nbsp; id=null<br>
+    &nbsp; href=null<br>
+    &nbsp; target=null<br>
+    &nbsp; class=null<br>
+    &nbsp; title=null<br>
+    &nbsp; alt=null<br>
+    &nbsp; style='visibility: visible'<br>
+    &nbsp; opacity="1.0"<br>
+    &nbsp; chromakey="null"<br>
+    &nbsp; stroke="true"<br>
+    &nbsp; strokecolor="black"<br>
+    &nbsp; strokeweight="0.75pt"<br>
+    &nbsp; fill="true"<br>
+    &nbsp; fillcolor="white"<br>
+    &nbsp; print="true"<br>
+    &nbsp; coordsize="1000,1000"<br>
+    &nbsp; coordorigin="0 0"<br>
+    /&gt;</p>
+    </code>
+
+    <h4><a name="_Toc416441177"></a><a name="_Toc416858408"></a>The <code>image</code> Element</h4>
+
+    <p>This element is used to draw a bitmap that has been loaded from an external source.
+        There is an implied rectangle that is the same size as the image. Any stroke or fill will
+        be applied to this implied rectangle.&nbsp; The fill will be behind the image and it will
+        therefore only be visible through transparent areas of the bitmap.&nbsp; The stroke is
+        drawn on top of the image.&nbsp; The bitmap may have transparency encoded in the file (if
+        it is a PNG bitmap) or a chromakey color value may be specified using the <code>chromakey</code>
+        attribute.</p>
+    <code>
+
+    <p>&lt;!element image (%shape.elements;)*&gt;</p>
+
+    <p>&lt;!attlist image %coreattrs; %shapeattrs;<br>
+    &nbsp; src&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; cropleft&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; croptop&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; cropright&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; cropbottom&nbsp; cdata #implied<br>
+    &nbsp; embosscolor cdata #implied<br>
+    &nbsp; gain&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; blacklevel&nbsp; cdata #implied<br>
+    &nbsp; gamma&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; grayscale&nbsp;&nbsp; cdata #implied<br>
+    &nbsp; bilevel&nbsp;&nbsp;&nbsp;&nbsp; cdata #implied<br>
+    &gt;</p>
+    </code>
+
+    <h5>Properties</h5>
+
+    <table border="3">
+        <tbody>
+            <tr>
+                <td>Name Space</td>
+                <td>Attribute</td>
+                <td>Type</td>
+                <td>Default Value</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>src</td>
+                <td>string</td>
+                <td>null</td>
+                <td>URL to an image to load for image and pattern fills.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>cropleft</td>
+                <td>number</td>
+                <td>0</td>
+                <td>Crop distance from edge of picture expressed as a percentage of picture size.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>croptop</td>
+                <td>number</td>
+                <td>0</td>
+                <td>Crop distance from edge of picture expressed as a percentage of picture size.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>cropright</td>
+                <td>number</td>
+                <td>0</td>
+                <td>Crop distance from edge of picture expressed as a percentage of picture size.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>cropbottom</td>
+                <td>number</td>
+                <td>0</td>
+                <td>Crop distance from edge of picture expressed as a percentage of picture size.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>embosscolor</td>
+                <td>color</td>
+                <td>0</td>
+                <td>Color used to display the picture when doing an embossed shadow.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>gain</td>
+                <td>number</td>
+                <td>1</td>
+                <td>Picture contrast setting.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>blacklevel</td>
+                <td>number</td>
+                <td>0</td>
+                <td>Picture brightness setting.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>gamma</td>
+                <td>number</td>
+                <td>1</td>
+                <td>Picture gamma setting.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>grayscale</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Display picture in grayscale.</td>
+            </tr>
+            <tr>
+                <td>VML</td>
+                <td>bilevel</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Convert all colors in the picture to either 0 or full intensity component values
+                    (converts a color bitmap to 8 colors, converts a grayscale bitmap to black and white.)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5>XML template</h5>
+    <code>
+
+    <p>&lt;image<br>
+    &nbsp; src=null<br>
+    &nbsp; cropleft="0"<br>
+    &nbsp; croptop="0"<br>
+    &nbsp; cropright="0"<br>
+    &nbsp; cropbottom="0"<br>
+    &nbsp; embosscolor="none"<br>
+    &nbsp; gain="1.0"<br>
+    &nbsp; blacklevel="0"<br>
+    &nbsp; gamma="0"<br>
+    &nbsp; chromakey="none"<br>
+    &nbsp; grayscale="false"<br>
+    &nbsp; bilevel="false"<br>
+    &nbsp; id=null<br>
+    &nbsp; href=null<br>
+    &nbsp; target=null<br>
+    &nbsp; class=null<br>
+    &nbsp; title=null<br>
+    &nbsp; alt=null<br>
+    &nbsp; style='visibility: visible'<br>
+    &nbsp; opacity="1.0"<br>
+    &nbsp; chromakey="null"<br>
+    &nbsp; stroke="true"<br>
+    &nbsp; strokecolor="black"<br>
+    &nbsp; strokeweight="1"<br>
+    &nbsp; fill="true"<br>
+    &nbsp; fillcolor="white"<br>
+    &nbsp; print="true"<br>
+    &nbsp; coordsize="1000,1000"<br>
+    &nbsp; coordorigin="0 0"<br>
+    /&gt;</p>
+    </code>
+
+    <hr>
+
+    <h2><a name="h2:normative">Normative references</a></h2>
+
+    <p>VML is based on several other standard forms.&nbsp; Some of these are as yet incomplete
+        (CSS2, XML namespaces).&nbsp; This section references those documents which are <em>normative</em>
+        so far as VML is concerned - they define behavior which must be both understood and
+        implemented for VML to function correctly.
+
+    </p>
+    <dl>
+        <dt><a href="http://www.w3.org/TR/REC-html40/">HTML 4.0 Specification</a></dt>
+        <dd>This is a <a href="http://www.w3.org/">W3C</a> recommendation, therefore is not subject
+            to change.</dd>
+        <dt><a href="http://www.w3.org/TR/PR-CSS2/">Cascading Style Sheets, Level 2</a></dt>
+        <dd>This is a W3C proposed recommendation, the review period has now ended and the proposal
+            is likely to become a recommendation in the immediate future.&nbsp; For the most part VML
+            is based on CSS1 (see below), therefore reliance on CSS2 is minimal.</dd>
+        <dt><a href="http://www.w3.org/TR/REC-CSS1">Cascading Style Sheets, level 1</a></dt>
+        <dd>This defines many of the basic types used in VML - for example the fundamental lexical
+            syntax used to describe <em>length</em> and <em>color</em> are defined here. &nbsp; This
+            is a W3C recommendation, therefore not subject to change.</dd>
+        <dt><a href="http://www.w3.org/TR/REC-xml.html">Extensible Markup Language (XML) 1.0</a></dt>
+        <dd>This defines the basic lexical form used for the encoding of VML.&nbsp; It is a W3C
+            recommendation, not subject to change.&nbsp; VML requires proposed extensions to XML to
+            support the VML extensibility mechanisms.&nbsp; VML also defines mechanisms which
+            facilitate the interaction of HTML and VML XML within a single HTML page.</dd>
+        <dt><a href="http://www.w3.org/TR/1998/WD-xml-names-19980327">Namespaces in XML</a></dt>
+        <dd>This is a W3C working draft, therefore subject to change.&nbsp; The document defines a
+            mechanism to identify unknown XML tags and to reliably and safely add new XML tags. &nbsp;
+            It is intended that VML track the relevant changes, although at this stage it seems
+            certain that the fundamental requirements of VML will be met.</dd>
+        <dt><a href="http://www.w3.org/TR/1998/WD-xlink-19980303">XML Linking Language (XLink)</a></dt>
+        <dd>Applications needing VML must identify links to external objects even though they may
+            occur in extensions.&nbsp; The specifications adopted for identifying such links within
+            XML will be used by VML.</dd>
+        <dt><a href="http://w3.hike.te.chiba-u.ac.jp/IEC/100/PT61966/parts/part2/">IEC 61966-2</a></dt>
+        <dd>This IEC Technical Committee will formalize the definition of sRGB (61966-2.1).&nbsp; At
+            present the document is a working draft.&nbsp; However it seems unlikely that any changes
+            will be made to the encoding model on which VML has some reliance.</dd>
+        <dt><a href="#ftp://ftp.isi.edu/in-notes/rfc2083.txt">PNG (Portable Network Graphics)
+                Specification</a></dt>
+        <dd>This defines the PNG file format, one of the recommended formats for raster data in VML.
+            &nbsp; The definition can also be found at <a href="http://www.w3.org/TR/REC-png-multi.html">PNG (Portable Network Graphics)
+                Specification</a> on the W3C web site.</dd>
+        <dt><a href="http://www.iso.ch/">ISO</a> 10918-1 (JPEG)</dt>
+        <dd>This defines the underlying compression scheme used in the other raster format
+            recommended by VML.&nbsp; However it is important to realize that VML expects JPEG data to
+            be presented in particular forms - JFIF or Exif - arbitrary JPEG data is not compatible
+            with VML.&nbsp; ISO standards can be obtained from national standards organizations, <a href="http://web.ansi.org/public/std_info.html">ANSI Catalogs &amp; Standards Information</a>
+            in the US.</dd>
+        <hr>
+    </dl>
+
+    <h2><a name="h2:informative">Informative references</a></h2>
+
+    <p>VML does not rely on the definition of PostScript, however that definition is extremely
+        helpful in understanding VML.
+
+    </p>
+    <dl>
+        <dt>The PostScript Language Reference Manual</dt>
+        <dd>ISBN 0-201-10174-2, Adobe Systems, Addison-Wesley.&nbsp; Either edition of the book is
+            appropriate.&nbsp; It contains the clearest description of the "filled path"
+            imaging model which underlies most two dimensional vector graphic implementations.</dd>
+        <dt>Inside Macintosh, Imaging with QuickDraw</dt>
+        <dd>ISBN 0-201-63242-X.&nbsp; VML is designed to be implementable with QuickDraw on a
+            Macintosh. &nbsp; Implementations based on QuickDraw must do more work (because of the
+            lack of arbitrary path support), yet highly efficient implementations are still possible.</dd>
+    </dl>
+
+    <p>The original W3C requirements specification can be found at <a href="http://www.w3.org/Graphics/ScalableReq">W3C Scalable Graphics Requirements</a>.</p>
+
+    <p>VML is based on well-established vector graphical techniques.&nbsp; The intention is to
+        make the references in this section reflect parts of that work which are particularly
+        important to VML.
+
+    </p>
+    <dl>
+        <dt>JPEG Still Image Data Compression Standard</dt>
+        <dd>William B. Pennebaker, Joan L. Mitchell, ISBN 0-442-01727-1.&nbsp; This book not only
+            contains a detailed description of JPEG but also has ISO DIS 10918-1 in an appendix (this
+            being a copy of the <em>draft</em> standard before it was approved).</dd>
+        <dt><a name="ISO_8879">ISO 8879</a></dt>
+        <dd>ISO 88790:1986 (E).&nbsp; Information processing - Text and Office Systems - Standard
+            Generalized Markup Language (SGML).&nbsp; This is the basis of XML - XML is an application
+            profile of SGML.</dd>
+        <dt><a href="http://www.microsoft.com/typography/tt/tt.htm">OpenType Specification v.1.1</a></dt>
+        <dd>This describes the OpenType and TrueType definition of the quadratic b�zier (which
+            omits the end points of the curve).</dd>
+    </dl>
+    <script type="text/javascript" async="" src="https://www.w3.org/analytics/piwik/matomo.js"></script>
+    <script src="https://www.w3.org/scripts/TR/fixup.js"></script>
+
+
+</body>
+
+</html>

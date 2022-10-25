@@ -1,0 +1,33 @@
+:root {
+    --color-red: #ff0000;
+    --color-green: #008000;
+    --color-blue: #0000FF;
+    --color-purple: #800080;
+    --color-pink: #FF00FF;
+    --color-brown: #804000;
+    --color-alt-pink: #f06;
+    --color-alt-green: #6f9;
+}
+
+body {
+    margin-left: 4%;
+    margin-right: 4%;
+    background: #FFFFFF;
+    color: #000000;
+}
+
+.red {
+    color: var(--color-red);
+}
+.blue {
+    color: var(--color-blue);
+}
+.brown {
+    color: var(--color-brown);
+}
+.green {
+    color: var(--color-green);
+}
+.purple {
+    color: var(--color-purple);
+}
