@@ -1,0 +1,51 @@
+{
+    "ts-node": { // ts-node automated configuration using commonjs
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    },
+    "include": [
+        "src",
+    ],
+    "exclude": [
+        "ignore",
+        "build",
+        "dist",
+    ],
+    "compilerOptions": {
+        "module": "CommonJS",
+        "target": "ESNext",
+        "jsx": "react-jsx",
+        "allowSyntheticDefaultImports": true,
+        "noImplicitAny": false,
+        "strict": false,
+        "strictPropertyInitialization": false,
+        "isolatedModules": false,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "downlevelIteration": true,
+        "outDir": "build",
+        "types": [
+            "node",
+        ],
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext",
+            "es5",
+            "es2015.collection",
+            "es2015.promise",
+        ],
+        "typeRoots": [
+            "./node_modules/@types",
+            "./src/@types",
+        ],
+        "baseUrl": ".",
+        "paths": {
+            "@app/*":    ["./src/*"],
+            // "@assets/*": ["assets/*"],
+            // "@data/*":   ["data/*"],
+        },
+    },
+}

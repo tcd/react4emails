@@ -1,4 +1,8 @@
 {
+    "files.exclude": {
+        // Version Control
+        "**/.git": true,
+    },
     // =========================================================================
     // ESLint
     // =========================================================================
@@ -8,10 +12,14 @@
     "[javascriptreact]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
     "[typescriptreact]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
     // =========================================================================
-    // Misc.
+    // Spell Check
     // =========================================================================
-    "files.exclude": {
-        // Version Control
-        "**/.git": true,
-    },
+    "cSpell.enabled": true,
+    "cSpell.caseSensitive": false,
+    "cSpell.dictionaryDefinitions": [
+        { "name": "vml", "path": "${workspaceFolder}/.vscode/dictionaries/vml.dict"},
+    ],
+    "cSpell.dictionaries": [
+        "vml",
+    ],
 }
