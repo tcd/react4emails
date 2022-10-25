@@ -6,6 +6,7 @@
     "scripts": {},
     "dependencies": {
         "@types/dedent": "^0.7.0",
+        "csstype": "^3.1.1",
         "dedent": "^0.7.0"
     },
     "devDependencies": {

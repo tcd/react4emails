@@ -43,9 +43,7 @@
         ],
         "baseUrl": ".",
         "paths": {
-            "@app/*":    ["./src/*"],
-            // "@assets/*": ["assets/*"],
-            // "@data/*":   ["data/*"],
+            "@vml4react/*": ["./src/*"],
         },
     },
 }
