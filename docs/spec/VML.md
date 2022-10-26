@@ -2181,56 +2181,18 @@ which should be four-fold symmetrical (with round end caps it should be a circle
 If the line end cap is `flat` a viewer should choose a built-in operating
 system dash where possible (i.e. something which is fast to draw).
 
-<table border="3">
-    <tbody>
-        <tr>
-            <td>dashstyle Example</td>
-            <td>Description</td>
-        </tr>
-        <tr>
-            <td>"2 2"</td>
-            <td>short-dashes (each dash and the space in between is twice the width of the line)</td>
-        </tr>
-        <tr>
-            <td>"0 2"</td>
-            <td>dots (space between is twice the width of the line)</td>
-        </tr>
-        <tr>
-            <td>"2 2 0 2"</td>
-            <td>short-dash dot </td>
-        </tr>
-        <tr>
-            <td>"2 2 0 2 0 2"</td>
-            <td>short-dash dot dot</td>
-        </tr>
-        <tr>
-            <td>"1 2"</td>
-            <td>dot (each dash is the width of the line while each space is twice the width of the
-                line)</td>
-        </tr>
-        <tr>
-            <td>"4 2"</td>
-            <td>dash (each dash is four time the width of the line while each space is twice the width
-                of the line)</td>
-        </tr>
-        <tr>
-            <td>"8 2"</td>
-            <td>long-dash</td>
-        </tr>
-        <tr>
-            <td>"4 2 1 2"</td>
-            <td>dash dot</td>
-        </tr>
-        <tr>
-            <td>"8 2 1 2"</td>
-            <td>long-dash dot</td>
-        </tr>
-        <tr>
-            <td>"8 2 1 2 1 2"</td>
-            <td>long-dash dot dot</td>
-        </tr>
-    </tbody>
-</table>
+| dashstyle Example |                                             Description                                             |
+| ----------------- | --------------------------------------------------------------------------------------------------- |
+| "2 2"             | short-dashes (each dash and the space in between is twice the width of the line)                    |
+| "0 2"             | dots (space between is twice the width of the line)                                                 |
+| "2 2 0 2"         | short-dash dot                                                                                      |
+| "2 2 0 2 0 2"     | short-dash dot dot                                                                                  |
+| "1 2"             | dot (each dash is the width of the line while each space is twice the width of the line)            |
+| "4 2"             | dash (each dash is four time the width of the line while each space is twice the width of the line) |
+| "8 2"             | long-dash                                                                                           |
+| "4 2 1 2"         | dash dot                                                                                            |
+| "8 2 1 2"         | long-dash dot                                                                                       |
+| "8 2 1 2 1 2"     | long-dash dot dot                                                                                   |
 
 ### XML template
 

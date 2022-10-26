@@ -18,8 +18,10 @@
     "cSpell.caseSensitive": false,
     "cSpell.dictionaryDefinitions": [
         { "name": "vml", "path": "${workspaceFolder}/.vscode/dictionaries/vml.dict"},
+        { "name": "Microsoft Office", "path": "${workspaceFolder}/.vscode/dictionaries/mso.dict"},
     ],
     "cSpell.dictionaries": [
         "vml",
+        "Microsoft Office",
     ],
 }

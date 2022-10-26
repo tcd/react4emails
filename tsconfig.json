@@ -11,6 +11,8 @@
         "ignore",
         "build",
         "dist",
+        "node_modules",
+        "**/node_modules",
     ],
     "compilerOptions": {
         "module": "CommonJS",
