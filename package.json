@@ -1,7 +1,7 @@
 {
-    "name": "vml4react",
+    "name": "react4emails",
     "version": "0.0.0",
-    "description": "Vector Markup Language (or *VML*) components for React.",
+    "description": "React components & utilities for building HTML emails",
     "license": "MIT",
     "scripts": {},
     "dependencies": {

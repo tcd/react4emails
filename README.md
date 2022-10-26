@@ -1,4 +1,4 @@
-# vml4react
+# react4emails
 
 ## References
 
@@ -8,4 +8,5 @@
 
 ## See Also
 
+- [lang-ai/react-emails](https://github.com/lang-ai/react-emails)
 - [caniemail.com](https://www.caniemail.com/)

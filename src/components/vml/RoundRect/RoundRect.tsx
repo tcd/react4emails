@@ -1,4 +1,4 @@
-import { RawHTML } from "@vml4react/components"
+import { RawHTML } from "@src/components"
 import type { RoundRectProps } from "./RoundRect.types"
 
 /**

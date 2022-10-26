@@ -45,7 +45,7 @@
         ],
         "baseUrl": ".",
         "paths": {
-            "@vml4react/*": ["./src/*"],
+            "@src/*": ["./src/*"],
         },
     },
 }
