@@ -17,7 +17,9 @@ export const Head = (props: HeadProps): JSX.Element => {
 
     return (
         <head>
-            {children && children}
+            <>
+                {children && children}
+            </>
         </head>
     )
 }

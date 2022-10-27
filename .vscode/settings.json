@@ -19,9 +19,11 @@
     "cSpell.dictionaryDefinitions": [
         { "name": "vml", "path": "${workspaceFolder}/.vscode/dictionaries/vml.dict"},
         { "name": "Microsoft Office", "path": "${workspaceFolder}/.vscode/dictionaries/mso.dict"},
+        { "name": "Microsoft Office XML", "path": "${workspaceFolder}/.vscode/dictionaries/mso-xml.dict"},
     ],
     "cSpell.dictionaries": [
         "vml",
         "Microsoft Office",
+        "Microsoft Office XML",
     ],
 }

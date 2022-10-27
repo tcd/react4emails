@@ -16,7 +16,9 @@ export const Html = (props: HtmlProps): JSX.Element => {
 
     return (
         <html>
-            {children && children}
+            <>
+                {children && children}
+            </>
         </html>
     )
 }

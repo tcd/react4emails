@@ -1,3 +1,4 @@
+export * from "./Body"
 export * from "./DocType"
 export * from "./Email"
 export * from "./Head"

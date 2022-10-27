@@ -25,3 +25,16 @@ export interface CoreAttrs {
     /** outline to use for tight text wrapping */
     wrapcoords?: unknown
 }
+
+export const CoreAttrNames = {
+    id: "id",
+    className: "class",
+    style: "style",
+    title: "title",
+    href: "href",
+    target: "target",
+    alt: "alt",
+    coordSize: "coordsize",
+    coordOrigin: "coordorigin",
+    wrapCoords: "wrapcoords",
+}

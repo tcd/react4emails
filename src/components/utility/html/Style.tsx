@@ -14,7 +14,9 @@ export const Style = (props: StyleProps): JSX.Element => {
 
     return (
         <style>
-            {children && children}
+            <>
+                {children && children}
+            </>
         </style>
     )
 }

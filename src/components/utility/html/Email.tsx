@@ -1,5 +1,6 @@
 import type { ReactNode } from "react"
 
+import { Body } from "./Body"
 import { DocType } from "./DocType"
 import { Head } from "./Head"
 import { Html } from "./Html"
@@ -21,11 +22,11 @@ export const Email = (props: EmailProps): JSX.Element => {
                 <Head>
 
                 </Head>
-                <body>
+                <Body>
                     <>
                         {children && children}
                     </>
-                </body>
+                </Body>
             </Html>
         </>
     )

@@ -3,7 +3,9 @@ chromakey
 coordorigin
 coordsize
 fillcolor
+imagedata
 roundrect
+shapetype
 strokecolor
 strokeweight
 wrapcoords
