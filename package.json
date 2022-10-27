@@ -7,14 +7,21 @@
         "test": "cross-env NODE_ENV=test ts-mocha -p ./tsconfig.test.json 'test/**/*.test.{js,ts,tsx}'"
     },
     "dependencies": {
-        "@types/dedent": "^0.7.0",
+        "@emotion/react": "^11.10.5",
+        "colorette": "^2.0.19",
         "csstype": "^3.1.1",
-        "dedent": "^0.7.0"
+        "dedent": "^0.7.0",
+        "html-entities": "^2.3.3",
+        "js-beautify": "^1.14.7",
+        "juice": "^8.1.0"
     },
     "devDependencies": {
         "@types/chai": "^4.3.3",
+        "@types/dedent": "^0.7.0",
+        "@types/js-beautify": "^1.13.3",
+        "@types/lodash": "^4.14.186",
         "@types/mocha": "^10.0.0",
-        "@types/node": "^18.11.5",
+        "@types/node": "^18.11.7",
         "@types/react": "^18.0.22",
         "@types/react-dom": "^18.0.7",
         "@typescript-eslint/eslint-plugin": "^5.37.0",
