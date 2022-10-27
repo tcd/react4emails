@@ -2,7 +2,7 @@ import { renderToStaticMarkup } from "react-dom/server"
 import { decode } from "html-entities"
 import type { ReactElement } from "react"
 
-import { uglifyHtml } from "./uglify-html"
+import { prettifyHtml } from "./prettify-html"
 
 export type ComponentToStringOptions = {
     /**
@@ -28,7 +28,7 @@ export const componentToString = (el: ReactElement, options: ComponentToStringOp
     }
 
     if (beautify) {
-        result = uglifyHtml(result)
+        result = prettifyHtml(result)
     }
 
     return result

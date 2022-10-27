@@ -1,3 +1,5 @@
 export * from "./config"
+export * from "./css"
+export * from "./html"
 export * from "./merge"
 export * from "./types"

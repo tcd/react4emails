@@ -35,12 +35,12 @@
             "node",
         ],
         "lib": [
-            "dom",
-            "dom.iterable",
+            // "dom",
+            // "dom.iterable",
             "esnext",
-            "es5",
-            "es2015.collection",
-            "es2015.promise",
+            // "es5",
+            // "es2015.collection",
+            // "es2015.promise",
         ],
         "typeRoots": [
             "./node_modules/@types",
