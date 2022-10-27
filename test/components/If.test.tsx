@@ -8,7 +8,7 @@ test("<If>", () => {
                 <span>only if</span>
             </If>
         )
-        const want = dedent`
+        const want = dedent/*HTML*/`
             <!--[if mso]>
                 <span>only if</span>
             <![endif]-->

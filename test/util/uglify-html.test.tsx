@@ -4,8 +4,8 @@ import { uglifyHtml } from "@src/util"
 test("uglifyHtml()", () => {
 
     describe("case 1", () => {
-        const input = `<div><span>This is an example</span></div>`
-        const want = dedent`
+        const input = /*HTML*/`<div><span>This is an example</span></div>`
+        const want = dedent/*HTML*/`
             <div>
                 <span>
                     This is an example
@@ -17,8 +17,8 @@ test("uglifyHtml()", () => {
     })
 
     describe("case 2", () => {
-        const input = `<!--[if mso]><span>only if</span><![endif]-->`
-        const want = dedent`
+        const input = /*HTML*/`<!--[if mso]><span>only if</span><![endif]-->`
+        const want = dedent/*HTML*/`
             <!--[if mso]>
                 <span>
                     only if

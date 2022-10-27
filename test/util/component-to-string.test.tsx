@@ -23,7 +23,7 @@ const Example = (
 )
 
 
-const want = `
+const want = /*HTML*/`
 <div>
     <span>
         This is an example

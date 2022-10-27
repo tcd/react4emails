@@ -1,5 +1,6 @@
 import { html_beautify } from "js-beautify"
 
+
 export const uglifyHtml = (html: string): string => {
     let result = `${html}`
 
@@ -22,4 +23,33 @@ export const uglifyHtml = (html: string): string => {
     result = result.replaceAll(/^\s*$\n/gm, "")
 
     return result
+}
+
+// =============================================================================
+// Conditional Comments
+// =============================================================================
+
+import XRegExp from "xregexp"
+import type { TokenFlag } from "xregexp"
+
+const _flags: TokenFlag[] = [
+    "g", // All matches, or advance lastIndex after matches (global)
+    "x", // Free-spacing and line comments (extended)
+    // "s", // Dot matches all (singleline)
+]
+const flags = _flags.join("")
+
+export const replaceConditionalComments = (html: string) => {
+    const pattern = /*REGEX*/`
+(?<open><!--\\[if\\s[^]]+\\]>)
+(?<content>.+)
+(?=(?<close><!\\[endif\\]-->))
+`.trim()
+    console.log(pattern)
+    const regex = XRegExp("(endif)", flags)
+
+    let match = XRegExp.match(html, regex)
+    // console.log(match)
+    console.log(match?.length)
+    return match
 }
