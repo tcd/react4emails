@@ -3,11 +3,18 @@ import postcss from "postcss"
 import postcssJs from "postcss-js"
 import postcssNested from "postcss-nested"
 
-import { emailFavicon } from "./email-favicon"
-import { juiceStyles } from "./juice-styles"
-import { componentToString } from "./component-to-string"
-import { toHTML } from "./to-html"
-import type { ComponentWithoutProps, TemplateOptions } from "./types"
+import {
+    emailFavicon,
+    componentToString,
+    toHTML,
+} from "./html"
+import {
+    juiceStyles,
+} from "./css"
+import type {
+    ComponentWithoutProps,
+    TemplateOptions,
+} from "./types"
 
 export interface EmailTemplateOptions extends TemplateOptions {
     /** @default false */
