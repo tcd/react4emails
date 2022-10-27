@@ -1,12 +1,11 @@
-import { assert, test, describe, expect, dedent } from "@helpers"
+import { render, test, describe, expect, dedent } from "@helpers"
 
-import { componentToString } from "@src/util"
-import { useConfig, ConfigProvider } from "@src/util/EmailContext"
+import { useConfig, ConfigProvider } from "@src/util"
 
-test.only("Context in SSR", () => {
-    describe.only("it works", () => {
-        const have = componentToString(<Parent />, { beautify: true })
-        console.log(have)
+test.only("ConfigContext", () => {
+    describe.only("useConfig()", () => {
+        const have = render(<Parent />, { beautify: true })
+        // console.log(have)
         expect(have).xml.to.deep.equal(want)
     })
 })
