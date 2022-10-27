@@ -1,15 +1,18 @@
-import { test, describe } from "mocha"
-import { assert } from "chai"
-
+import { assert, test, describe, expect } from "@helpers"
 import { componentToString } from "@src/util"
 
 test("componentToString()", () => {
+    describe("without beautify", () => {
+        const have = componentToString(<Example />, { beautify: false })
+        expect(have).xml.to.deep.equal(want)
+    })
     describe("beautify", () => {
-        const el = <Example />
-        const result = componentToString(el, { beautify: true })
-        assert.equal(result, want)
+        const have = componentToString(<Example />, { beautify: true })
+        assert.equal(have, want)
     })
 })
+
+// =============================================================================
 
 const Example = (): JSX.Element => {
     return (

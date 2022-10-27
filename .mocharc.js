@@ -1,3 +1,6 @@
+/**
+ * @type {import("mocha").MochaOptions}
+ */
 module.exports = {
     // "loader": "ts-node/esm",
     // "loader": "ts-node/register",
@@ -6,4 +9,6 @@ module.exports = {
         "**/build/**",
         "**/node_modules/**",
     ],
+    fullTrace: false,
+    inlineDiffs: true,
 }
