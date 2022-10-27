@@ -1,7 +1,19 @@
 {
     "files.exclude": {
-        // Version Control
         "**/.git": true,
+        ".nyc_output": true,
+
+        "node_modules": true,
+        "ignore": true,
+        "coverage": true,
+        // "docs": true,
+
+        "package-lock.json": true,
+        "nyc.config.js": true,
+        ".eslintrc.js": true,
+        ".mocharc.js": true,
+        ".editorconfig": true,
+        ".gitignore": true,
     },
     // =========================================================================
     // ESLint

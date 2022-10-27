@@ -1,4 +1,6 @@
 node_modules
 **/ignore
+build
+dist
 coverage
 .nyc_output

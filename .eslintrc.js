@@ -27,6 +27,7 @@ module.exports = {
         "**/node_modules",
         "**/ignore",
         "**/dist",
+        "**/build",
     ],
     rules: {
         "semi": ["warn", "never"],

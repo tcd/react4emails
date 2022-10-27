@@ -5,6 +5,7 @@
     "license": "MIT",
     "scripts": {
         "start": "npm run test",
+        "build": "cross-env tsc --p tsconfig.prod.json",
         "test": "cross-env NODE_ENV=test ts-mocha -r tsconfig-paths/register -p ./tsconfig.test.json 'test/**/*.test.{js,ts,tsx}'",
         "test:cover": "cross-env nyc npm run test"
     },
