@@ -12,15 +12,18 @@ Very fun for us.
 
 ## Elements
 
-|       value        |   type    |      description      |
-| ------------------ | --------- | --------------------- |
-| `o:p`              | tag       |                       |
-| `o:shapedefaults`  | tag       |                       |
-| `o:idmap`          | tag       |                       |
-| `o:lock`           | tag       |                       |
-| `o:shapelayout`    | tag       |                       |
-| `o:spt`            | attribute | seen on `v:shapetype` |
-| `o:preferrelative` | attribute | seen on `v:shapetype` |
-| `o:extrusionok`    | attribute | seen on `v:path`      |
-| `o:connecttype`    | attribute | seen on `v:path`      |
-| `o:href`           | attribute | seen on `v:imagedata` |
+|           value            |   type    |              description               |
+| -------------------------- | --------- | -------------------------------------- |
+| `o:p`                      | tag       |                                        |
+| `o:shapedefaults`          | tag       |                                        |
+| `o:idmap`                  | tag       |                                        |
+| `o:lock`                   | tag       |                                        |
+| `o:shapelayout`            | tag       |                                        |
+| `o:DocumentProperties`     | tag       |                                        |
+| `o:OfficeDocumentSettings` | tag       |                                        |
+| `o:AllowPNG`               | tag       | seen inside `v:OfficeDocumentSettings` |
+| `o:spt`                    | attribute | seen on `v:shapetype`                  |
+| `o:preferrelative`         | attribute | seen on `v:shapetype`                  |
+| `o:extrusionok`            | attribute | seen on `v:path`                       |
+| `o:connecttype`            | attribute | seen on `v:path`                       |
+| `o:href`                   | attribute | seen on `v:imagedata`                  |

@@ -12,6 +12,7 @@ export type BodyProps = IntrinsicProps & {
 }
 
 /**
+ * `<body></body>`
  */
 export const Body = (props: BodyProps): JSX.Element => {
 

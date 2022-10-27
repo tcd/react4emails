@@ -10,7 +10,7 @@ export type DocTypeProps = {
  * @see [Campaign Monitor - Which Doctype Should I Use in HTML Email?](https://www.campaignmonitor.com/blog/email-marketing/correct-doctype-to-use-in-html-email/)
  * @see [(X)HTML Doctype Declarations List](https://www.w3.org/QA/2002/04/valid-dtd-list.html#DTD)
  */
-export const DocType = (props: DocTypeProps): JSX.Element => {
+export const DocType = (_props: DocTypeProps): JSX.Element => {
 
     const segments = [
         "DOCTYPE",

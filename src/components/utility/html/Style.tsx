@@ -5,6 +5,7 @@ export type StyleProps = {
 }
 
 /**
+ * `<style></style>`
  */
 export const Style = (props: StyleProps): JSX.Element => {
 
