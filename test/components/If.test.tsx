@@ -1,8 +1,8 @@
-import { render, assert, test, describe, dedent } from "@helpers"
+import { render, assert, dedent } from "@helpers"
 import { If } from "@src/components"
 
-test("<If>", () => {
-    describe("render", () => {
+describe("<If>", () => {
+    it("render", () => {
         const Component = (
             <If>
                 <span>only if</span>

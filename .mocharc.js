@@ -11,4 +11,5 @@ module.exports = {
     ],
     fullTrace: false,
     inlineDiffs: true,
+    // require: "./test/helpers/hooks.ts"
 }

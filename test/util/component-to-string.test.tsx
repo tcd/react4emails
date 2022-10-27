@@ -1,12 +1,12 @@
-import { assert, test, describe } from "@helpers"
+import { assert } from "@helpers"
 import { componentToString } from "@src/util"
 
-test("componentToString()", () => {
-    describe("without beautify", () => {
+describe("componentToString()", () => {
+    it("without beautify", () => {
         const have = componentToString(Example, { beautify: false })
         assert.xmlEquals(have, want)
     })
-    describe("beautify", () => {
+    it("beautify", () => {
         const have = componentToString(Example, { beautify: true })
         assert.equal(have, want)
     })

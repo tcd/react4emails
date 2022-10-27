@@ -1,8 +1,8 @@
-import { render, assert, test, describe } from "@helpers"
+import { render, assert } from "@helpers"
 import { RawHTML } from "@src/components"
 
-test("<RawHTML>", () => {
-    describe("render", () => {
+describe("<RawHTML>", () => {
+    it("render", () => {
         const Component = (
             <RawHTML html="<!--[if mso]>"/>
         )

@@ -1,9 +1,9 @@
-import { render, test, describe, dedent, assert } from "@helpers"
+import { render, dedent, assert } from "@helpers"
 
 import { useConfig, ConfigProvider } from "@src/util"
 
-test("ConfigContext", () => {
-    describe("useConfig()", () => {
+describe("ConfigContext", () => {
+    it("useConfig()", () => {
         const have = render(<Parent />, { beautify: true })
         assert.xmlEquals(have, want)
     })
