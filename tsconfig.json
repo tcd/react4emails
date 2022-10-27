@@ -28,7 +28,7 @@
         "sourceMap": true,
         "esModuleInterop": true,
         "downlevelIteration": true,
-        "outDir": "build",
+        "outDir": "dist",
         "declaration": true,
         "declarationMap": true,
         "types": [
