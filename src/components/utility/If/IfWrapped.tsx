@@ -1,5 +1,5 @@
 import type { ReactNode } from "react"
-import { IfMso } from "../IfMso"
+import { IfMso } from "./IfMso"
 
 export type IfWrappedProps = {
     before:   ReactNode | ReactNode[]
