@@ -6,14 +6,22 @@ const isNodeEnv = (env: string): env is NodeEnv => {
     return ["test", "development", "production"].includes(env)
 }
 
+const tryParseInt = (input: any, fallback: number): number => {
+    const parsed = parseInt(input)
+    return isNaN(parsed) ? fallback : parsed
+}
+
 export interface IConfig {
     NODE_ENV: NodeEnv
+    INDENT_SIZE: number
 }
 
 export class Config implements IConfig {
     public NODE_ENV: NodeEnv
+    public INDENT_SIZE: number
 
     constructor() {
+        this.INDENT_SIZE = tryParseInt(process.env["INDENT_SIZE"], 4)
         this.NODE_ENV = process.env["NODE_ENV"] as NodeEnv
 
         if (isNodeEnv(this.NODE_ENV)) {

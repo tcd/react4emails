@@ -12,6 +12,5 @@ export type ComponentWithoutProps =
 export interface TemplateOptions {
     name: string
     Template: ComponentWithoutProps
-    params?: string[]
     styles: CSSObject
 }
