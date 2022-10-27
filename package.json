@@ -4,7 +4,8 @@
     "description": "React components & utilities for building HTML emails",
     "license": "MIT",
     "scripts": {
-        "test": "cross-env NODE_ENV=test ts-mocha -p ./tsconfig.test.json 'test/**/*.test.{js,ts,tsx}'"
+        "start": "npm run test",
+        "test": "cross-env NODE_ENV=test ts-mocha -r tsconfig-paths/register -p ./tsconfig.test.json 'test/**/*.test.{js,ts,tsx}'"
     },
     "dependencies": {
         "@emotion/react": "^11.10.5",
@@ -14,6 +15,7 @@
         "html-entities": "^2.3.3",
         "js-beautify": "^1.14.7",
         "juice": "^8.1.0",
+        "lodash": "^4.17.21",
         "postcss": "^8.4.18",
         "postcss-js": "^4.0.0",
         "postcss-nested": "^6.0.0"

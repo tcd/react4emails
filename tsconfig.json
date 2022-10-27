@@ -29,6 +29,8 @@
         "esModuleInterop": true,
         "downlevelIteration": true,
         "outDir": "build",
+        "declaration": true,
+        "declarationMap": true,
         "types": [
             "node",
         ],

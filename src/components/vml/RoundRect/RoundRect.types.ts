@@ -1,6 +1,8 @@
 import type { ReactNode } from "react"
 import type { Property } from "csstype"
 
+import type { Decimal } from "@src/util"
+
 export type RoundRectProps = {
     children?: ReactNode
     id?: string

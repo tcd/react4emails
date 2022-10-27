@@ -2,26 +2,14 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
         "noEmitOnError": false,
-        "isolatedModules": false,
-        "outDir": "./dist",
-        "declaration": true,
-        "declarationMap": true,
-        "module": "CommonJS",
-        "lib": [
-            "dom",
-            "dom.iterable",
-            "esnext",
-        ],
         "types": [
             "node",
             "mocha"
         ],
-        "typeRoots": [
-            "./node_modules/@types",
-        ],
+        "baseUrl": ".",
+        "paths": {
+            "@src/*":   ["./src/*"],
+            "@helpers": ["./test/test-helpers.ts"],
+        },
     },
-    "include": [
-        "./test/**/*.ts",
-        "./test/**/*.tsx",
-    ],
 }
