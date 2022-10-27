@@ -4,13 +4,27 @@ import type { ReactNode } from "react"
 import type { NodeEnv } from "./config"
 
 export interface IConfigContext {
-    nodeEnv: NodeEnv
     testString: string
+    /**
+     * @default "development"
+     */
+    nodeEnv: NodeEnv
+    /**
+     * @default 4
+     */
+    indentSize: number
+    /**
+     * @default false
+     */
+    inlineStyles: boolean
 }
 
 const defaults: IConfigContext = {
     nodeEnv: null,
     testString: "hey, it worked",
+    indentSize: 4,
+    inlineStyles: false,
+    // metaTags: Record<string, string>
 }
 
 const configContext = createContext<IConfigContext>(defaults)
@@ -23,10 +37,15 @@ export type ConfigProviderProps = {
 
 export const ConfigProvider = (props: ConfigProviderProps) => {
 
-    const {
+    let {
         children,
-        value = defaults,
+        value = {},
     } = props
+
+    value = {
+        ...defaults,
+        ...value,
+    }
 
     return (
         // @ts-ignore: next-line
