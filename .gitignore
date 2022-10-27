@@ -1,2 +1,4 @@
 node_modules
 **/ignore
+coverage
+.nyc_output
