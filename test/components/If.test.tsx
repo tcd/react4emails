@@ -1,4 +1,4 @@
-import { render, assert, test, describe, dedent, expect } from "@helpers"
+import { render, assert, test, describe, dedent } from "@helpers"
 import { If } from "@src/components"
 
 test("<If>", () => {
@@ -8,7 +8,7 @@ test("<If>", () => {
                 <span>only if</span>
             </If>
         )
-        const want = dedent/*HTML*/`
+        const want = dedent`
             <!--[if mso]>
                 <span>only if</span>
             <![endif]-->
@@ -16,6 +16,6 @@ test("<If>", () => {
         const have = render(Component, { beautify: false })
         assert.isNotNull(have)
         // assert.equal(have, want)
-        expect(have).xml.to.deep.equal(want)
+        assert.xmlEquals(have, want)
     })
 })

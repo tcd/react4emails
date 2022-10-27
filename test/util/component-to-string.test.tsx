@@ -1,10 +1,10 @@
-import { assert, test, describe, expect } from "@helpers"
+import { assert, test, describe } from "@helpers"
 import { componentToString } from "@src/util"
 
 test("componentToString()", () => {
     describe("without beautify", () => {
         const have = componentToString(Example, { beautify: false })
-        expect(have).xml.to.deep.equal(want)
+        assert.xmlEquals(have, want)
     })
     describe("beautify", () => {
         const have = componentToString(Example, { beautify: true })

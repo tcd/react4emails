@@ -1,12 +1,11 @@
-import { render, test, describe, expect, dedent } from "@helpers"
+import { render, test, describe, dedent, assert } from "@helpers"
 
 import { useConfig, ConfigProvider } from "@src/util"
 
-test.only("ConfigContext", () => {
-    describe.only("useConfig()", () => {
+test("ConfigContext", () => {
+    describe("useConfig()", () => {
         const have = render(<Parent />, { beautify: true })
-        // console.log(have)
-        expect(have).xml.to.deep.equal(want)
+        assert.xmlEquals(have, want)
     })
 })
 
