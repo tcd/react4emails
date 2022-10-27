@@ -16,13 +16,20 @@ const defaults: IConfigContext = {
 const configContext = createContext<IConfigContext>(defaults)
 configContext.displayName = "ConfigContext"
 
-export const ConfigProvider = ({ children }: { children: ReactNode }) => {
+export type ConfigProviderProps = {
+    children: ReactNode
+    value?: Partial<IConfigContext>
+}
 
-    const value: IConfigContext = {
-        ...defaults,
-    }
+export const ConfigProvider = (props: ConfigProviderProps) => {
+
+    const {
+        children,
+        value = defaults,
+    } = props
 
     return (
+        // @ts-ignore: next-line
         <configContext.Provider value={value}>
             <>
                 {children && children}
