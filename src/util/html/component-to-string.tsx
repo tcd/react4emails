@@ -1,6 +1,6 @@
-import { renderToStaticMarkup } from "react-dom/server"
-import { decode } from "html-entities"
 import type { ReactElement } from "react"
+import { decode } from "html-entities"
+import { renderToStaticMarkup as _render } from "react-dom/server"
 
 import { prettifyHtml } from "./prettify-html"
 
@@ -26,7 +26,7 @@ export const componentToString = (el: ReactElement, options: ComponentToStringOp
         wrap = true,
     } = options
 
-    let result = renderToStaticMarkup(el)
+    let result = _render(el)
 
     if (shouldDecode) {
         result = decode(result)
