@@ -16,8 +16,8 @@ export type BaseAttrs =
 // }
 
 export const processBaseProps = <
-    TProps extends BaseProps,
-    TAttrs extends BaseAttrs,
+    TAttrs extends BaseAttrs = any,
+    TProps extends BaseProps = any,
 >(props: Partial<TProps>): Partial<TAttrs> => {
     // @ts-ignore: next-line
     return {

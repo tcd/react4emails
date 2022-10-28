@@ -36,6 +36,7 @@ export interface RoundRectAttrs extends BaseAttrs {
 }
 
 export const PropAttrMap: PartialMapping<RoundRectProps, RoundRectAttrs> = {
-    children: "children",
+    // Want to avoid copying children, need to clone or something; not exactly sure
+    // children: "children",
     arcSize: "arcsize",
 }

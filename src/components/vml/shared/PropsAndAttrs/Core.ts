@@ -11,7 +11,7 @@ export interface Props {
     /** space separated list of classes */
     className?: string
     /** associated style info */
-    style?: unknown
+    style?: Record<string, any>
     /** advisory title/amplification */
     title?: string
     /** URL link if the element is clicked on */
