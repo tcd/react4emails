@@ -8,21 +8,21 @@ import type { Decimal, Mapping } from "@src/util"
  */
 export interface Props {
     /** opacity of the shape */
-    opacity: Decimal
+    opacity?: Decimal
     /** color to be made transparent */
-    chromaKey: unknown
+    chromaKey?: unknown
     /** Boolean whether to stroke the outline or not */
-    stroke: "true" | "false"
+    stroke?: "true" | "false"
     /** RGB color to use for the stroke */
-    strokeColor: Property.Color
+    strokeColor?: Property.Color
     /** weight of the line to use for stroking */
-    strokeWeight: unknown
+    strokeWeight?: unknown
     /** Boolean whether to fill the shape or not */
-    fill: "true" | "false"
+    fill?: "true" | "false"
     /** RGB color to use for the fill */
-    fillColor: Property.Color
+    fillColor?: Property.Color
     /** Boolean whether the element is to be printed */
-    print: "true" | "false"
+    print?: "true" | "false"
 }
 
 /**

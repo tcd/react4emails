@@ -1,4 +1,4 @@
-import { green, red } from "colorette"
+import { blue, green, magenta, red } from "colorette"
 
 export type NodeEnv = "test" | "development" | "production"
 
@@ -24,19 +24,38 @@ export class Config implements IConfig {
         this.INDENT_SIZE = tryParseInt(process.env["INDENT_SIZE"], 4)
         this.NODE_ENV = process.env["NODE_ENV"] as NodeEnv
 
-        if (isNodeEnv(this.NODE_ENV)) {
-            console.log("=============================================================================")
-            console.log(`NODE_ENV: ${green(this.NODE_ENV)}`)
-            console.log("=============================================================================\n")
-        } else {
-            console.error(`unknown NODE_ENV: ${red(this.NODE_ENV)}`)
-            process.exit(1)
-        }
+        this.validateNodeEnv()
     }
 
     public isTest(): boolean { return this.NODE_ENV === "test" }
     public isDev():  boolean { return this.NODE_ENV === "development" }
     public isProd(): boolean { return this.NODE_ENV === "production"  }
+
+    private validateNodeEnv(): void {
+
+        let color: (text: string | number) => string
+        switch (this.NODE_ENV) {
+            case "test":        color = green;   break
+            case "development": color = blue;    break
+            case "production":  color = magenta; break
+            default:            color = red;     break // don't think we actually need to break on default...
+        }
+
+        const hr = color("=============================================================================")
+        const nodeEnv = color(this.NODE_ENV)
+
+
+        if (isNodeEnv(this.NODE_ENV)) {
+            console.log([
+                hr,
+                `NODE_ENV: ${nodeEnv}`,
+                hr,
+            ].join("\n"))
+        } else {
+            console.error(`unknown NODE_ENV: ${nodeEnv}`)
+            process.exit(1)
+        }
+    }
 }
 
 const _CONFIG = new Config()
