@@ -1,1 +1,1 @@
-export * from "./CoreAttrs"
+export * from "./PropsAndAttrs"

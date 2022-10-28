@@ -14,3 +14,6 @@ export interface TemplateOptions {
     Template: ComponentWithoutProps
     styles: CSSObject
 }
+
+export type Mapping<A, B> = Record<keyof A, keyof B>
+export type PartialMapping<A, B> = Partial<Mapping<A, B>>

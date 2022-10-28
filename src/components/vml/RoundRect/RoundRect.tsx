@@ -1,4 +1,5 @@
 import { RawHTML } from "@src/components"
+import { processProps } from "./process-props"
 import type { RoundRectProps } from "./RoundRect.types"
 
 /**
@@ -11,13 +12,13 @@ export const RoundRect = (props: RoundRectProps): JSX.Element => {
 
     const {
         children = undefined,
-        ...otherProps
-    } = props
+        ...processedProps
+    } = processProps(props)
 
-    const processedProps: any[] = []
+    const formattedProps: any[] = []
 
-    for (const [key, value] of Object.entries(otherProps)) {
-        processedProps.push(`${key}="${value}"`)
+    for (const [key, value] of Object.entries(processedProps)) {
+        formattedProps.push(`${key}="${value}"`)
     }
 
     return (
@@ -26,7 +27,7 @@ export const RoundRect = (props: RoundRectProps): JSX.Element => {
                 <v:roundrect
                     xmlns:v="urn:schemas-microsoft-com:vml"
                     xmlns:w="urn:schemas-microsoft-com:office:word"
-                    ${processedProps}
+                    ${formattedProps.join("\n")}
                 >
             `}/>
             {children && children}
