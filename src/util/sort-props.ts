@@ -3,7 +3,7 @@
  *
  * FIXME: `toLowerCase()` isn't correct, need to use AttrMap objects.
  */
-export const sortProps = <T>(props: T, sortedProps: T): T => {
+export const sortProps = <T>(props: T, sortedProps): T => {
     const sorted = Object.keys(sortedProps).reduce(
         (res, key) => {
             res[key.toLowerCase()] = props[key.toLowerCase()]
