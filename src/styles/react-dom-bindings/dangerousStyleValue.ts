@@ -8,7 +8,7 @@
 import { isUnitlessNumber } from "./CSSProperty"
 import { checkCSSPropertyStringCoercion } from "./CheckStringCoercion"
 
-import { CONFIG } from "@src/util"
+const __DEV__ = true
 
 /**
   * Convert a value into the proper css writable value. The style name `name`
@@ -44,7 +44,7 @@ function dangerousStyleValue(name, value, isCustomProperty) {
         return value + "px" // Presumes implicit 'px' suffix for unitless numbers
     }
 
-    if (CONFIG.isDev()) {
+    if (__DEV__) {
         checkCSSPropertyStringCoercion(value, name)
     }
     return ("" + value).trim()

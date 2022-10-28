@@ -14,14 +14,12 @@ export const processProps = (props: RoundRectProps = {}) => {
     const processedProps = processBaseProps<RoundRectAttrs>(otherProps)
 
     if (!!arcSize) {
-        // @ts-ignore: next-line
         processedProps.arcsize = arcSize
     }
 
-    // if (style) {
-    //     // @ts-ignore: next-line
-    //     processBaseProps.style = processStyleProp(style)
-    // }
+    if (style) {
+        processedProps.style = processStyleProp(style)
+    }
 
     const sortedProps = sortProps(processedProps, props)
     // const sortedProps = processedProps

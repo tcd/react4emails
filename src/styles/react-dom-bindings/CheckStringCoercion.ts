@@ -17,13 +17,13 @@
  * of the `value` object).
  */
 
-import { CONFIG } from "@src/util"
+const __DEV__ = true
 
 type mixed = any
 
 // // $FlowFixMe only called in DEV, so void return is not possible.
 // function typeName(value: mixed): string {
-//     if (CONFIG.isDev()) {
+//     if (__DEV__) {
 //       // toStringTag is needed for namespaced types like Temporal.Instant
 //       const hasToStringTag = typeof Symbol === 'function' && Symbol.toStringTag;
 //       const type =
@@ -37,7 +37,7 @@ type mixed = any
 
 // $FlowFixMe only called in DEV, so void return is not possible.
 function typeName(value: mixed): string {
-    // if (CONFIG.isDev()) {
+    // if (__DEV__) {
     //   // toStringTag is needed for namespaced types like Temporal.Instant
     //   const hasToStringTag = typeof Symbol === 'function' && Symbol.toStringTag;
     //   const type =
@@ -52,7 +52,7 @@ function typeName(value: mixed): string {
 
 // $FlowFixMe only called in DEV, so void return is not possible.
 function willCoercionThrow(value: mixed): boolean {
-    if (CONFIG.isDev()) {
+    if (__DEV__) {
         try {
             testStringCoercion(value)
             return false
@@ -92,7 +92,7 @@ export function checkAttributeStringCoercion(
     value: mixed,
     attributeName: string,
 ): void | string {
-    if (CONFIG.isDev()) {
+    if (__DEV__) {
         if (willCoercionThrow(value)) {
             console.error(
                 "The provided `%s` attribute is an unsupported type %s." +
@@ -106,7 +106,7 @@ export function checkAttributeStringCoercion(
 }
 
 export function checkKeyStringCoercion(value: mixed): void | string {
-    if (CONFIG.isDev()) {
+    if (__DEV__) {
         if (willCoercionThrow(value)) {
             console.error(
                 "The provided key is an unsupported type %s." +
@@ -122,7 +122,7 @@ export function checkPropStringCoercion(
     value: mixed,
     propName: string,
 ): void | string {
-    if (CONFIG.isDev()) {
+    if (__DEV__) {
         if (willCoercionThrow(value)) {
             console.error(
                 "The provided `%s` prop is an unsupported type %s." +
@@ -139,7 +139,7 @@ export function checkCSSPropertyStringCoercion(
     value: mixed,
     propName: string,
 ): void | string {
-    if (CONFIG.isDev()) {
+    if (__DEV__) {
         if (willCoercionThrow(value)) {
             console.error(
                 "The provided `%s` CSS property is an unsupported type %s." +
@@ -153,7 +153,7 @@ export function checkCSSPropertyStringCoercion(
 }
 
 export function checkHtmlStringCoercion(value: mixed): void | string {
-    if (CONFIG.isDev()) {
+    if (__DEV__) {
         if (willCoercionThrow(value)) {
             console.error(
                 "The provided HTML markup uses a value of unsupported type %s." +
@@ -166,7 +166,7 @@ export function checkHtmlStringCoercion(value: mixed): void | string {
 }
 
 export function checkFormFieldValueStringCoercion(value: mixed): void | string {
-    if (CONFIG.isDev()) {
+    if (__DEV__) {
         if (willCoercionThrow(value)) {
             console.error(
                 "Form field values (value, checked, defaultValue, or defaultChecked props)" +

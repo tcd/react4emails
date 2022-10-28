@@ -5,10 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+
 let warnValidStyle = (...args) => {
     console.log("[warnValidStyle] args: ", args)
 }
 
+// const __DEV__ = true
+//
+// let warnValidStyle = (...args) => {}
+//
 // if (__DEV__) {
 //     // 'msTransform' is correct, but the other prefixes should be capitalized
 //     const badVendoredStyleNamePattern = /^(?:webkit|moz|o)[A-Z]/
