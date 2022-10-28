@@ -1,6 +1,9 @@
 import type { ReactElement } from "react"
 import { decode } from "html-entities"
-import { renderToStaticMarkup as _render } from "react-dom/server"
+import {
+    // renderToString as _render,
+    renderToStaticMarkup as _render,
+} from "react-dom/server"
 
 import { prettifyHtml } from "./prettify-html"
 

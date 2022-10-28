@@ -11,9 +11,11 @@ import type { RoundRectProps } from "./RoundRect.types"
 export const RoundRect = (props: RoundRectProps): JSX.Element => {
 
     const {
-        children = undefined,
-        ...processedProps
-    } = processProps(props)
+        children,
+        ...otherProps
+    } = props
+
+    const processedProps = processProps(otherProps)
 
     const formattedProps: any[] = []
 

@@ -15,3 +15,10 @@ export const RawHTML = ({ html = "" }: RawHTMLProps): JSX.Element => {
         </>
     )
 }
+
+// export const RawHTML = ({ html = "" }: RawHTMLProps): JSX.Element => {
+//     return (
+//         <div className="rawHTML__placeholder" dangerouslySetInnerHTML={{ __html: dedent(html) }}>
+//         </div>
+//     )
+// }

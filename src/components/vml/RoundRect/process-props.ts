@@ -25,7 +25,7 @@ export const processProps = (props: RoundRectProps = {}) => {
     // const sortedProps = processedProps
 
     return {
-        children,
+        ...(!!children ? { children } : {}),
         ...sortedProps,
     }
 }

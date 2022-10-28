@@ -1,4 +1,4 @@
-import { render, assert, logString, dedent } from "@helpers"
+import { render, assert, dedent } from "@helpers"
 import { RoundRect } from "@src/components"
 
 describe("<RoundRect>", () => {
@@ -64,13 +64,11 @@ describe("<RoundRect>", () => {
             </v:roundrect>
         `
 
-        // logString(have)
-        // logString(want)
         assert.looseEquals(have, want)
         assert.xmlEquals(have, want)
     })
 
-    it.only("children", () => {
+    it("children", () => {
 
         const have = render(
             <RoundRect>
@@ -92,9 +90,6 @@ describe("<RoundRect>", () => {
             </v:roundrect>
         `
 
-        logString(have)
-        logString(want)
-        assert.equal(have, want)
-        // assert.xmlEquals(have, want)
+        assert.xmlEquals(have, want)
     })
 })
