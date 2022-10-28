@@ -1,3 +1,3 @@
 export * from "./html"
-export * from "./If"
+export * from "./if"
 export * from "./RawHTML"
