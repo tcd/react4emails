@@ -2,6 +2,7 @@ import { render, assert, logString, dedent } from "@helpers"
 import { RoundRect } from "@src/components"
 
 describe("<RoundRect>", () => {
+
     it("render", () => {
         const have = render(<RoundRect />)
         assert.isNotNull(have)
@@ -67,5 +68,33 @@ describe("<RoundRect>", () => {
         // logString(want)
         assert.looseEquals(have, want)
         assert.xmlEquals(have, want)
+    })
+
+    it.only("children", () => {
+
+        const have = render(
+            <RoundRect>
+                <span>
+                    I am a child
+                </span>
+            </RoundRect>,
+            { beautify: true },
+        )
+
+        const want = dedent`
+            <v:roundrect
+                xmlns:v="urn:schemas-microsoft-com:vml"
+                xmlns:w="urn:schemas-microsoft-com:office:word"
+            >
+                <span>
+                    I am a child
+                </span>
+            </v:roundrect>
+        `
+
+        logString(have)
+        logString(want)
+        assert.equal(have, want)
+        // assert.xmlEquals(have, want)
     })
 })
