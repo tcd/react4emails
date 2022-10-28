@@ -14,6 +14,7 @@ describe("<RoundRect>", () => {
             arcSize="4%"
             strokeColor="#fff"
             fillColor="#0082B4"
+            stroke={false}
         />, { beautify: true })
 
         const want = dedent`
@@ -24,6 +25,7 @@ describe("<RoundRect>", () => {
                 arcsize="4%"
                 strokecolor="#fff"
                 fillcolor="#0082B4"
+                stroke="false"
             >
             </v:roundrect>
         `

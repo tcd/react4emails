@@ -12,17 +12,17 @@ export interface Props {
     /** color to be made transparent */
     chromaKey?: unknown
     /** Boolean whether to stroke the outline or not */
-    stroke?: "true" | "false"
+    stroke?: boolean
     /** RGB color to use for the stroke */
     strokeColor?: Property.Color
     /** weight of the line to use for stroking */
     strokeWeight?: unknown
     /** Boolean whether to fill the shape or not */
-    fill?: "true" | "false"
+    fill?: boolean
     /** RGB color to use for the fill */
     fillColor?: Property.Color
     /** Boolean whether the element is to be printed */
-    print?: "true" | "false"
+    print?: boolean
 }
 
 /**
