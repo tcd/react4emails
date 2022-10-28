@@ -13,12 +13,17 @@ export type ComponentToStringOptions = {
      * @default false
      */
     decode?: boolean
+    /**
+     * @default true
+     */
+    wrap?: boolean
 }
 
 export const componentToString = (el: ReactElement, options: ComponentToStringOptions = {}): string => {
     const {
         beautify = false,
         decode: shouldDecode = true,
+        wrap = true,
     } = options
 
     let result = renderToStaticMarkup(el)
@@ -28,7 +33,7 @@ export const componentToString = (el: ReactElement, options: ComponentToStringOp
     }
 
     if (beautify) {
-        result = prettifyHtml(result)
+        result = prettifyHtml(result, wrap)
     }
 
     return result

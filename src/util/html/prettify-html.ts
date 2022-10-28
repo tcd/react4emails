@@ -1,7 +1,7 @@
 import { html_beautify } from "js-beautify"
 import dedent from "dedent"
 
-export const prettifyHtml = (html: string): string => {
+export const prettifyHtml = (html: string, wrap: boolean = false): string => {
     let result = `${html}`
 
     result = result.replaceAll(/</g, "\n<")
@@ -14,13 +14,15 @@ export const prettifyHtml = (html: string): string => {
     [result, comments] = replaceConditionalComments(result)
 
     result = html_beautify(result, {
+        // preserve_newlines
         // indent_empty_lines: true,
         end_with_newline: false,
         indent_size: 4,
-        // preserve_newlines
+        ...(!!!wrap ? {} : {
+            wrap_attributes: "force-expand-multiline",
+            // wrap_line_length: 1,
+        }),
 
-        // wrap_attributes: "force-aligned",
-        // wrap_line_length: 1,
     })
 
     if (comments?.length > 0) {
@@ -51,7 +53,7 @@ export const replaceConditionalComments = (html: string): [string, CommentData[]
 
     let i = 0
 
-    const replacer = (_match, open, content, close, _offset, _string) => {
+    const replacer = (_match: string, open: string, content: string, close: string, _offset: number, _string: string) => {
         i++
 
         comments.push({

@@ -21,7 +21,6 @@ export const processBaseProps = <
 >(props: Partial<TProps>): Partial<TAttrs> => {
     // @ts-ignore: next-line
     return {
-        ...props,
         ...Core.processProps(props),
         ...Shape.processProps(props),
     }
