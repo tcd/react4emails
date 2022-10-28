@@ -1,4 +1,4 @@
-import { RawHTML } from "../RawHTML"
+import { RawHTML } from "../utility"
 
 export type DocTypeProps = {
     segments?: string[]

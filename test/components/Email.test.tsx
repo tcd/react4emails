@@ -1,5 +1,5 @@
 import { render, assert } from "@helpers"
-import { Email } from "@src/components/utility/html/index"
+import { Email } from "@src/components"
 
 describe("<Email>", () => {
     it("render", () => {

@@ -33,6 +33,9 @@
         "declarationMap": true,
         "types": [
             "node",
+            // VSCode complains if we don't include this in `tsconfig.json`.
+            // Doesn't matter that it's included in `tsconfig.test.json`.
+            "mocha",
         ],
         "lib": [
             // "dom",
